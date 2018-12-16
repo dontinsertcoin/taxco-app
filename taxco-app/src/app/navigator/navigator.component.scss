@@ -53,6 +53,10 @@
     display: none;
 }
 
+.navbar-aux-item{
+    display: none;
+}
+
 @media screen and (max-width:1200px){
 
     #header{   
@@ -81,5 +85,39 @@
     .hamburger{
         display: inline;
         float: right;
+        padding:0px;
+    }
+
+    .menu-icon{
+        width: 40px;
+        margin-top: -35px;
+        margin-right: 20px;
+    }
+
+    .hamburger-icon:hover{
+        background: none;
+    }
+
+    .navbar-aux{
+        list-style: none;      
+    }
+
+    .navbar-aux-item{
+        min-width: 100%;
+        display: inline;    
+        background: #333;
+        padding-left: -60px;
+        float: left;
+        border-bottom: white solid 1px;
+    }
+
+    .header-aux{
+        margin-left:-40px;
+        background: #333;
+        display: none;
+    }
+
+    .click-menu{
+        display:inherit;
     }
 }
