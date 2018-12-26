@@ -1,0 +1,123 @@
+#header{
+    max-width: 100%;
+    margin: 0px;
+    padding: 0px;    
+    height: 80px;
+    background: #333;
+    box-shadow: 0px 2px 4px white;
+}
+
+#navbar{
+    max-width: 1200px;
+    height: 80px;
+}
+
+.navbar-icon{
+    width: 90px;
+    margin-top: 5px;
+    float: left;
+}
+
+.navbar-item{
+    width: 200px;
+    float: left;
+    list-style: none;
+}
+
+.logo{
+    width: 110px;
+}
+
+.navbar-text{
+    display: block;
+    color: white;
+    line-height: 80px;
+    height: 80px;
+    text-align: center; 
+    font-family: cursive;
+    font-size: 20px;
+    text-decoration: none;
+} 
+
+.navbar-text:hover, .navbar-text:focus{
+    background: white;
+    color: #333;
+    height: 80px;
+}
+
+.intermedium{
+    border-left: solid white 1px;
+}
+
+.hamburger{
+    display: none;
+}
+
+.navbar-aux-item{
+    display: none;
+}
+
+@media screen and (max-width:1200px){
+
+    #header{   
+        height: 65px;
+    }
+
+    #navbar{
+        max-width: 1200px;
+        height: 65px;
+    }
+    
+    .navbar-icon{
+        width: 70px;
+        margin-top: 5px;
+        float: left;
+    }
+    
+    .navbar-item{
+        display: none;
+    }
+    
+    .logo{
+        width: 80px;
+        display: inline;
+    }
+    .hamburger{
+        display: inline;
+        float: right;
+        padding:0px;
+    }
+
+    .menu-icon{
+        width: 40px;
+        margin-top: -35px;
+        margin-right: 20px;
+    }
+
+    .hamburger-icon:hover{
+        background: none;
+    }
+
+    .navbar-aux{
+        list-style: none;      
+    }
+
+    .navbar-aux-item{
+        min-width: 100%;
+        display: inline;    
+        background: #333;
+        padding-left: -60px;
+        float: left;
+        border-bottom: white solid 1px;
+    }
+
+    .header-aux{
+        margin-left:-40px;
+        background: #333;
+        display: none;
+    }
+
+    .click-menu{
+        display:inherit;
+    }
+}
