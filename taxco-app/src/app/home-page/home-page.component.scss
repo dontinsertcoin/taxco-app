@@ -3,7 +3,6 @@
     align-content: center;
     margin-bottom: 50px;
     margin-top: 25px;
-    max-width: 1080px;
     border-radius: 15px;
 }
 
@@ -35,4 +34,20 @@
     width: 100%;
     padding-top: 15px;
     padding-bottom: 15px;
+}
+
+.blockquote{
+    float: right;
+}
+
+@media screen and (max-width:570px){
+    .main-image{
+        width: 250px;
+    }
+}
+
+@media screen and (max-width:380px){
+    .presentation-image{
+        width: 280px;
+    }
 }
