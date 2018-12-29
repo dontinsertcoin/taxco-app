@@ -16,18 +16,20 @@
     margin-right: auto;
     display: block;
     max-width: 500px;
-    margin-top: 10px;
+    margin-top: 12px;
     padding-top: 30px;
 }
 
 .presentation-image{
-    max-width: 340px;
+    max-width: 470px;
     float: left;
     padding: 0px 15px 10px 0px;
 }
 
 .presentation{
     padding-top: 30px;
+    margin: 0;
+    width: 100%;
 }
 
 .main-carousel{
@@ -36,18 +38,18 @@
     padding-bottom: 15px;
 }
 
-.blockquote{
-    float: right;
-}
 
 @media screen and (max-width:570px){
     .main-image{
         width: 250px;
     }
+    .presentation-image{
+        width: 270px;
+    }
 }
 
-@media screen and (max-width:380px){
+@media screen and (max-width:456px){
     .presentation-image{
-        width: 280px;
+        padding: 0px 0px 10px 0px;
     }
 }
