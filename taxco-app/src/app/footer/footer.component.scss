@@ -1,0 +1,38 @@
+.footer{
+    width: 100%;
+    background-color: #333;
+    align-content:center;
+}
+
+.footers{
+    min-width: 220px;
+    padding-bottom: 10px;
+}
+.footer-rigth{
+    float: left;
+}
+
+.footer-left{
+    float: right;
+}
+
+ul{
+    list-style: none;
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+ul > li{
+    text-decoration: none;
+    display: block;
+}
+
+ul > li > a{
+    color: white;
+}
+
+.row{
+    padding-top: 20px;
+}
