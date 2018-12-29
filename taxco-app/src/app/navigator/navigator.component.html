@@ -1,4 +1,4 @@
-<div id="header">
+<nav id="header">
     <ul id="navbar">
         <li class="navbar-item logo">
             <a href="#" ><img src="assets/resources/images/logo-blanco.png" class="navbar-icon"></a>
@@ -19,12 +19,12 @@
             <a href="#" class="navbar-text intermedium">Más</a> 
         </li>
         <li class="hamburger">
-            <a href="#" class="navbar-text hamburger-icon"><img class="menu-icon" src="assets/resources/images/menu-icon.png"></a>
+            <img class="menu-icon" src="assets/resources/images/menu-icon.png" (click)="showMenu()">
         </li>
     </ul>
-    <div class="header-aux"> <!--Add here class click-menu-->
+    <div class="header-aux" [ngClass]="showMobileMenu ? 'click-menu' : 'undo-click-menu'" (clickOutside)="hideMenu()">
         <ul id="navbar-aux">
-            <li class="navbar-aux-item">
+            <li class="navbar-aux-item first-item">
                 <a href="#" class="navbar-text">Inicio</a>
             </li>
             <li class="navbar-aux-item">
@@ -36,9 +36,9 @@
             <li class="navbar-aux-item">
                 <a href="#" class="navbar-text">Sobre nosotros</a>
             </li>
-            <li class="navbar-aux-item">
+            <li class="navbar-aux-item last-item">
                 <a href="#" class="navbar-text">Más</a> 
             </li>
         </ul>
     </div>
-</div>
+</nav>
