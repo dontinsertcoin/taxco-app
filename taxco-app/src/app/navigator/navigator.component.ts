@@ -7,9 +7,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigatorComponent implements OnInit {
 
-  constructor() { }
+  showMobileMenu: boolean= false;
+
+  constructor() { 
+  }
 
   ngOnInit() {
+  }
+
+  showMenu(){
+    console.log("click");
+    if (!this.showMobileMenu){
+      this.showMobileMenu=true;
+      console.log(true);
+    }else{
+      this.showMobileMenu=false;
+      console.log(false);
+    }
+  }
+
+  hideMenu(){
+    this.showMobileMenu= false;
+  }
+
+  addShowClass(){
+
   }
 
 }
