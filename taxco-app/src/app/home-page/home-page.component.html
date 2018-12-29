@@ -1,14 +1,30 @@
-<div class="container-fluid container maincontent">
-    <div class="row">
-        <div class="col">
-          1 of 3
-        </div>
-        <div class="col-6 col-md-auto">
-            <img src="/assets/resources/images/logo.jpg" class="mainimage"/>
-        </div>
-        <div class="col">
-          3 of 3
-        </div>
-      </div>
-  
+<div class="container-fluid container main-content">
+    <div class="central-image">
+        <img src="/assets/resources/images/logo.jpg" class="main-image"/>
+    </div>  
+    <div class="container-fluid row presentation">        
+        <div class="col-md-12">
+                <img class="presentation-image" src="/assets/resources/images/presentation.jpg" />
+                    <!--<p class="bq-title">Taxidermia Coin</p>-->
+                    <p>
+                        Taxidermia Coin es una empresa familiar fundada de la mano de José Coin Quintana en el año 1960, cuando montó su primer estudio en Madrid donde realizaba pequeños encargos.<br>
+                        Poco a poco, el negocio fue incrementando su volumen y la plantilla se amplió incorporando a los hijos del fundador: José y Francisco Coin, quienes continuaron con el negocio compaginado las enseñanzas de su padre con las nuevas técnicas de naturalización de trofeos.<br>
+                        En la actualidad, Taxidermia Coin cuenta con multitud de encargos tanto nacionales como internacionales gracias a la excelencia de los trabajos realizados.<br>
+                        Todos nuestros clientes y amigos saben que la calidad es el sello más reconocible de nuestra marca.
+                    </p>      
+        </div> 
+    </div>
+    <div class="container-fluid main-carousel">
+        <mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'">
+            <mdb-carousel-item>
+                <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg" alt="First slide">
+            </mdb-carousel-item>
+            <mdb-carousel-item>
+                <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg" alt="Second slide">
+            </mdb-carousel-item>
+            <mdb-carousel-item>
+                <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg" alt="Third slide">
+            </mdb-carousel-item>
+        </mdb-carousel>
+    </div>
 </div>

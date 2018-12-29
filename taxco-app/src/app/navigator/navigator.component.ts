@@ -16,13 +16,10 @@ export class NavigatorComponent implements OnInit {
   }
 
   showMenu(){
-    console.log("click");
     if (!this.showMobileMenu){
       this.showMobileMenu=true;
-      console.log(true);
     }else{
       this.showMobileMenu=false;
-      console.log(false);
     }
   }
 
