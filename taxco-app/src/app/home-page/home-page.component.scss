@@ -27,6 +27,7 @@
 }
 
 .presentation{
+    padding: 0;
     padding-top: 30px;
     margin: 0;
     width: 100%;
@@ -34,6 +35,7 @@
 
 .main-carousel{
     width: 100%;
+    padding: 0;
     padding-top: 15px;
     padding-bottom: 15px;
 }
@@ -48,7 +50,7 @@
     }
 }
 
-@media screen and (max-width:456px){
+@media screen and (max-width:410px){
     .presentation-image{
         padding: 0px 0px 10px 0px;
     }

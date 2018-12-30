@@ -1,0 +1,38 @@
+.gallery{
+    background-color: white;
+    align-content: center;
+    padding-top: -30px;
+    margin-bottom: 50px;
+    border-radius: 15px;
+}
+
+.left-menu{
+    padding-top: 50px; 
+    border-radius: 15px;
+}
+
+.left-menu > ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    border-radius: 15px;
+    background-color: #333;
+}
+
+ul > li{
+    display: inline-block;
+    width: 100%;
+    height: 50px;
+    border-bottom: solid #CCC 1px;
+    text-align: center;
+}
+
+ul > li:hover{
+    background-color: white;
+}
+
+ul > li > a{
+    line-height: 50px;
+    padding: 15px 85px 15px 30px;
+}

@@ -9,13 +9,15 @@ import { FormsModule } from '@angular/forms';
 import { NavigatorComponent } from './navigator/navigator.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { FooterComponent } from './footer/footer.component';
+import { GalleryComponent } from './gallery/gallery.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigatorComponent,
     HomePageComponent,
-    FooterComponent
+    FooterComponent,
+    GalleryComponent
   ],
   imports: [
     BrowserModule,
