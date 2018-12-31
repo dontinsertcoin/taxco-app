@@ -13,6 +13,7 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { ShopComponent } from './shop/shop.component';
 import { ShopItemComponent } from './shop/shop-item/shop-item.component';
 import { ContactComponent } from './contact/contact.component';
+import { Image } from './gallery/image/image.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ContactComponent } from './contact/contact.component';
     GalleryComponent,
     ShopComponent,
     ShopItemComponent,
-    ContactComponent
+    ContactComponent,
+    Image
   ],
   imports: [
     BrowserModule,

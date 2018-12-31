@@ -26,6 +26,7 @@ ul > li{
     height: 50px;
     border-bottom: solid #CCC 1px;
     text-align: center;
+    padding: inherit;
 }
 
 ul > li:hover{
@@ -34,5 +35,5 @@ ul > li:hover{
 
 ul > li > a{
     line-height: 50px;
-    padding: 15px 85px 15px 30px;
+    padding: inherit;
 }
