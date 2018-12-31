@@ -10,6 +10,9 @@ import { NavigatorComponent } from './navigator/navigator.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { FooterComponent } from './footer/footer.component';
 import { GalleryComponent } from './gallery/gallery.component';
+import { ShopComponent } from './shop/shop.component';
+import { ShopItemComponent } from './shop/shop-item/shop-item.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { GalleryComponent } from './gallery/gallery.component';
     NavigatorComponent,
     HomePageComponent,
     FooterComponent,
-    GalleryComponent
+    GalleryComponent,
+    ShopComponent,
+    ShopItemComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
