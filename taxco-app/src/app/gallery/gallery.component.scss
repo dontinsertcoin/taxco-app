@@ -2,20 +2,21 @@
     background-color: white;
     align-content: center;
     padding-top: -30px;
-    margin-bottom: 50px;
-    border-radius: 15px;
+    border-radius: 15px 15px 0px 0px;
+    margin-top: 20px;
 }
 
 .left-menu{
     padding-top: 50px; 
     border-radius: 15px;
+    
 }
 
 .left-menu > ul{
     list-style: none;
     margin: 0;
     padding: 0;
-    width: 100%;
+    width: 120px;
     border-radius: 15px;
     background-color: #333;
 }
@@ -36,4 +37,17 @@ ul > li:hover{
 ul > li > a{
     line-height: 50px;
     padding: inherit;
+}
+
+.image-row{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.image-item{
+    display:inline-block;  
+    width: 100%;
+    padding: 0; 
+    margin-left: auto; 
+    margin-right: auto;
 }
