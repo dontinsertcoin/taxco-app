@@ -19,36 +19,15 @@
           </div>
       </div>
       <div class="col-12 col-sm-6 col-md-10">
-        <div class="row image-row">
+        <div class="row image-row" *ngFor="let t of temp(math.ceil(images.length/3)).fill(); let i = index">
           <div class="col-sm-3 image-item" >
-            <img src="/assets/resources/images/presentation.jpg" style="width:inherit">
-          </div>
-          <div class="col-sm-3 image-item" >
-              <img src="/assets/resources/images/presentation.jpg" style="width:inherit">
-          </div>
-          <div class="col-sm-3 image-item" style=" display:inline-block; width: 100%; padding: 0; margin-left: auto; margin-right: auto;">
-              <img src="/assets/resources/images/presentation.jpg" style="width:inherit">
-          </div>
-        </div>
-        <div class="row image-row">
-          <div class="col-sm-3 image-item" >
-            <img src="/assets/resources/images/presentation.jpg" style="width:inherit">
+            <img class="gallery-image" src=" {{images[3*i].imagePath}}" style="width:inherit">
           </div>
           <div class="col-sm-3 image-item" >
-              <img src="/assets/resources/images/presentation.jpg" style="width:inherit">
+              <img class="gallery-image second" src="{{images[3*i+1].imagePath}}" style="width:inherit">
           </div>
-          <div class="col-sm-3 image-item" style=" display:inline-block; width: 100%; padding: 0; margin-left: auto; margin-right: auto;">
-              <img src="/assets/resources/images/presentation.jpg" style="width:inherit">
-          </div>
-        </div>
-        <div class="row image-row">
-          <div class="col-sm-3 image-item" >
-            <img src="/assets/resources/images/presentation.jpg" style="width:inherit">
-          </div>
-          <div class="col-sm-3 image-item" >
-              <img src="/assets/resources/images/presentation.jpg" style="width:inherit">
-          </div>
-          <div class="col-sm-3 image-item" style=" display:inline-block; width: 100%; padding: 0; margin-left: auto; margin-right: auto;">
+          <div class="col-sm-3 image-item">
+              <img class="gallery-image third" src="{{images[3*i+2].imagePath}}" style="width:inherit">
           </div>
         </div>
       </div>         

@@ -9,11 +9,21 @@ import { Image } from '../gallery/image/image.component';
 })
 export class GalleryComponent implements OnInit {
 
-  images: Image[]=[
-    new Image('/assets/resourse/images/presentation.jpg', 'Prueba', 'Prueba')
+  private images: Image[]=[
+    new Image('/assets/resources/images/presentation.jpg', 'Prueba', 'Prueba'),
+    new Image('/assets/resources/images/presentation.jpg', 'Prueba', 'Prueba'),
+    new Image('/assets/resources/images/presentation.jpg', 'Prueba', 'Prueba'),
+    new Image('/assets/resources/images/presentation.jpg', 'Prueba', 'Prueba'),
+    new Image('/assets/resources/images/presentation.jpg', 'Prueba', 'Prueba'),
+    new Image('/assets/resources/images/presentation.jpg', 'Prueba', 'Prueba'),
+    new Image('/assets/resources/images/presentation.jpg', 'Prueba', 'Prueba'),
+    new Image('/assets/resources/images/presentation.jpg', 'Prueba', 'Prueba')
   ];
+  temp = Array;
+  math = Math;
 
-  constructor() { }
+  constructor() { 
+  }
 
   ngOnInit() {
   }
