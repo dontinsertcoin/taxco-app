@@ -28,13 +28,16 @@
             <p>{{images[3*i].title}}</p>
           </div>
           <div class="col-sm-3 image-item" >
-            <img class="gallery-image second" src="{{images[3*i+1].imagePath}}" style="width:inherit" *ngIf="showImage(3*i+1)" alt="{{images[3*i+1].name}}">
+            <img class="gallery-image" src="{{images[3*i+1].imagePath}}" style="width:inherit" *ngIf="showImage(3*i+1)" alt="{{images[3*i+1].name}}">
             <p>{{images[3*i+1].title}}</p>
           </div>
           <div class="col-sm-3 image-item">
-            <img class="gallery-image third" src="{{images[3*i+2].imagePath}}" style="width:inherit" *ngIf="showImage(3*i+2)" alt="{{images[3*i+2].name}}">
+            <img class="gallery-image" src="{{images[3*i+2].imagePath}}" style="width:inherit" *ngIf="showImage(3*i+2)" alt="{{images[3*i+2].name}}">
             <p>{{images[3*i+2].title}}</p>
           </div>
+        </div>
+        <div class="row">
+          NumPaginas
         </div>
       </div>         
   </div>
