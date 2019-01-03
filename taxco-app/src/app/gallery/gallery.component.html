@@ -4,16 +4,19 @@
           <div class="left-menu">
             <ul>
               <li class="list-item">
-                <a href="#">Todas</a>
+                <a href="#" (click)="constructor()">Todas</a>
               </li>
               <li class="list-item">
-                <a href="#">Hueso</a>
+                <a href="#" (click)="filtrar('Hueso')">Hueso</a>
               </li>
               <li class="list-item">
-                <a href="#">Enteros</a>
+                <a href="#" (click)="filtrar('Entero')">Enteros</a>
               </li>
               <li class="list-item" href="#">
-                <a href="#">Pecho</a>
+                <a href="#" (click)="filtrar('Pecho')">Pecho</a>
+              </li>
+              <li class="list-item" href="#">
+                <a href="#" (click)="filtrar('Pabellon')">Pabellones</a>
               </li>
             </ul>
           </div>
@@ -21,13 +24,13 @@
       <div class="col-12 col-sm-6 col-md-10">
         <div class="row image-row" *ngFor="let t of temp(math.ceil(images.length/3)).fill(); let i = index">
           <div class="col-sm-3 image-item" >
-            <img class="gallery-image" src=" {{images[3*i].imagePath}}" style="width:inherit">
+            <img class="gallery-image" src="{{images[3*i].imagePath}}" style="width:inherit" alt="{{images[3*i].name}}">
           </div>
           <div class="col-sm-3 image-item" >
-              <img class="gallery-image second" src="{{images[3*i+1].imagePath}}" style="width:inherit">
+            <img class="gallery-image second" src="{{images[3*i+1].imagePath}}" style="width:inherit" *ngIf="showImage(3*i+1)" alt="{{images[3*i+1].name}}">
           </div>
           <div class="col-sm-3 image-item">
-              <img class="gallery-image third" src="{{images[3*i+2].imagePath}}" style="width:inherit">
+            <img class="gallery-image third" src="{{images[3*i+2].imagePath}}" style="width:inherit" *ngIf="showImage(3*i+2)" alt="{{images[3*i+2].name}}">
           </div>
         </div>
       </div>         

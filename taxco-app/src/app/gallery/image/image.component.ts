@@ -7,14 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Image implements OnInit {
 
-  private imagePath: string;
-  private title: string;
-  private tipo: string;
+  public imagePath: string;
+  public title: string;
+  public tipe: string;
 
   constructor(imageUrl: string, name: string, tipo: string) {
     this.imagePath= imageUrl;
     this.title= name;
-    this.tipo= tipo;
+    this.tipe= tipo;
    }
 
   ngOnInit() {
