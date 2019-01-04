@@ -39,7 +39,7 @@ export class GalleryComponent implements OnInit {
       new Image('/assets/resources/images/logo.jpg', 'Prueba17', 'Entero'),
       new Image('/assets/resources/images/presentation.jpg', 'Prueba18', 'Pecho'),
       new Image('/assets/resources/images/presentation.jpg', 'Prueba19', 'Pabellon'),
-      new Image('/assets/resources/images/presentation.jpg', 'Prueba20', 'Hueso')/*,
+      new Image('/assets/resources/images/presentation.jpg', 'Prueba20', 'Hueso'),
       new Image('/assets/resources/images/logo.jpg', 'Prueba21', 'Entero'),
       new Image('/assets/resources/images/presentation.jpg', 'Prueba22', 'Pecho'),
       new Image('/assets/resources/images/presentation.jpg', 'Prueba23', 'Hueso'),
@@ -83,7 +83,7 @@ export class GalleryComponent implements OnInit {
       new Image('/assets/resources/images/presentation.jpg', 'Prueba60', 'Pecho'),
       new Image('/assets/resources/images/presentation.jpg', 'Prueba61', 'Pabellon'),
       new Image('/assets/resources/images/presentation.jpg', 'Prueba62', 'Hueso'),
-      new Image('/assets/resources/images/logo.jpg', 'Prueba63', 'Entero')*/
+      new Image('/assets/resources/images/logo.jpg', 'Prueba63', 'Entero')
     ];
     this.maxPerPage= (this.images.length/3) > 5 ? 5 : this.images.length/3;
     this.numPage= this.images.length % 15 === 0 ? this.images.length/15 : this.images.length/15+1;
@@ -110,6 +110,12 @@ export class GalleryComponent implements OnInit {
 
   nextPage(){
     this.actualPage= this.actualPage+1;
+    this.maxPerPage= (((this.images.length -15)*this.actualPage)/3) > 5 ? 5 : (((this.images.length -15)*this.actualPage)/3);
+  }
+
+  previousPage(){
+    this.actualPage= this.actualPage-1;
+    this.maxPerPage= (((this.images.length -15)*this.actualPage)/3) > 5 ? 5 : (((this.images.length -15)*this.actualPage)/3);
   }
 
 }
