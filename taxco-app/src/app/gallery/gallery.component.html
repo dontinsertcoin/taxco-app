@@ -22,22 +22,22 @@
           </div>
       </div>
       <div class="col-12 col-sm-6 col-md-10">
-        <div class="row image-row" *ngFor="let t of temp(math.ceil(maxPerPage)).fill(); let i = index">
-          <div class="col-sm-3 image-item" >
-            <img class="gallery-image" src="{{images[3*i].imagePath}}" style="width:inherit" alt="{{images[3*i].name}}">
-            <p>{{images[3*i].title}}</p>
-          </div>
-          <div class="col-sm-3 image-item" >
-            <img class="gallery-image" src="{{images[3*i+1].imagePath}}" style="width:inherit" *ngIf="showImage(3*i+1)" alt="{{images[3*i+1].name}}">
-            <p>{{images[3*i+1].title}}</p>
+        <div class="row image-row" *ngFor="let t of temp(math.ceil(maxPerPage)).fill(); let i = index;">
+          <div class="col-sm-3 image-item">
+            <img class="gallery-image" src="{{images[3*i+((actualPage-1)*15)].imagePath}}" style="width:inherit" alt="{{images[3*i].name}}">
+            <p>{{images[3*i+((actualPage-1)*15)].title}}</p>
           </div>
           <div class="col-sm-3 image-item">
-            <img class="gallery-image" src="{{images[3*i+2].imagePath}}" style="width:inherit" *ngIf="showImage(3*i+2)" alt="{{images[3*i+2].name}}">
-            <p>{{images[3*i+2].title}}</p>
+            <img class="gallery-image" src="{{images[3*i+1+((actualPage-1)*15)].imagePath}}" style="width:inherit" *ngIf="showImage(3*i+1+((actualPage-1)*15))" alt="{{images[3*i+1].name}}">
+            <p>{{images[3*i+1+((actualPage-1)*15)].title}}</p>
+          </div>
+          <div class="col-sm-3 image-item">
+            <img class="gallery-image" src="{{images[3*i+2+((actualPage-1)*15)].imagePath}}" style="width:inherit" *ngIf="showImage(3*i+2+((actualPage-1)*15))" alt="{{images[3*i+2].name}}">
+            <p>{{images[3*i+2+((actualPage-1)*15)].title}}</p>
           </div>
         </div>
         <div class="row">
-          NumPaginas
+          <a href="#" (click)="nextPage()">NumPaginas</a>
         </div>
       </div>         
   </div>
