@@ -31,7 +31,7 @@ import { Image } from './gallery/image/image.component';
     BrowserModule,
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
-    FormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

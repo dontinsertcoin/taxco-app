@@ -14,8 +14,12 @@ export class GalleryComponent implements OnInit {
   private maxPerPage: number;
   private numPage: number;
   private actualPage: number;
+  private lastPage: number;
   temp = Array;
   math = Math;
+  private RAWSPERPAGE = 5;
+  private IMAGESPERRAW = 3;
+  private IMAGESPERPAGE = this.IMAGESPERRAW*this.RAWSPERPAGE;
 
 
   constructor() {
@@ -85,9 +89,11 @@ export class GalleryComponent implements OnInit {
       new Image('/assets/resources/images/presentation.jpg', 'Prueba62', 'Hueso'),
       new Image('/assets/resources/images/logo.jpg', 'Prueba63', 'Entero')
     ];
-    this.maxPerPage= (this.images.length/3) > 5 ? 5 : this.images.length/3;
-    this.numPage= this.images.length % 15 === 0 ? this.images.length/15 : this.images.length/15+1;
-    this.actualPage= 1;
+    this.maxPerPage= (this.images.length/this.IMAGESPERRAW) > this.RAWSPERPAGE ? 
+      this.RAWSPERPAGE : this.images.length/this.IMAGESPERRAW;
+    this.lastPage= this.images.length % this.IMAGESPERPAGE === 0 ? 
+      this.images.length/this.IMAGESPERPAGE : Math.floor(this.images.length/this.IMAGESPERPAGE) + 1;
+    this.actualPage = 1;
     
   }
 
@@ -97,7 +103,10 @@ export class GalleryComponent implements OnInit {
   filtrar(filtro: string){
     this.constructor();
     this.images= this.images.filter( image => image.tipe === filtro);
-    this.maxPerPage= (this.images.length/3) > 5 ? 5 : this.images.length/3;
+    this.maxPerPage= (this.images.length/this.IMAGESPERRAW) > this.RAWSPERPAGE ? 
+      this.RAWSPERPAGE : this.images.length/this.IMAGESPERRAW;
+    this.lastPage= this.images.length % this.IMAGESPERPAGE === 0 ? 
+      this.images.length/this.IMAGESPERPAGE : Math.floor(this.images.length/this.IMAGESPERPAGE) + 1;
   }
 
   showImage(num: number){
@@ -109,13 +118,29 @@ export class GalleryComponent implements OnInit {
   }
 
   nextPage(){
-    this.actualPage= this.actualPage+1;
-    this.maxPerPage= (((this.images.length -15)*this.actualPage)/3) > 5 ? 5 : (((this.images.length -15)*this.actualPage)/3);
+    this.actualPage= this.actualPage + 1;
+    this.maxPerPage= ((this.images.length -(this.IMAGESPERPAGE *(this.actualPage - 1)))/this.IMAGESPERRAW) > this.RAWSPERPAGE ? 
+      this.RAWSPERPAGE : ((this.images.length -(this.IMAGESPERPAGE *(this.actualPage - 1)))/this.IMAGESPERRAW);
   }
 
   previousPage(){
-    this.actualPage= this.actualPage-1;
-    this.maxPerPage= (((this.images.length -15)*this.actualPage)/3) > 5 ? 5 : (((this.images.length -15)*this.actualPage)/3);
+    this.actualPage= this.actualPage - 1;
+    this.maxPerPage= ((this.images.length -(this.IMAGESPERPAGE *(this.actualPage - 1)))/this.IMAGESPERRAW) > this.RAWSPERPAGE ? 
+      this.RAWSPERPAGE : ((this.images.length -(this.IMAGESPERPAGE *(this.actualPage - 1)))/this.IMAGESPERRAW);
   }
 
+  goToPage(num: number){
+    if (num > this.actualPage){
+      for (this.actualPage; this.actualPage === num; this.actualPage++){
+        this.nextPage();
+      }
+    }else{
+      if (num < this.actualPage){
+        for (this.actualPage; this.actualPage === num; this.actualPage++){
+          this.previousPage();
+        }
+      }
+    }
+  }
+  
 }
