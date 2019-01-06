@@ -13,7 +13,7 @@
           <div class="left-menu">
             <ul>
               <li class="list-item list-intermedium" href="#">
-                <a href="#" (click)="constructor()">Todas</a>
+                <a href="#" (click)="filtrar('Todas')">Todas</a>
               </li>
               <li class="list-item list-intermedium">
                 <a href="#" (click)="filtrar('Hueso')">Hueso</a>
@@ -29,32 +29,32 @@
               </li>
             </ul>
           </div>
-      </div>
+      </div> 
       <div class="col-12 col-sm-9 col-md-10">
         <div class="row image-row" *ngFor="let t of temp(math.ceil(maxPerPage)).fill(); let i = index;">
           <div class="col-sm-3 image-item">
-            <a class="image-link" href="{{images[3*i+((actualPage-1)*15)].imagePath}}">
-                <img class="gallery-image" src="{{images[3*i+((actualPage-1)*15)].imagePath}}" style="width:inherit" 
+            <a class="image-link" (click)="displayImage(3*i+((actualPage-1)*15))">
+                <img class="gallery-image tn" src="{{images[3*i+((actualPage-1)*15)].imagePath}}" style="width:inherit" 
                   alt="{{images[3*i+((actualPage-1)*15)].name}}">
             </a>
           </div>
           <div class="col-sm-3 image-item">
-            <a class="image-link" href="{{images[3*i+1+((actualPage-1)*15)].imagePath}}">
-                <img class="gallery-image" src="{{images[3*i+1+((actualPage-1)*15)].imagePath}}" style="width:inherit" 
+            <a class="image-link" (click)="displayImage(3*i+1+((actualPage-1)*15))">
+                <img class="gallery-image tn" src="{{images[3*i+1+((actualPage-1)*15)].imagePath}}" style="width:inherit" 
                   *ngIf="showImage(3*i+1+((actualPage-1)*15))" alt="{{images[3*i+1+((actualPage-1)*15)].name}}">
             </a>
           </div>
           <div class="col-sm-3 image-item">
-            <a class="image-link" href="{{images[3*i+2+((actualPage-1)*15)].imagePath}}">
-              <img class="gallery-image" src="{{images[3*i+2+((actualPage-1)*15)].imagePath}}" style="width:inherit" 
+            <a class="image-link" (click)="displayImage(3*i+2+((actualPage-1)*15))">
+              <img class="gallery-image tn" src="{{images[3*i+2+((actualPage-1)*15)].imagePath}}" style="width:inherit" 
                 *ngIf="showImage(3*i+2+((actualPage-1)*15))" alt="{{images[3*i+2+((actualPage-1)*15)].name}}">
             </a>
-          </div>
-        </div>        
+          </div> 
+        </div>       
       </div>         
   </div>
   <div class="row">
-    <nav class="page-navigator" aria-label="Page navigation example">
+    <nav class="page-navigator" *ngIf="(lastPage>1)" aria-label="Page navigation example">
       <ul class="pagination pg-blue">
         <li class="page-item" *ngIf="actualPage>1" >
           <a class="page-link wider text-center" (click)="previousPage()" mdbWavesEffect href="#">

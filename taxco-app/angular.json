@@ -182,7 +182,7 @@
                 "input": "node_modules/angular-bootstrap-md/scss/mdb-free.scss"
               },
               {
-                "input": "node_modules/ngx-lightbox/lightbox.css"
+                "input": "node_modules/bootstrap/dist/css/bootstrap.min.css"
               },
               {
                 "input": "src/styles.scss"

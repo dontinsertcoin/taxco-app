@@ -14,6 +14,7 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { ShopComponent } from './shop/shop.component';
 import { ShopItemComponent } from './shop/shop-item/shop-item.component';
 import { ContactComponent } from './contact/contact.component';
+import { ImageService } from './gallery/image/shared/image.service';
 import { Image } from './gallery/image/image.component';
 
 @NgModule({
@@ -33,9 +34,9 @@ import { Image } from './gallery/image/image.component';
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
     FormsModule,
-    LightboxModule
+    LightboxModule    
   ],
-  providers: [],
+  providers: [ ImageService ],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
 })
