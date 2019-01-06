@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+//import { Lightbox, IAlbum } from 'ngx-lightbox';
 
 import { Image } from '../gallery/image/image.component';
-import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-gallery',
@@ -12,7 +12,6 @@ export class GalleryComponent implements OnInit {
 
   private images: Image[];
   private maxPerPage: number;
-  private numPage: number;
   private actualPage: number;
   private lastPage: number;
   temp = Array;
@@ -20,9 +19,9 @@ export class GalleryComponent implements OnInit {
   private RAWSPERPAGE = 5;
   private IMAGESPERRAW = 3;
   private IMAGESPERPAGE = this.IMAGESPERRAW*this.RAWSPERPAGE;
+  //private _albums: Array<IAlbum> = [];
 
-
-  constructor() {
+  constructor(/*private _lightbox: Lightbox*/) {
     this.images=[
       new Image('/assets/resources/images/presentation.jpg', 'Prueba1', 'Hueso'),
       new Image('/assets/resources/images/logo.jpg', 'Prueba2', 'Entero'),
@@ -94,7 +93,7 @@ export class GalleryComponent implements OnInit {
     this.lastPage= this.images.length % this.IMAGESPERPAGE === 0 ? 
       this.images.length/this.IMAGESPERPAGE : Math.floor(this.images.length/this.IMAGESPERPAGE) + 1;
     this.actualPage = 1;
-    
+    //this.completeAlbum();
   }
 
   ngOnInit() {
@@ -107,6 +106,7 @@ export class GalleryComponent implements OnInit {
       this.RAWSPERPAGE : this.images.length/this.IMAGESPERRAW;
     this.lastPage= this.images.length % this.IMAGESPERPAGE === 0 ? 
       this.images.length/this.IMAGESPERPAGE : Math.floor(this.images.length/this.IMAGESPERPAGE) + 1;
+    //this.completeAlbum();
   }
 
   showImage(num: number){
@@ -142,5 +142,30 @@ export class GalleryComponent implements OnInit {
       }
     }
   }
+
+  /*completeAlbum(){
+    for (let i = 1; i < this.images.length; i++) {
+      const src = this.images[i].imagePath;
+      const caption = 'Image ' + i + ' caption here';
+      const thumb = this.images[i].imagePath;
+      const album = {
+         src: src,
+         caption: caption,
+         thumb: thumb
+      };
+
+      this._albums.push(album);
+    }
+  }
+
+  open(index: number): void {
+    // open lightbox
+    this._lightbox.open(this._albums, index);
+  }
+
+  close(): void {
+    // close lightbox programmatically
+    this._lightbox.close();
+  }*/
   
 }

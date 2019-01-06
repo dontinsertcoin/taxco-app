@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LightboxModule } from 'ngx-lightbox';
 
 import { AppComponent } from './app.component';
 
@@ -31,7 +32,8 @@ import { Image } from './gallery/image/image.component';
     BrowserModule,
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
-    FormsModule
+    FormsModule,
+    LightboxModule
   ],
   providers: [],
   bootstrap: [AppComponent],

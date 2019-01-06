@@ -61,12 +61,19 @@ ul > li > a{
     padding-bottom: 20px;
 }
 
+.image-link{
+    width: inherit;
+}
+
 .page-navigator{
-    max-width: 300px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.image-link{
-    width: inherit;
+.pagination{
+    width: 300px;
+}
+
+.page-item{
+    width: 100%;
 }
