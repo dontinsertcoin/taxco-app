@@ -19,13 +19,13 @@
     </ul>
   </div>
   <div class="row container container-fluid text-center">
-      <ul class="list-of-images">
-        <li *ngFor="let t of temp(math.ceil(imagesPerPage)).fill(); let i = index;" class="image-container">
-            <img class="tn" src="{{images[i+((actualPage-1)*20)].imagePath}}" 
-              *ngIf="showImage(i+((actualPage-1)*20))" (click)="displayImage(i+((actualPage-1)*20))">
-        </li>
-      </ul>
-    </div>
+    <ul class="list-of-images">
+      <li *ngFor="let t of temp(math.ceil(imagesPerPage)).fill(); let i = index;" class="image-container">
+          <img class="tn" src="{{images[i+((actualPage-1)*20)].imagePath}}" 
+            *ngIf="showImage(i+((actualPage-1)*20))" (click)="displayImage(i+((actualPage-1)*20))">
+      </li>
+    </ul>
+  </div>
   <div class="row">
     <nav class="page-navigator" *ngIf="(lastPage>1)" aria-label="Page navigation example">
       <ul class="pagination pg-blue">
@@ -52,6 +52,6 @@
   <!-- Modal content -->
   <div class="modal-content text-center">
     <span class="close" (click)="closeModal()">&times;</span>
-    <img class="modalImage" src="{{images[imageToDisplay+((actualPage-1)*20)].imagePath}}">
+    <img class="modalImage" src="{{images[imageToDisplay].imagePath}}">
   </div>
 </div>
