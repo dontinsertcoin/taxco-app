@@ -5,7 +5,7 @@ import { Image } from '../image.component';
 export class ImageService{
 
   RAWSPERPAGE = 5;
-  IMAGESPERRAW = 3;
+  IMAGESPERRAW = 4;
   IMAGESPERPAGE = this.IMAGESPERRAW * this.RAWSPERPAGE;
   private IMAGES =[
     new Image('/assets/resources/images/presentation.jpg', 'Prueba1', 'Hueso'),
@@ -86,7 +86,4 @@ export class ImageService{
   }
 
 }
-const  RAWSPERPAGE = 5;
-const IMAGESPERRAW = 3;
-const IMAGESPERPAGE = IMAGESPERRAW * RAWSPERPAGE;
 

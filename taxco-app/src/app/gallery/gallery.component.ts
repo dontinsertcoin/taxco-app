@@ -14,6 +14,8 @@ export class GalleryComponent implements OnInit {
   private maxPerPage: number;
   private actualPage: number;
   private lastPage: number;
+  private imageDisplay = false;
+  private imageToDisplay= -1;
   temp = Array;
   math = Math;
   private rawsPerPage = 0;
@@ -23,15 +25,13 @@ export class GalleryComponent implements OnInit {
 
   constructor(private imageServiceAux: ImageService) {
     this.imageService = this.imageServiceAux;
-    if (this.rawsPerPage === 0){
+    if (this.imagesPerPage === 0){
       this.rawsPerPage = this.imageService.RAWSPERPAGE;
       this.imagesPerPage = this.imageService.IMAGESPERPAGE;
       this.imagesPerRaw = this.imageService.IMAGESPERRAW;
     }
     this.actualPage = 1;   
     this.images= this.imageService.getImages();
-    this.maxPerPage= (this.images.length/(this.imagesPerRaw*this.actualPage)) > this.rawsPerPage ? 
-      this.rawsPerPage : (this.images.length/(this.imagesPerRaw*this.actualPage));
     this.lastPage= this.images.length % this.imagesPerPage === 0 ? 
       this.images.length/this.imagesPerPage : Math.floor(this.images.length/this.imagesPerPage) + 1;
   }
@@ -60,14 +60,10 @@ export class GalleryComponent implements OnInit {
 
   nextPage(){
     this.actualPage= this.actualPage + 1;
-    this.maxPerPage= ((this.images.length -(this.imagesPerPage *(this.actualPage - 1)))/this.imagesPerRaw) > this.rawsPerPage ? 
-      this.rawsPerPage : ((this.images.length -(this.imagesPerPage *(this.actualPage - 1)))/this.imagesPerRaw);
   }
 
   previousPage(){
     this.actualPage= this.actualPage - 1;
-    this.maxPerPage= ((this.images.length -(this.imagesPerPage *(this.actualPage - 1)))/this.imagesPerRaw) > this.rawsPerPage ? 
-      this.rawsPerPage : ((this.images.length -(this.imagesPerPage *(this.actualPage - 1)))/this.imagesPerRaw);
   }
 
   goToPage(num: number){
@@ -85,7 +81,14 @@ export class GalleryComponent implements OnInit {
   }
 
   displayImage(num: number){
-    console.log("Desplegando imagen " + num);
+    console.log("desplegando imagen " + num);
+    this.imageDisplay= true;
+    this.imageToDisplay=num;
+  }
+
+  closeModal(){
+    this.imageDisplay= false;
+    this.imageToDisplay=-1;
   }
   
 }
