@@ -21,8 +21,8 @@
   <div class="row container container-fluid text-center">
     <ul class="list-of-images">
       <li *ngFor="let t of temp(math.ceil(imagesPerPage)).fill(); let i = index;" class="image-container">
-          <img class="tn" src="{{images[i+((actualPage-1)*20)].imagePath}}" 
-            *ngIf="showImage(i+((actualPage-1)*20))" (click)="displayImage(i+((actualPage-1)*20))">
+          <img class="tn" src="{{images[i+((actualPage-1)*imagesPerPage)].imagePath}}" 
+            *ngIf="showImage(i+((actualPage-1)*imagesPerPage))" (click)="displayImage(i+((actualPage-1)*imagesPerPage))">
       </li>
     </ul>
   </div>
