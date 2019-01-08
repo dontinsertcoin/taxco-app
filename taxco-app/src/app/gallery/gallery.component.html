@@ -51,7 +51,9 @@
 <div id="myModal" class="modal" *ngIf="imageToDisplay > -1 && displayImage">
   <!-- Modal content -->
   <div class="modal-content text-center">
-    <span class="close" (click)="closeModal()">&times;</span>
+    <span class="close icon" (click)="closeModal()">&times;</span>
+    <!--<span class="chevron-left icon" (click)="previousImage()">></span>-->
     <img class="modalImage" src="{{images[imageToDisplay].imagePath}}">
+  <!--<span class="chevron-right icon" (click)="nextImage()">></span>-->
   </div>
 </div>

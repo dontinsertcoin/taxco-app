@@ -149,22 +149,34 @@ ul > .list-item > a:hover{
 /* Modal Content/Box */
 .modal-content {
     background-color: #fefefe;
-    margin: 1% auto;
+    margin: auto;
+    margin-top: 1%;
     padding: 10px;
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
 }
   
 /* The Close Button */
-.close {
-    color: #aaa;
+.close, .chevron-right{
     float: right;
+}
+
+.chevron-left{
+    float: left;
+}
+
+.chevron-right, .chevron-left{
+    padding-top: 100px;
+}
+
+.icon {
+    color: #aaa;
     font-size: 28px;
     font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+.icon:hover,
+.icon:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;

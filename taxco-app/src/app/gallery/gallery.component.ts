@@ -90,5 +90,21 @@ export class GalleryComponent implements OnInit {
     this.imageDisplay= false;
     this.imageToDisplay=-1;
   }
+
+  nextImage(){
+    if (this.showImage(this.imageToDisplay + 1)){
+      this.imageToDisplay= this.imageToDisplay + 1;
+    }else{
+      this.imageToDisplay= 0;
+    }    
+  }
+
+  previousImage(){
+    if (this.showImage(this.imageToDisplay - 1)){
+      this.imageToDisplay= this.imageToDisplay - 1;
+    }else{
+      this.imageToDisplay= this.images.length - 1;
+    }    
+  }
   
 }
