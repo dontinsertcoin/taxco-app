@@ -54,6 +54,18 @@
     <span class="close icon" (click)="closeModal()">&times;</span>
     <!--<span class="chevron-left icon" (click)="previousImage()">></span>-->
     <img class="modalImage" src="{{images[imageToDisplay].imagePath}}">
-  <!--<span class="chevron-right icon" (click)="nextImage()">></span>-->
+    <div class="row text-center">
+      <div class="col-sm-2">
+        <button type="button" class="btn btn-default btn-sm" (click)="previousImage()">
+          <span class="glyphicon glyphicon-chevron-left"></span> Anterior
+        </button>
+      </div>
+      <div class="col-sm-2">
+        <button type="button" class="btn btn-default btn-sm" (click)="nextImage()">
+          <span class="glyphicon glyphicon-chevron-right"></span> Siguiente
+        </button>
+      </div>
+    </div>
+  <!--<span class="chevron-right icon" >></span>-->
   </div>
 </div>
