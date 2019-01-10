@@ -1,6 +1,6 @@
 <div class="container-fluid gallery container">
   <div class="row container container-fluid top-menu text-center">
-    <ul class="text-center">
+    <ul class="gallery-filter-list text-center">
       <li class="list-item list-first" href="#">
         <a href="#" class="list-link" (click)="filtrar('Todas')">Todas</a>
       </li>
@@ -54,12 +54,12 @@
     <img class="modalImage" src="{{images[imageToDisplay].imagePath}}">
     <div class="row text-center">
       <div class="col col-lg-2 col-md-2 col-sm-2">
-        <button type="button" class="btn btn-default btn-sm" (click)="previousImage()">
+        <button type="button" class="btn btn-default btn-lg" (click)="previousImage()">
           <span class="glyphicon glyphicon-chevron-left"></span> Anterior
         </button>
       </div>
       <div class="col col-lg-2 col-md-2 col-sm-2">
-        <button type="button" class="btn btn-default btn-sm" (click)="nextImage()">
+        <button type="button" class="btn btn-default btn-lg" (click)="nextImage()">
           <span class="glyphicon glyphicon-chevron-right"></span> Siguiente
         </button>
       </div>

@@ -153,12 +153,19 @@ ul > .list-item > a:hover{
     margin-top: 1%;
     padding: 10px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 60%; /* Could be more or less, depending on screen size */
 }
   
 /* The Close Button */
 .close{
     float: right;
+}
+
+.chevron-left{
+    float: left;
+}
+
+.icon {
     color: #aaa;
     font-size: 28px;
     font-weight: bold;
