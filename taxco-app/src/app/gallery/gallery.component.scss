@@ -62,15 +62,16 @@
     border-top: #333 solid 2px;
 }
 
-ul > .list-item > a{
+.list-item > a{
     line-height: 50px;
     padding: inherit;
+    height: inherit;
     text-decoration: none;
     color: white;
     font-family: cursive
 }
 
-ul > .list-item > a:hover{
+.list-item > a:hover{
     color: #333;
 }
 
