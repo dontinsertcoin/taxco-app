@@ -1,0 +1,68 @@
+<div class="container-fluid gallery container">
+  <div class="row container container-fluid top-menu text-center">
+    <ul class="gallery-filter-list text-center">
+      <li class="list-item list-first" href="#">
+        <a href="#" class="list-link" (click)="filtrar('Todas')">Todas</a>
+      </li>
+      <li class="list-item list-intermedium">
+        <a href="#" class="list-link"  (click)="filtrar('Hueso')">Hueso</a>
+      </li>
+      <li class="list-item list-intermedium" href="#">
+        <a href="#" class="list-link"  (click)="filtrar('Entero')">Enteros</a>
+      </li>
+      <li class="list-item list-intermedium" href="#">
+        <a href="#" class="list-link"  (click)="filtrar('Pecho')">Pecho</a>
+      </li>
+      <li class="list-item list-last" href="#">
+        <a href="#" class="list-link"  (click)="filtrar('Pabellon')">Pabellones</a>
+      </li>
+    </ul>
+  </div>
+  <div class="row container container-fluid text-center">
+    <ul class="list-of-images">
+      <li *ngFor="let t of temp(math.ceil(imagesPerPage)).fill(); let i = index;" class="image-container">
+          <img class="tn" src="{{images[i+((actualPage-1)*imagesPerPage)].imagePath}}" 
+            *ngIf="showImage(i+((actualPage-1)*imagesPerPage))" (click)="displayImage(i+((actualPage-1)*imagesPerPage))">
+      </li>
+    </ul>
+  </div>
+  <div class="row">
+    <nav class="page-navigator" *ngIf="(lastPage>1)" aria-label="Page navigation example">
+      <ul class="pagination pg-blue">
+        <li class="page-item" *ngIf="actualPage>1" >
+          <a class="page-link wider text-center" (click)="previousPage()" mdbWavesEffect href="#">
+            Anterior
+          </a>
+        </li>
+        <!--<li class="page-item" *ngFor="let t of temp(math.ceil(lastPage)).fill(); let i = index;">
+          <a class="page-link text-center" mdbWavesEffect href="#" (click)="goToPage(i+1)">
+            {{i + 1}}
+          </a>
+        </li>-->
+        <li class="page-item" *ngIf="(lastPage>actualPage)">
+          <a class="page-link wider text-center" mdbWavesEffect (click)="nextPage()" href="#">
+            Siguiente
+          </a>
+        </li>
+      </ul>
+    </nav> 
+  </div>
+</div>
+<div id="myModal" class="modal" *ngIf="imageToDisplay > -1 && displayImage">
+  <div class="modal-content text-center">
+    <span class="close icon" (click)="closeModal()">&times;</span>
+    <img class="modalImage" src="{{images[imageToDisplay].imagePath}}">
+    <div class="row text-center">
+      <div class="col col-lg-2 col-md-2 col-sm-2">
+        <button type="button" class="btn btn-default btn-lg" (click)="previousImage()">
+          <span class="glyphicon glyphicon-chevron-left"></span> Anterior
+        </button>
+      </div>
+      <div class="col col-lg-2 col-md-2 col-sm-2">
+        <button type="button" class="btn btn-default btn-lg" (click)="nextImage()">
+          <span class="glyphicon glyphicon-chevron-right"></span> Siguiente
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -33,7 +33,7 @@
     width: 110px;
 }
 
-.navbar-text{
+.taxco-navbar-text{
     display: block;
     color: white;
     line-height: 80px;
@@ -44,7 +44,7 @@
     text-decoration: none;
 } 
 
-.navbar-text:hover, .navbar-text:focus{
+.taxco-navbar-text:hover, .taxco-navbar-text:focus{
     background: white;
     color: #333;
     height: 80px;
@@ -113,7 +113,7 @@
         border-bottom: #CCC solid 1px;
     }
 
-    .navbar-text:hover, .navbar-text:focus{
+    .taxco-navbar-text:hover, .taxco-navbar-text:focus{
         background: white;
     }
 

@@ -9,21 +9,32 @@ import { FormsModule } from '@angular/forms';
 import { NavigatorComponent } from './navigator/navigator.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { FooterComponent } from './footer/footer.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { ShopComponent } from './shop/shop.component';
+import { ShopItemComponent } from './shop/shop-item/shop-item.component';
+import { ContactComponent } from './contact/contact.component';
+import { ImageService } from './gallery/image/shared/image.service';
+import { Image } from './gallery/image/image.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigatorComponent,
     HomePageComponent,
-    FooterComponent
+    FooterComponent,
+    GalleryComponent,
+    ShopComponent,
+    ShopItemComponent,
+    ContactComponent,
+    Image
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
-    FormsModule,
+    FormsModule   
   ],
-  providers: [],
+  providers: [ ImageService ],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
 })
