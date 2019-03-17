@@ -17,8 +17,8 @@ import { ContactComponent } from './contact/contact.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { ImageService } from './gallery/image/shared/image.service';
 import { Image } from './gallery/image/image.component';
-import { AngularFireModule } from '@angular/fire';
 
+import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule, AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
 
@@ -31,6 +31,8 @@ const appRoutes: Routes = [
   {path: '**', component: NotFoundPageComponent}
 ]
 
+
+import { AuthService } from './services/auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -58,12 +60,17 @@ const appRoutes: Routes = [
       storageBucket: "taxco-app.appspot.com",
       messagingSenderId: "3588211874"  
     }),
+    AngularFireAuthModule ,
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
-    )   
+      { 
+        enableTracing: true // <-- debugging purposes only
+      }),     
   ],
-  providers: [ ImageService ],
+  providers: [ 
+    ImageService,
+    AuthService
+  ],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
 })
