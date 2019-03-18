@@ -6,8 +6,6 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class AuthService {
 
-  //authState: AngularFireAuth = null;
-
   constructor(private afAuth: AngularFireAuth) {
   }
 

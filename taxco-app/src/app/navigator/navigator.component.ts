@@ -8,11 +8,20 @@ import { Component, OnInit, HostListener } from '@angular/core';
 export class NavigatorComponent implements OnInit {
 
   showMobileMenu: boolean= false;
+  showModalUser: boolean= false;
 
   constructor() { 
   }
 
   ngOnInit() {
+  }
+
+  changeValue(value: boolean){
+    if (!value){
+      value=true;
+    }else{
+      value=false;
+    }
   }
 
   showMenu(){
@@ -28,7 +37,16 @@ export class NavigatorComponent implements OnInit {
   }
 
   addShowClass(){
+  }
 
+  showUserModal(){
+    if (!this.showModalUser){
+      this.showModalUser=true;
+      console.log("Activo");
+    }else{
+      this.showModalUser=false;
+      console.log("Inactivo");
+    }
   }
 
   @HostListener("window:scroll", ['$event'])
