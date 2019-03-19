@@ -1,4 +1,6 @@
+
 import { Component, OnInit, HostListener } from '@angular/core';
+import { AuthService } from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-navigator',
@@ -7,21 +9,16 @@ import { Component, OnInit, HostListener } from '@angular/core';
 })
 export class NavigatorComponent implements OnInit {
 
-  showMobileMenu: boolean= false;
-  showModalUser: boolean= false;
+  showMobileMenu : boolean= false;
+  showModalUser : boolean= false;
+  showModalSuccess : boolean= false;
+  showLoginError : boolean= false;
+  public email : string;
+  public password : string;
 
-  constructor() { 
-  }
+  constructor(public authService: AuthService) { }
 
   ngOnInit() {
-  }
-
-  changeValue(value: boolean){
-    if (!value){
-      value=true;
-    }else{
-      value=false;
-    }
   }
 
   showMenu(){
@@ -42,10 +39,9 @@ export class NavigatorComponent implements OnInit {
   showUserModal(){
     if (!this.showModalUser){
       this.showModalUser=true;
-      console.log("Activo");
     }else{
       this.showModalUser=false;
-      console.log("Inactivo");
+      this.showLoginError=false;
     }
   }
 
@@ -72,6 +68,24 @@ export class NavigatorComponent implements OnInit {
         logoImg.classList.remove('scrolled-logo');
       }
     //}
+  }
+
+  showSuccessModal(){
+    if (!this.showModalSuccess){
+      this.showModalSuccess=true;
+    }else{
+      this.showModalSuccess=false;
+    }
+  }
+
+  onSubmitAddUser(){
+    this.authService.userRegistry(this.email, this.password)
+    .then( (res) => {
+      this.showUserModal();
+      this.showSuccessModal();
+    }).catch( (err) => {
+      this.showLoginError=true;
+    });
   }
 
 }
