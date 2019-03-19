@@ -10,9 +10,11 @@ import { AuthService } from '../services/auth/auth.service';
 export class NavigatorComponent implements OnInit {
 
   showMobileMenu : boolean= false;
-  showModalUser : boolean= false;
+  showModalRegister : boolean= false;
   showModalSuccess : boolean= false;
   showLoginError : boolean= false;
+  showModalLogin : boolean = false;
+  showModal : boolean = false;
   public email : string;
   public password : string;
 
@@ -29,18 +31,19 @@ export class NavigatorComponent implements OnInit {
     }
   }
 
-  hideMenu(){
-    this.showMobileMenu= false;
-  }
-
-  addShowClass(){
-  }
-
-  showUserModal(){
-    if (!this.showModalUser){
-      this.showModalUser=true;
+  showRegisterModal(){
+    if (!this.showModalRegister){
+      if (this.showMobileMenu){
+        this.showMobileMenu = false;
+      }
+      this.showModal= true;
+      this.showModalRegister=true;
+      this.showModalLogin = false;
     }else{
-      this.showModalUser=false;
+      if (!this.showModalSuccess){
+        this.showModal= false;
+      }      
+      this.showModalRegister=false;
       this.showLoginError=false;
     }
   }
@@ -74,15 +77,28 @@ export class NavigatorComponent implements OnInit {
     if (!this.showModalSuccess){
       this.showModalSuccess=true;
     }else{
+      this.showModal= false;
       this.showModalSuccess=false;
+    }
+  }
+
+  showLoginModal(){
+    if (!this.showModalLogin){
+      this.showModal= true;
+      this.showModalRegister=false;
+      this.showModalLogin = true;
+    }else{
+      this.showModal= false;
+      this.showModalRegister=false;
+      this.showLoginError=false;
     }
   }
 
   onSubmitAddUser(){
     this.authService.userRegistry(this.email, this.password)
-    .then( (res) => {
-      this.showUserModal();
+    .then( (res) => {      
       this.showSuccessModal();
+      this.showRegisterModal();
     }).catch( (err) => {
       this.showLoginError=true;
     });
