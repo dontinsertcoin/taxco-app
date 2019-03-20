@@ -37,15 +37,23 @@ export class NavigatorComponent implements OnInit {
     let navbar = document.getElementById('navbar');
     let logo = document.getElementById('logo');
     let logoImg = document.getElementById('logo-img');
-    if (scrollOffset > 30){      
-      navbar.classList.add('scrolled');
-      logo.classList.add('scrolled-logo');
-      logoImg.classList.add('scrolled-logo');
-    } else {
-      navbar.classList.remove('scrolled');
-      logo.classList.remove('scrolled-logo');
-      logoImg.classList.remove('scrolled-logo');
-    }
+    let navigationBar = document.getElementById('navigation-bar');
+    let navigationList = document.getElementById('navigation-list');
+    //if (!mobileDevice*){
+      if (scrollOffset > 30){     
+        navigationBar.className="navigation-bar"; 
+        navigationList.className="navigation-list"; 
+        navbar.classList.add('scrolled');
+        logo.classList.add('scrolled-logo');
+        logoImg.classList.add('scrolled-logo');
+      } else {
+        navigationBar.className=""; 
+        navigationList.className="";
+        navbar.classList.remove('scrolled');
+        logo.classList.remove('scrolled-logo');
+        logoImg.classList.remove('scrolled-logo');
+      }
+    //}
   }
 
 }
