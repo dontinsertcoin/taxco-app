@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-navigator',
@@ -29,6 +29,23 @@ export class NavigatorComponent implements OnInit {
 
   addShowClass(){
 
+  }
+
+  @HostListener("window:scroll", ['$event'])
+  userHasScrolled($event:Event){
+    let scrollOffset = $event.srcElement.children[0].scrollTop;
+    let navbar = document.getElementById('navbar');
+    let logo = document.getElementById('logo');
+    let logoImg = document.getElementById('logo-img');
+    if (scrollOffset > 30){      
+      navbar.classList.add('scrolled');
+      logo.classList.add('scrolled-logo');
+      logoImg.classList.add('scrolled-logo');
+    } else {
+      navbar.classList.remove('scrolled');
+      logo.classList.remove('scrolled-logo');
+      logoImg.classList.remove('scrolled-logo');
+    }
   }
 
 }
