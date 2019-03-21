@@ -1,6 +1,6 @@
 
 import { Component, OnInit, HostListener } from '@angular/core';
-import { AuthService } from '../services/auth/auth.service';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-navigator',
@@ -16,8 +16,10 @@ export class NavigatorComponent implements OnInit {
   showLoginError : boolean= false;
   showModalLogin : boolean = false;
   showModal : boolean = false;
-  public email : string;
-  public password : string;
+  email : string;
+  password : string;
+  sessionsLoged: boolean;
+  showLogOut: boolean;
 
   constructor(public authService: AuthService) { }
 
@@ -41,6 +43,9 @@ export class NavigatorComponent implements OnInit {
   }
 
   showRegisterModal(){
+    if (this.sessionsLoged){
+      this.showLogOut = true;
+    }
     if (!this.showModalRegister){
       if (this.showMobileMenu){
         this.showMobileMenu = false;
@@ -97,8 +102,10 @@ export class NavigatorComponent implements OnInit {
       this.showModalRegister=false;
       this.showModalLogin = true;
     }else{
-      this.showModal= false;
-      this.showModalRegister=false;
+      if (!this.showModalSuccess){
+        this.showModal= false;
+      } 
+      this.showModalLogin=false;
       this.showLoginError=false;
     }
   }
@@ -111,6 +118,25 @@ export class NavigatorComponent implements OnInit {
     }).catch( (err) => {
       this.showLoginError=true;
     });
+  }
+
+  onSubmitLogUser(){
+    this.authService.loginEmail(this.email, this.password)
+    .then( (res) => {
+      this.showSuccessModal();
+      this.showLoginModal();
+      console.log("Loged in: " + this.email);
+      this.sessionsLoged= true;
+    }).catch((err) => {
+      this.showLoginError=true;
+    })
+  }
+
+  logOut(){
+    this.authService.logout()
+    .then((res) => {
+
+    })
   }
 
 }

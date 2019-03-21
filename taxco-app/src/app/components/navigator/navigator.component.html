@@ -2,6 +2,11 @@
     <div id="navigation-bar">
         <div id="navigation-list">
             <ul id="navbar" class="main-navbar">
+                <!--<li class="languaje-zone">
+                    <a (click)="showRegisterModal()">
+                        <img class="user-logo" src="assets/resources/images/user-profile.png">
+                    </a>          
+                </li>-->
                 <li class="navbar-item">
                     <a class="taxco-navbar-text" routerLink= "/" routerLinkActive="active">Inicio</a>
                 </li>
@@ -11,21 +16,24 @@
                 <li id="logo" class="navbar-item logo">
                     <a routerLink= "/" routerLinkActive="active"><img id="logo-img" src="assets/resources/images/logo-blanco.png" class="navbar-icon"></a>
                     <!--<a routerLink= "/" routerLinkActive="active" style="position:absolute"><img id="logo-img-hover" src="assets/resources/images/logo-negro.png" class="navbar-icon"></a>-->
-                </li>
-                <li class="navbar-item">
-                    <a class="taxco-navbar-text" (click)="showRegisterModal()" id="userTag">Usuario</a> 
-                </li>                
+                </li>               
                 <li class="navbar-item">
                     <a class="taxco-navbar-text" routerLink= "/aboutUs" routerLinkActive="active">Sobre nosotros</a>
                 </li>
-                <!--<li class="navbar-item">
+                <li class="navbar-item">
                     <a class="taxco-navbar-text" routerLink= "/trophies" routerLinkActive="active">Medición de trofeos</a>
-                </li>-->
+                </li>
                 <li class="hamburger">
                     <img class="menu-icon" src="assets/resources/images/menu-icon.png" (click)="showMenu()">
-                </li>                
+                </li> 
+                <li class="user-zone">
+                    <a (click)="showRegisterModal()">
+                        <img class="user-logo" src="assets/resources/images/user-profile.png">
+                    </a>          
+                </li>               
             </ul>
         </div>
+        
     </div>
     <div class="header-aux" [ngClass]="showMobileMenu ? 'click-menu' : 'undo-click-menu'" (clickOutside)="showMenu()">
         <ul id="navbar-aux">
@@ -83,7 +91,7 @@
     </div>
     <div class="modal-content text-center" *ngIf="showModalLogin">
         <h2 class="text-center">Login</h2>
-        <form (submit)="onSubmitAddUser()">
+        <form (submit)="onSubmitLogUser()">
             <div class="form-group">
               <label for="email">Email</label>
               <input type="email" name="email" [(ngModel)]="email" id="email" class="form-control">

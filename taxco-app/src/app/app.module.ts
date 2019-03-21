@@ -2,27 +2,28 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
-
-import { AppComponent } from './app.component';
-
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { FormsModule } from '@angular/forms';
-import { NavigatorComponent } from './navigator/navigator.component';
-import { HomePageComponent } from './home-page/home-page.component';
-import { FooterComponent } from './footer/footer.component';
-import { GalleryComponent } from './gallery/gallery.component';
-import { ShopComponent } from './shop/shop.component';
-import { ShopItemComponent } from './shop/shop-item/shop-item.component';
-import { ContactComponent } from './contact/contact.component';
-import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
-import { ImageService } from './gallery/image/shared/image.service';
-import { Image } from './gallery/image/image.component';
-
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { environment } from '../environments/environment';
+import { AppComponent } from './app.component';
 
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { FormsModule } from '@angular/forms';
+import { NavigatorComponent } from './components/navigator/navigator.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
+import { ShopComponent } from './components/shop/shop.component';
+import { ShopItemComponent } from './components/shop/shop-item/shop-item.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { NotFoundPageComponent } from './components/not-found-page/not-found-page.component';
+import { Image } from './components/gallery/image/image.component';
+
+import { ImageService } from './services/images/image.service';
+import { AuthService } from './services/auth/auth.service';
+import { LoginComponent } from './components/auth/login/login.component';
+import { RegisterComponent } from './components/auth/register/register.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomePageComponent},
@@ -33,7 +34,7 @@ const appRoutes: Routes = [
 ]
 
 
-import { AuthService } from './services/auth/auth.service';
+
 
 @NgModule({
   declarations: [
@@ -46,7 +47,9 @@ import { AuthService } from './services/auth/auth.service';
     ShopItemComponent,
     ContactComponent,
     Image,
-    NotFoundPageComponent
+    NotFoundPageComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

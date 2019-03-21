@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Image } from '../gallery/image/image.component';
-import { ImageService } from './image/shared/image.service';
+import { ImageService } from '../../services/images/image.service';
 
 @Component({
   selector: 'app-gallery',

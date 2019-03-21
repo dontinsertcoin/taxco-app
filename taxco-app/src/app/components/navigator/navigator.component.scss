@@ -12,9 +12,9 @@
 }
 
 .navigation-list {
-    display: table-cell; /* <---- Div hijo, definimos como celda de la tabla*/
-    vertical-align: middle; /* <---- Alineamos la celda de la tabla en vertical*/
-    text-align: center; /* <---- Alineamos su contenido en horizontal*/
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
     height: 100%;
 }
 
@@ -42,7 +42,7 @@
     top: 0; /* Position the navbar at the top of the page */
     background: #333;
     box-shadow: 0px 2px 4px #AAA;
-    z-index: 99;
+    z-index: 97;
 }
 
 .navbar-icon{
@@ -63,13 +63,6 @@
 
 .scrolled-logo {
     width: 75px;
-}
-
-#userTag{
-    color: white;
-    &:hover {
-        color: #333;
-    }
 }
 
 .taxco-navbar-text {
@@ -93,6 +86,18 @@
 
 .navbar-aux-item{
     display: none;
+}
+
+.user-zone {
+    list-style: none;
+    width: 30px;
+    float: right;
+    margin-top: 30px;
+    margin-right: -50px;
+}
+
+.user-logo {
+    width: 40px;
 }
 
 @media screen and (max-width:1200px){
