@@ -1,28 +1,33 @@
-<nav id="header">
-    <ul id="navbar">
-        <li class="navbar-item logo">
-            <a routerLink= "/" routerLinkActive="active"><img src="assets/resources/images/logo-blanco.png" class="navbar-icon"></a>
-        </li>
-        <li class="navbar-item">
-            <a class="taxco-navbar-text" routerLink= "/" routerLinkActive="active">Inicio</a>
-        </li>
-        <li class="navbar-item">
-            <a class="taxco-navbar-text intermedium" routerLink= "/gallery" routerLinkActive="active">Galería</a>
-        </li>
-        <li class="navbar-item">
-            <a class="taxco-navbar-text intermedium" routerLink= "/trophies" routerLinkActive="active">Medición de trofeos</a>
-        </li>
-        <li class="navbar-item">
-            <a class="taxco-navbar-text intermedium" routerLink= "/aboutUs" routerLinkActive="active">Sobre nosotros</a>
-        </li>
-        <li class="navbar-item">
-            <a class="taxco-navbar-text intermedium" (click)="showUserModal()" id="userTag">Usuario</a> 
-        </li>
-        <li class="hamburger">
-            <img class="menu-icon" src="assets/resources/images/menu-icon.png" (click)="showMenu()">
-        </li>
-    </ul>
-    <div class="header-aux" [ngClass]="showMobileMenu ? 'click-menu' : 'undo-click-menu'" (clickOutside)="hideMenu()">
+<nav id="header" (window:scroll)="userHasScrolled($event)">
+    <div id="navigation-bar">
+        <div id="navigation-list">
+            <ul id="navbar" class="main-navbar">
+                <li class="navbar-item">
+                    <a class="taxco-navbar-text" routerLink= "/" routerLinkActive="active">Inicio</a>
+                </li>
+                <li class="navbar-item">
+                    <a class="taxco-navbar-text" routerLink= "/gallery" routerLinkActive="active">Galería</a>
+                </li>
+                <li id="logo" class="navbar-item logo">
+                    <a routerLink= "/" routerLinkActive="active"><img id="logo-img" src="assets/resources/images/logo-blanco.png" class="navbar-icon"></a>
+                    <!--<a routerLink= "/" routerLinkActive="active" style="position:absolute"><img id="logo-img-hover" src="assets/resources/images/logo-negro.png" class="navbar-icon"></a>-->
+                </li>
+                <li class="navbar-item">
+                    <a class="taxco-navbar-text" (click)="showRegisterModal()" id="userTag">Usuario</a> 
+                </li>                
+                <li class="navbar-item">
+                    <a class="taxco-navbar-text" routerLink= "/aboutUs" routerLinkActive="active">Sobre nosotros</a>
+                </li>
+                <!--<li class="navbar-item">
+                    <a class="taxco-navbar-text" routerLink= "/trophies" routerLinkActive="active">Medición de trofeos</a>
+                </li>-->
+                <li class="hamburger">
+                    <img class="menu-icon" src="assets/resources/images/menu-icon.png" (click)="showMenu()">
+                </li>                
+            </ul>
+        </div>
+    </div>
+    <div class="header-aux" [ngClass]="showMobileMenu ? 'click-menu' : 'undo-click-menu'" (clickOutside)="showMenu()">
         <ul id="navbar-aux">
             <li class="navbar-aux-item first-item">
                 <a routerLink= "/" routerLinkActive="active" class="taxco-navbar-text">Inicio</a>
@@ -37,31 +42,70 @@
                 <a routerLink= "/aboutUs" routerLinkActive="active" class="taxco-navbar-text">Sobre nosotros</a>
             </li>
             <li class="navbar-aux-item last-item">
-                <a routerLink= "/" routerLinkActive="active" class="taxco-navbar-text">Más</a> 
+                <a (click)="showRegisterModal()" id="userTag" class="taxco-navbar-text">Usuario</a> 
             </li>
         </ul>
     </div>
 </nav>
-<div id="myModal" class="modal" *ngIf="showModalUser">
-    <div class="modal-content text-center">
+<div id="myModal" class="modal" *ngIf="showModal">
+    <div class="modal-content text-center" *ngIf="showModalRegister">
       <h2 class="text-center">Registro</h2>
-      <form>
+      <form (submit)="onSubmitAddUser()">
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" name="email" id="email" class="form-control">
+            <input type="email" name="email" [(ngModel)]="email" id="email" class="form-control">
           </div>
           <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" name="password" id="password" class="form-control">
+            <input type="password" name="password" [(ngModel)]="password" id="password" class="form-control">
+        </div>
+        <div *ngIf="showLoginError">
+            <h4 class="text-center">No ha sido posible realizr la operación</h4>
         </div>
         <div class="row">
-            <div class="col-md-6">
-                <input type="text" value="Enviar" class="btn btn-primary btn-block btn-lg">
+            <div class="col-md-4">
+                <input type="submit" value="Enviar" class="btn btn-primary btn-block btn-lg">
             </div>
-            <div class="col-md-6">
-                <input type="text" value="Cancelar" class="btn btn-block btn-danger btn-lg">
+            <div class="col-md-4">
+                <input type="text" value="Acceder" class="btn btn-primary btn-block btn-lg" (click)="showLoginModal()">
+            </div>
+            <div class="col-md-4">
+                <input type="text" value="Cancelar" class="btn btn-block btn-danger btn-lg" (click)="showRegisterModal()">
             </div>
         </div>
       </form>
     </div>
+    <div class="modal-content text-center" *ngIf="showModalSuccess">
+        <h2 class="text-center">Usuario registrado con éxito</h2>
+        <div class="col-md-6">
+            <input type="text" value="Acceder" class="btn btn-block btn-danger btn-lg" (click)="showSuccessModal()">
+        </div>
+    </div>
+    <div class="modal-content text-center" *ngIf="showModalLogin">
+        <h2 class="text-center">Login</h2>
+        <form (submit)="onSubmitAddUser()">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" name="email" [(ngModel)]="email" id="email" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" name="password" [(ngModel)]="password" id="password" class="form-control">
+          </div>
+          <div *ngIf="showLoginError">
+              <h4 class="text-center">No ha sido posible realizr la operación</h4>
+          </div>
+          <div class="row">
+              <div class="col-md-4">
+                  <input type="submit" value="Acceder" class="btn btn-primary btn-block btn-lg">
+              </div>
+              <div class="col-md-4">
+                <input type="text" value="Registro" class="btn btn-primary btn-block btn-lg" (click)="showRegisterModal()">
+              </div>
+              <div class="col-md-4">
+                  <input type="text" value="Cancelar" class="btn btn-block btn-danger btn-lg" (click)="showLoginModal()">
+              </div>
+          </div>
+        </form>
+      </div>
 </div>

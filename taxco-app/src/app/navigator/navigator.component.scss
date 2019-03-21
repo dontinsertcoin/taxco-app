@@ -3,41 +3,72 @@
     margin: 0px;
     padding: 0px;    
     height: 80px;
-    
 }
 
-#navbar{
-    max-width: 100%;
-    height: 80px;
+.navigation-bar {
+    display: table;
+    height: 100px;
+    width: 100%;
+}
+
+.navigation-list {
+    display: table-cell; /* <---- Div hijo, definimos como celda de la tabla*/
+    vertical-align: middle; /* <---- Alineamos la celda de la tabla en vertical*/
+    text-align: center; /* <---- Alineamos su contenido en horizontal*/
+    height: 100%;
+}
+
+.main-navbar{
+    margin:auto;
+    padding:0;
+    width: 960px;
+}
+
+.scrolled {
+    li{
+        height: 65px;
+        a {
+            line-height: 60px;
+            &:hover{
+                background: white;
+                color: #333;
+                height: 60px;
+            }
+        }
+    }
+    width: 100%;
+    height: 65px;
     position: fixed; /* Set the navbar to fixed position */
     top: 0; /* Position the navbar at the top of the page */
-    width: 100%; /* Full width */
     background: #333;
     box-shadow: 0px 2px 4px #AAA;
     z-index: 99;
 }
 
 .navbar-icon{
-    width: 90px;
+    width: 120px;
     margin-top: 5px;
-    float: left;
 }
 
 .navbar-item{
-    width: 200px;
-    float: left;
-    list-style: none;
+    display: inline-block;
+    text-decoration: none;
+    list-style-type: none;
+    width: 210px;
 }
 
 .logo{
-    width: 110px;
+    width: 120px;
+}
+
+.scrolled-logo {
+    width: 75px;
 }
 
 .taxco-navbar-text, #userTag{
     display: block;
     color: white;
     line-height: 80px;
-    height: 80px;
     text-align: center; 
     font-family: cursive;
     font-size: 20px;
@@ -52,6 +83,11 @@
 
 .intermedium{
     border-left: solid #CCC 1px;
+    &:hover{
+        background: white;
+        color: #333;
+        height: 80px;
+    }
 }
 
 .hamburger{
@@ -66,6 +102,7 @@
 
     #header{   
         height: 65px;
+        background: #333;
     }
 
     #navbar{
@@ -88,17 +125,19 @@
     }
     .hamburger{
         float: right;
-        display: inline;        
+        display: inline;    
     }
 
     .menu-icon{
         width: 40px;
         margin-top: 15px;
         margin-right: 20px;
+        z-index: 99;
     }
 
     .hamburger-icon{
         margin-top: 50px;
+        z-index: 99;
     }
 
     .navbar-aux{
@@ -121,9 +160,8 @@
         position: fixed;
         display: none;
         background: #333;
-        padding-top: 60px;
         padding-right: 40px;
-        z-index: 98;
+        z-index: 7;
         width: 100%;
     }
 

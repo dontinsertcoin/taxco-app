@@ -19,8 +19,9 @@ import { ImageService } from './gallery/image/shared/image.service';
 import { Image } from './gallery/image/image.component';
 
 import { AngularFireModule } from '@angular/fire';
-import { AngularFireAuthModule, AngularFireAuth } from '@angular/fire/auth';
-import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
+import { environment } from '../environments/environment';
 
 
 const appRoutes: Routes = [
@@ -52,14 +53,9 @@ import { AuthService } from './services/auth/auth.service';
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
     FormsModule,
-    AngularFireModule.initializeApp({     
-      apiKey: "AIzaSyCn8R5ojJ4IXqwpBseAR2tbiQoF4D3pev4",
-      authDomain: "taxco-app.firebaseapp.com",
-      databaseURL: "https://taxco-app.firebaseio.com",
-      projectId: "taxco-app",
-      storageBucket: "taxco-app.appspot.com",
-      messagingSenderId: "3588211874"  
-    }),
+    AngularFireModule.initializeApp(
+      environment.firebaseConfig
+    ),
     AngularFireAuthModule ,
     RouterModule.forRoot(
       appRoutes,

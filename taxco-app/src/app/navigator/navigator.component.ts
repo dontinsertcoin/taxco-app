@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+
+import { Component, OnInit, HostListener } from '@angular/core';
+import { AuthService } from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-navigator',
@@ -7,11 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigatorComponent implements OnInit {
 
-  showMobileMenu: boolean= false;
-  showModalUser: boolean= false;
 
-  constructor() { 
-  }
+  showMobileMenu : boolean= false;
+  showModalRegister : boolean= false;
+  showModalSuccess : boolean= false;
+  showLoginError : boolean= false;
+  showModalLogin : boolean = false;
+  showModal : boolean = false;
+  public email : string;
+  public password : string;
+
+  constructor(public authService: AuthService) { }
 
   ngOnInit() {
   }
@@ -32,21 +40,77 @@ export class NavigatorComponent implements OnInit {
     }
   }
 
-  hideMenu(){
-    this.showMobileMenu= false;
-  }
-
-  addShowClass(){
-  }
-
-  showUserModal(){
-    if (!this.showModalUser){
-      this.showModalUser=true;
-      console.log("Activo");
+  showRegisterModal(){
+    if (!this.showModalRegister){
+      if (this.showMobileMenu){
+        this.showMobileMenu = false;
+      }
+      this.showModal= true;
+      this.showModalRegister=true;
+      this.showModalLogin = false;
     }else{
-      this.showModalUser=false;
-      console.log("Inactivo");
+      if (!this.showModalSuccess){
+        this.showModal= false;
+      }      
+      this.showModalRegister=false;
+      this.showLoginError=false;
     }
+  }
+
+  @HostListener("window:scroll", ['$event'])
+  userHasScrolled($event:Event){
+    let scrollOffset = $event.srcElement.children[0].scrollTop;
+    let navbar = document.getElementById('navbar');
+    let logo = document.getElementById('logo');
+    let logoImg = document.getElementById('logo-img');
+    let navigationBar = document.getElementById('navigation-bar');
+    let navigationList = document.getElementById('navigation-list');
+    //if (!mobileDevice*){
+      if (scrollOffset > 30){     
+        navigationBar.className="navigation-bar"; 
+        navigationList.className="navigation-list"; 
+        navbar.classList.add('scrolled');
+        logo.classList.add('scrolled-logo');
+        logoImg.classList.add('scrolled-logo');
+      } else {
+        navigationBar.className=""; 
+        navigationList.className="";
+        navbar.classList.remove('scrolled');
+        logo.classList.remove('scrolled-logo');
+        logoImg.classList.remove('scrolled-logo');
+      }
+    //}
+  }
+
+  showSuccessModal(){
+    if (!this.showModalSuccess){
+      this.showModalSuccess=true;
+    }else{
+      this.showModal= false;
+      this.showModalSuccess=false;
+    }
+  }
+
+  showLoginModal(){
+    if (!this.showModalLogin){
+      this.showModal= true;
+      this.showModalRegister=false;
+      this.showModalLogin = true;
+    }else{
+      this.showModal= false;
+      this.showModalRegister=false;
+      this.showLoginError=false;
+    }
+  }
+
+  onSubmitAddUser(){
+    this.authService.userRegistry(this.email, this.password)
+    .then( (res) => {      
+      this.showSuccessModal();
+      this.showRegisterModal();
+    }).catch( (err) => {
+      this.showLoginError=true;
+    });
   }
 
 }
