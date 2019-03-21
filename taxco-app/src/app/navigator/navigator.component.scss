@@ -65,7 +65,14 @@
     width: 75px;
 }
 
-.taxco-navbar-text, #userTag{
+#userTag{
+    color: white;
+    &:hover {
+        color: #333;
+    }
+}
+
+.taxco-navbar-text {
     display: block;
     color: white;
     line-height: 80px;
@@ -73,17 +80,7 @@
     font-family: cursive;
     font-size: 20px;
     text-decoration: none;
-} 
-
-.taxco-navbar-text:hover, .taxco-navbar-text:focus, #userTag:focus, #userTag:hover{
-    background: white;
-    color: #333;
-    height: 80px;
-}
-
-.intermedium{
-    border-left: solid #CCC 1px;
-    &:hover{
+    &:hover {
         background: white;
         color: #333;
         height: 80px;
