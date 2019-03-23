@@ -10,9 +10,9 @@ import { AppComponent } from './app.component';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FormsModule } from '@angular/forms';
-import { NavigatorComponent } from './components/navigator/navigator.component';
+import { NavigatorComponent } from './components/shared/navigator/navigator.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { ShopComponent } from './components/shop/shop.component';
 import { ShopItemComponent } from './components/shop/shop-item/shop-item.component';
@@ -22,8 +22,8 @@ import { Image } from './components/gallery/image/image.component';
 
 import { ImageService } from './services/images/image.service';
 import { AuthService } from './services/auth/auth.service';
-import { LoginComponent } from './components/auth/login/login.component';
-import { RegisterComponent } from './components/auth/register/register.component';
+import { LoginComponent } from './components/shared/auth/login/login.component';
+import { RegisterComponent } from './components/shared/auth/register/register.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomePageComponent},

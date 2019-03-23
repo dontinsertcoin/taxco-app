@@ -1,6 +1,5 @@
-
 import { Component, OnInit, HostListener } from '@angular/core';
-import { AuthService } from '../../services/auth/auth.service';
+import { AuthService } from '../../../services/auth/auth.service';
 
 @Component({
   selector: 'app-navigator',
@@ -44,21 +43,23 @@ export class NavigatorComponent implements OnInit {
 
   showRegisterModal(){
     if (this.sessionsLoged){
-      this.showLogOut = true;
-    }
-    if (!this.showModalRegister){
-      if (this.showMobileMenu){
-        this.showMobileMenu = false;
-      }
       this.showModal= true;
-      this.showModalRegister=true;
-      this.showModalLogin = false;
-    }else{
-      if (!this.showModalSuccess){
-        this.showModal= false;
-      }      
-      this.showModalRegister=false;
-      this.showLoginError=false;
+      this.showLogOut = true;
+    } else {
+      if (!this.showModalRegister){
+        if (this.showMobileMenu){
+          this.showMobileMenu = false;
+        }
+        this.showModal= true;
+        this.showModalRegister=true;
+        this.showModalLogin = false;
+      }else{
+        if (!this.showModalSuccess){
+          this.showModal= false;
+        }      
+        this.showModalRegister=false;
+        this.showLoginError=false;
+      }
     }
   }
 
@@ -135,7 +136,9 @@ export class NavigatorComponent implements OnInit {
   logOut(){
     this.authService.logout()
     .then((res) => {
-
+      this.sessionsLoged = false;
+      this.showLogOut = false;
+      this.showModal = false;
     })
   }
 
