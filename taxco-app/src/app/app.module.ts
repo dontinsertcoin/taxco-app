@@ -18,7 +18,7 @@ import { ShopComponent } from './components/shop/shop.component';
 import { ShopItemComponent } from './components/shop/shop-item/shop-item.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { NotFoundPageComponent } from './components/not-found-page/not-found-page.component';
-import { Image } from './components/gallery/image/image.component';
+import { Image } from './components/shared/image/image.component';
 
 import { ImageService } from './services/images/image.service';
 import { AuthService } from './services/auth/auth.service';
