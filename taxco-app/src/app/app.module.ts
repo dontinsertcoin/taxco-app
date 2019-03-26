@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
@@ -15,7 +16,7 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { ShopComponent } from './components/shop/shop.component';
-import { ShopItemComponent } from './components/shop/shop-item/shop-item.component';
+import { ProductComponent } from './components/shop/product/product.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { NotFoundPageComponent } from './components/not-found-page/not-found-page.component';
 import { Image } from './components/shared/image/image.component';
@@ -44,7 +45,7 @@ const appRoutes: Routes = [
     FooterComponent,
     GalleryComponent,
     ShopComponent,
-    ShopItemComponent,
+    ProductComponent,
     ContactComponent,
     Image,
     NotFoundPageComponent,
@@ -59,7 +60,7 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(
       environment.firebaseConfig
     ),
-    AngularFireAuthModule ,
+    AngularFireAuthModule ,    
     RouterModule.forRoot(
       appRoutes,
       { 
@@ -68,6 +69,7 @@ const appRoutes: Routes = [
   ],
   providers: [ 
     ImageService,
+    AngularFirestore ,
     AuthService
   ],
   bootstrap: [AppComponent],

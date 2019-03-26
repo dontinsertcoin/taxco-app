@@ -42,7 +42,7 @@ export class GalleryComponent implements OnInit {
   filtrar(filtro: string){
     this.constructor(this.imageService);
     if (filtro != 'Todas'){
-      this.images= this.images.filter( image => image.tipe === filtro);
+      this.images= this.images.filter( image => image.type === filtro);
     }    
     this.maxPerPage= (this.images.length/this.imagesPerRaw) > this.rawsPerPage ? 
       this.rawsPerPage : this.images.length/this.imagesPerRaw;
