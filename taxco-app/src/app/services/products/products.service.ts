@@ -14,7 +14,7 @@ export class ProductsService {
   private products : Observable<ProductComponent []>;
 
   constructor(private firestoreDataBase: AngularFirestore) { 
-    this.productsCollection = firestoreDataBase.collection<ProductComponent>('products');
+    this.productsCollection = firestoreDataBase.collection<ProductComponent>('Productos');
     this.products = this.productsCollection.valueChanges();
   }
 
