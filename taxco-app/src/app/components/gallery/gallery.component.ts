@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Image } from '../gallery/image/image.component';
-import { ImageService } from './image/shared/image.service';
+import { Image } from '../shared/image/image.component';
+import { ImageService } from '../../services/images/image.service';
 
 @Component({
   selector: 'app-gallery',
@@ -42,7 +42,7 @@ export class GalleryComponent implements OnInit {
   filtrar(filtro: string){
     this.constructor(this.imageService);
     if (filtro != 'Todas'){
-      this.images= this.images.filter( image => image.tipe === filtro);
+      this.images= this.images.filter( image => image.type === filtro);
     }    
     this.maxPerPage= (this.images.length/this.imagesPerRaw) > this.rawsPerPage ? 
       this.rawsPerPage : this.images.length/this.imagesPerRaw;

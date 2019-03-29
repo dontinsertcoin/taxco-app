@@ -1,20 +1,20 @@
 <div class="container-fluid gallery container">
   <div class="row container container-fluid top-menu text-center">
     <ul class="gallery-filter-list text-center">
-      <li class="list-item list-first" href="#">
-        <a href="#" class="list-link" (click)="filtrar('Todas')">Todas</a>
+      <li class="list-item list-first">
+        <a class="list-link" (click)="filtrar('Todas')">Todas</a>
       </li>
       <li class="list-item list-intermedium">
-        <a href="#" class="list-link"  (click)="filtrar('Hueso')">Hueso</a>
+        <a class="list-link"  (click)="filtrar('Hueso')">Hueso</a>
       </li>
-      <li class="list-item list-intermedium" href="#">
-        <a href="#" class="list-link"  (click)="filtrar('Entero')">Enteros</a>
+      <li class="list-item list-intermedium">
+        <a class="list-link"  (click)="filtrar('Entero')">Enteros</a>
       </li>
-      <li class="list-item list-intermedium" href="#">
-        <a href="#" class="list-link"  (click)="filtrar('Pecho')">Pecho</a>
+      <li class="list-item list-intermedium">
+        <a class="list-link"  (click)="filtrar('Pecho')">Pecho</a>
       </li>
-      <li class="list-item list-last" href="#">
-        <a href="#" class="list-link"  (click)="filtrar('Pabellon')">Pabellones</a>
+      <li class="list-item list-last">
+        <a class="list-link"  (click)="filtrar('Pabellon')">Pabellones</a>
       </li>
     </ul>
   </div>
@@ -30,7 +30,7 @@
     <nav class="page-navigator" *ngIf="(lastPage>1)" aria-label="Page navigation example">
       <ul class="pagination pg-blue">
         <li class="page-item" *ngIf="actualPage>1" >
-          <a class="page-link wider text-center" (click)="previousPage()" mdbWavesEffect href="#">
+          <a class="page-link wider text-center" (click)="previousPage()" mdbWavesEffect>
             Anterior
           </a>
         </li>
@@ -40,7 +40,7 @@
           </a>
         </li>-->
         <li class="page-item" *ngIf="(lastPage>actualPage)">
-          <a class="page-link wider text-center" mdbWavesEffect (click)="nextPage()" href="#">
+          <a class="page-link wider text-center" mdbWavesEffect (click)="nextPage()">
             Siguiente
           </a>
         </li>

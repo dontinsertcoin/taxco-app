@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Image } from '../image.component';
+import { Image } from '../../components/shared/image/image.component';
 
 @Injectable()
 export class ImageService{

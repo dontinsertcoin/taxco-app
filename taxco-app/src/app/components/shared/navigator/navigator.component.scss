@@ -12,9 +12,9 @@
 }
 
 .navigation-list {
-    display: table-cell; /* <---- Div hijo, definimos como celda de la tabla*/
-    vertical-align: middle; /* <---- Alineamos la celda de la tabla en vertical*/
-    text-align: center; /* <---- Alineamos su contenido en horizontal*/
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
     height: 100%;
 }
 
@@ -42,7 +42,7 @@
     top: 0; /* Position the navbar at the top of the page */
     background: #333;
     box-shadow: 0px 2px 4px #AAA;
-    z-index: 99;
+    z-index: 97;
 }
 
 .navbar-icon{
@@ -65,7 +65,7 @@
     width: 75px;
 }
 
-.taxco-navbar-text{
+.taxco-navbar-text {
     display: block;
     color: white;
     line-height: 80px;
@@ -73,7 +73,7 @@
     font-family: cursive;
     font-size: 20px;
     text-decoration: none;
-    &:hover{
+    &:hover {
         background: white;
         color: #333;
         height: 80px;
@@ -86,6 +86,18 @@
 
 .navbar-aux-item{
     display: none;
+}
+
+.user-zone {
+    list-style: none;
+    width: 30px;
+    float: right;
+    margin-top: 30px;
+    margin-right: -50px;
+}
+
+.user-logo {
+    width: 40px;
 }
 
 @media screen and (max-width:1200px){
@@ -166,4 +178,29 @@
     .last-item{
         border-bottom: #333 solid 1px;
     }
+}
+
+/* The Modal (background) */
+.modal {
+    display: block; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    scroll-behavior: unset;
+    z-index: 99; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: hidden; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+}
+  
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    margin-top: 15%;
+    padding: 10px;
+    border: 1px solid #888;
+    width: 60%; /* Could be more or less, depending on screen size */
 }
