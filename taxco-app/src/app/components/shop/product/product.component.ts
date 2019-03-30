@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Image } from '../../shared/image/image.component';
 import { HttpClient } from '@angular/common/http';
 
 const FIREBASE_API = "AIzaSyCn8R5ojJ4IXqwpBseAR2tbiQoF4D3pev4"
@@ -15,7 +14,7 @@ export class ProductComponent implements OnInit {
   name: String;
   price: Number;
   quantity: Number;
-  photo: Image;
+  image: String;
 
   constructor(private http: HttpClient) { 
     this.http.get(FIREBASE_API);
