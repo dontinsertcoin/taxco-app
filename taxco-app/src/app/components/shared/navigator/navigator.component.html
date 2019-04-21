@@ -7,12 +7,6 @@
                         <img class="user-logo" src="assets/resources/images/user-profile.png">
                     </a>          
                 </li>-->
-                <li class="navbar-item">
-                    <a class="taxco-navbar-text" routerLink= "/shop" routerLinkActive="active">Tienda</a>
-                </li>
-                <li class="navbar-item">
-                    <a class="taxco-navbar-text" routerLink= "/gallery" routerLinkActive="active">Galería</a>
-                </li>
                 <li id="logo" class="navbar-item logo">
                     <a routerLink= "/" routerLinkActive="active">
                         <img id="logo-img" 
@@ -20,12 +14,18 @@
                         class="navbar-icon">
                     </a>
                     <!--<a routerLink= "/" routerLinkActive="active" style="position:absolute"><img id="logo-img-hover" src="assets/resources/images/logo-negro.png" class="navbar-icon"></a>-->
-                </li>         
+                </li>
                 <li class="navbar-item">
                     <a class="taxco-navbar-text" routerLink= "/aboutUs" routerLinkActive="active">Sobre nosotros</a>
                 </li>
                 <li class="navbar-item">
+                    <a class="taxco-navbar-text" routerLink= "/gallery" routerLinkActive="active">Galería</a>
+                </li>  
+                <li class="navbar-item">
                     <a class="taxco-navbar-text" routerLink= "/trophies" routerLinkActive="active">Medición de trofeos</a>
+                </li>       
+                <li class="navbar-item">
+                    <a class="taxco-navbar-text" routerLink= "/shop" routerLinkActive="active">Tienda</a>
                 </li>
                 <li class="hamburger">
                     <img class="menu-icon" 
@@ -62,68 +62,3 @@
         </ul>
     </div>
 </nav>
-<div id="myModal" class="modal" *ngIf="showModal">
-    <div class="modal-content text-center" *ngIf="showModalRegister">
-      <h2 class="text-center">Registro</h2>
-      <form (submit)="onSubmitAddUser()">
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" name="email" [(ngModel)]="email" id="email" class="form-control">
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" name="password" [(ngModel)]="password" id="password" class="form-control">
-        </div>
-        <div *ngIf="showLoginError">
-            <h4 class="text-center">No ha sido posible realizr la operación</h4>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <input type="submit" value="Enviar" class="btn btn-primary btn-block btn-lg">
-            </div>
-            <div class="col-md-4">
-                <input type="text" value="Acceder" class="btn btn-primary btn-block btn-lg" (click)="showLoginModal()">
-            </div>
-            <div class="col-md-4">
-                <input type="text" value="Cancelar" class="btn btn-block btn-danger btn-lg" (click)="showRegisterModal()">
-            </div>
-        </div>
-      </form>
-    </div>
-    <div class="modal-content text-center" *ngIf="showModalSuccess">
-        <h2 class="text-center">Usuario registrado con éxito</h2>
-        <div class="col-md-6">
-            <input type="text" value="Acceder" class="btn btn-block btn-danger btn-lg" (click)="showSuccessModal()">
-        </div>
-    </div>
-    <div class="modal-content text-center" *ngIf="showModalLogin">
-        <h2 class="text-center">Login</h2>
-        <form (submit)="onSubmitLogUser()">
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" name="email" [(ngModel)]="email" id="email" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="password">Password</label>
-              <input type="password" name="password" [(ngModel)]="password" id="password" class="form-control">
-          </div>
-          <div *ngIf="showLoginError">
-              <h4 class="text-center">No ha sido posible realizr la operación</h4>
-          </div>
-          <div class="row">
-              <div class="col-md-4">
-                  <input type="submit" value="Acceder" class="btn btn-primary btn-block btn-lg">
-              </div>
-              <div class="col-md-4">
-                <input type="text" value="Registro" class="btn btn-primary btn-block btn-lg" (click)="showRegisterModal()">
-              </div>
-              <div class="col-md-4">
-                  <input type="text" value="Cancelar" class="btn btn-block btn-danger btn-lg" (click)="showLoginModal()">
-              </div>
-          </div>
-        </form>
-    </div>
-    <div class="modal-content text-center" *ngIf="showLogOut">
-            <input type="text" value="Cerrar sesión" class="btn btn-block btn-danger btn-lg" (click)="logOut()">        
-    </div>
-</div>

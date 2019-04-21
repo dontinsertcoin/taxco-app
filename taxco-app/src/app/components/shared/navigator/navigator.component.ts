@@ -10,15 +10,15 @@ export class NavigatorComponent implements OnInit {
 
 
   showMobileMenu : boolean= false;
+  email : string;
+  password : string;
+  sessionsLoged: boolean;
+  showLogOut: boolean;
   showModalRegister : boolean= false;
   showModalSuccess : boolean= false;
   showLoginError : boolean= false;
   showModalLogin : boolean = false;
   showModal : boolean = false;
-  email : string;
-  password : string;
-  sessionsLoged: boolean;
-  showLogOut: boolean;
 
   constructor(public authService: AuthService) { }
 
@@ -42,6 +42,7 @@ export class NavigatorComponent implements OnInit {
   }
 
   showRegisterModal(){
+
     if (this.sessionsLoged){
       this.showModal= true;
       this.showLogOut = true;

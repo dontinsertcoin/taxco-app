@@ -1,27 +1,42 @@
-.main-container {
+.main-container-shop {
+    text-align: center;
+    margin: auto;
     margin-top: 70px;
     height: 100%;
 }
+.item-list{
+    text-align: center;
+    width: 100%;
+    list-style: none;
+    text-align: center;
+}
+
+.item-container{
+    display: inline-block;
+    width: 320px;
+    margin-right: 0px;
+}
 
 .shop-item {
-    max-width: 250px;
-    height: 350px;
+    width: 260px;
+    height: 390px;
     background-color: white;
-    margin: auto;
+    margin: 0;
     border-radius: 15px;
 }
 
 .item-image {
     margin: auto;
-    width: 200px;
+    width: 100%;
 }
 
 .item-photo {
     display:block;
     width: 100%;
+    height: 260px;
     margin: auto;
     margin-top: 10px;
-    border-radius: 10px;
+    border-radius: 15px 15px 0px 0px;
 }
 
 .item-data {
@@ -29,9 +44,11 @@
 }
 
 .item-name {
-    height: 90px;
+    margin:auto;
+    height: 50px;
 }
 
 .item-price {
-    float: right;
+    margin:auto;
+    height: 50px;
 }

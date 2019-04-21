@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/services/products/products.service';
 import { ProductComponent } from './product/product.component';
+import { ModalComponent } from '../shared/modal/modal.component'
 
 @Component({
   selector: 'app-shop',
@@ -9,8 +10,11 @@ import { ProductComponent } from './product/product.component';
 })
 export class ShopComponent implements OnInit {
 
-  public products = [];
-  public product = '';
+  public products: Array <ProductComponent> = [];
+  public shoppingCart: Map <ProductComponent, Number>= new Map();
+  public modalComponent: ModalComponent;
+
+  public auxNumber: Number;
 
   constructor(private productService: ProductsService) { }
 
@@ -18,10 +22,30 @@ export class ShopComponent implements OnInit {
     this.productService.getProducts().subscribe( products => {
       console.log('PRODUCTS', products);
       this.products = products;
-      for (let item of this.products) {
-        console.log(item.Name);
-      }
     })
+  }
+
+  addToCart(item: ProductComponent) {
+    if ((item.quantity) > 0){
+      if (this.shoppingCart.has(item)){
+        this.auxNumber = this.shoppingCart.get(item).valueOf() + 1;
+        this.shoppingCart.delete(item);
+        this.shoppingCart.set(item, this.auxNumber);
+      } else {
+        this.shoppingCart.set(item, 1);
+      }
+      console.log(this.shoppingCart);
+      this.lessQuantity(item);
+      //this.modalComponent = new ModalComponent('shoppingCart', this.shoppingCart);
+    }    
+  }
+
+  removeFromCart(item: ProductComponent) {
+    this.shoppingCart.delete(item);
+  }
+
+  lessQuantity(item: ProductComponent){
+    this.products[this.products.indexOf(item)].quantity = this.products[this.products.indexOf(item)].quantity.valueOf() - 1;
   }
 
 }

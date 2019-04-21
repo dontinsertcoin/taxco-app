@@ -25,6 +25,8 @@ import { ImageService } from './services/images/image.service';
 import { AuthService } from './services/auth/auth.service';
 import { LoginComponent } from './components/shared/auth/login/login.component';
 import { RegisterComponent } from './components/shared/auth/register/register.component';
+import { ShoppingCartComponent } from './components/shop/shopping-cart/shopping-cart.component';
+import { ModalComponent } from './components/shared/modal/modal.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomePageComponent},
@@ -50,7 +52,9 @@ const appRoutes: Routes = [
     Image,
     NotFoundPageComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ShoppingCartComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
