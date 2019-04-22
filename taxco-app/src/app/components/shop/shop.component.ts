@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/services/products/products.service';
 import { ProductComponent } from './product/product.component';
 import { ModalComponent } from '../shared/modal/modal.component'
+import { ModalService } from 'src/app/services/modal/modal.service';
 
 @Component({
   selector: 'app-shop',
@@ -16,7 +17,7 @@ export class ShopComponent implements OnInit {
 
   public auxNumber: Number;
 
-  constructor(private productService: ProductsService) { }
+  constructor(private productService: ProductsService, private modalService: ModalService) { }
 
   ngOnInit() {
     this.productService.getProducts().subscribe( products => {

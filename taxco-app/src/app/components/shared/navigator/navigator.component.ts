@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { AuthService } from '../../../services/auth/auth.service';
+import { ModalService } from 'src/app/services/modal/modal.service';
 
 @Component({
   selector: 'app-navigator',
@@ -20,7 +21,7 @@ export class NavigatorComponent implements OnInit {
   showModalLogin : boolean = false;
   showModal : boolean = false;
 
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService, public modalService: ModalService) { }
 
   ngOnInit() {
   }

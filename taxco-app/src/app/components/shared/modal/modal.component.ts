@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap'
+import { ModalService } from 'src/app/services/modal/modal.service';
 
 @Component({
   selector: 'app-modal',
@@ -12,14 +12,15 @@ export class ModalComponent implements OnInit {
     throw new Error("Method not implemented.");
   }
 
-  constructor(config: NgbModalConfig, private modalService: NgbModal) {
-    // customize default values of modals used by this component tree
-    config.backdrop = 'static';
-    config.keyboard = false;
+  constructor( public modalService : ModalService) {
   }
 
   open(content) {
-    this.modalService.open(content);
+    //this.modalService.open(content);
+  }
+
+  close(content) {
+    //this.modalService.open(content);
   }
 
 }

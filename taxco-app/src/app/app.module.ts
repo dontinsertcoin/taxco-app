@@ -27,6 +27,7 @@ import { LoginComponent } from './components/shared/auth/login/login.component';
 import { RegisterComponent } from './components/shared/auth/register/register.component';
 import { ShoppingCartComponent } from './components/shop/shopping-cart/shopping-cart.component';
 import { ModalComponent } from './components/shared/modal/modal.component';
+import { ModalService } from './services/modal/modal.service';
 
 const appRoutes: Routes = [
   {path: '', component: HomePageComponent},
@@ -74,7 +75,8 @@ const appRoutes: Routes = [
   providers: [ 
     ImageService,
     AngularFirestore ,
-    AuthService
+    AuthService,
+    ModalService
   ],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
