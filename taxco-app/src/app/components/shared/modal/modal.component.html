@@ -1,4 +1,10 @@
-<div id="myModal" class="modal" *ngIf="showModal">
+<jw-modal id="custom-modal-1">
+  <h1>A Custom Angular 7 Modal!</h1>
+  <p>Home page text: <input type="text" [(ngModel)]="bodyText" /></p>
+  <button (click)="closeModal('custom-modal-1');">Close</button>
+</jw-modal>
+
+<!--<div id="myModal" class="modal" *ngIf="showModal">
   <div class="modal-content text-center" *ngIf="showModalRegister">
     <h2 class="text-center">Registro</h2>
     <form (submit)="onSubmitAddUser()">
@@ -62,4 +68,4 @@
   <div class="modal-content text-center" *ngIf="showLogOut">
           <input type="text" value="Cerrar sesión" class="btn btn-block btn-danger btn-lg" (click)="logOut()">        
   </div>
-</div>
+</div> -->
