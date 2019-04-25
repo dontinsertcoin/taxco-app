@@ -21,7 +21,9 @@ export class NavigatorComponent implements OnInit {
   showModalLogin : boolean = false;
   showModal : boolean = false;
 
-  constructor(public authService: AuthService, public modalService: ModalService) { }
+  constructor(public authService: AuthService, private modalService: ModalService) { 
+
+  }
 
   ngOnInit() {
   }
@@ -149,7 +151,7 @@ export class NavigatorComponent implements OnInit {
   }
 
   closeModal(id: string) {
-      this.modalService.close(id);
+    this.modalService.close(id);
   }
 
 }

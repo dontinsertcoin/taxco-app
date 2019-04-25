@@ -10,7 +10,8 @@ import { ModalService } from '../../../services/modal/modal.service';
                 <ng-content></ng-content>
             </div>
         </div>
-        <div class="jw-modal-background"></div>`
+        <div class="jw-modal-background"></div>`,
+    templateUrl: './modal.component.html'
 })
 export class ModalComponent implements OnInit, OnDestroy {
     @Input() id: string;
