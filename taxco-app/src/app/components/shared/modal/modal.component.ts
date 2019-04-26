@@ -3,15 +3,9 @@ import { Component, ElementRef, Input, OnInit, OnDestroy } from '@angular/core';
 import { ModalService } from '../../../services/modal/modal.service';
 
 @Component({
-    selector: 'jw-modal',
-    template: 
-        `<div class="jw-modal">
-            <div class="jw-modal-body">
-                <ng-content></ng-content>
-            </div>
-        </div>
-        <div class="jw-modal-background"></div>`,
-    templateUrl: './modal.component.html'
+    selector: 'custom-modal',
+    templateUrl: './modal.component.html',
+    styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent implements OnInit, OnDestroy {
     @Input() id: string;
