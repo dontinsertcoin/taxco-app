@@ -28,17 +28,17 @@ import { RegisterComponent } from './components/shared/auth/register/register.co
 import { ShoppingCartComponent } from './components/shop/shopping-cart/shopping-cart.component';
 import { ModalComponent } from './components/shared/modal/modal.component';
 import { ModalService } from './services/modal/modal.service';
+import { AuthComponent } from './components/shared/auth/auth.component';
+import { LogoutComponent } from './components/shared/auth/logout/logout.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomePageComponent},
   {path: 'gallery', component: GalleryComponent}, 
   {path: 'trophies', component: GalleryComponent}, 
   {path: 'shop', component: ShopComponent},
+  {path: 'aboutUs', component: ContactComponent},
   {path: '**', component: NotFoundPageComponent}
 ]
-
-
-
 
 @NgModule({
   declarations: [
@@ -55,7 +55,9 @@ const appRoutes: Routes = [
     LoginComponent,
     RegisterComponent,
     ShoppingCartComponent,
-    ModalComponent
+    ModalComponent,
+    AuthComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +76,7 @@ const appRoutes: Routes = [
   ],
   providers: [ 
     ImageService,
-    AngularFirestore ,
+    AngularFirestore,
     AuthService,
     ModalService
   ],

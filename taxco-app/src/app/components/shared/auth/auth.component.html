@@ -1,0 +1,3 @@
+<app-login *ngIf="!authService.isLoggedIn()"></app-login>
+<app-register *ngIf="register"></app-register>
+<app-logout *ngIf="authService.isLoggedIn()"></app-logout>

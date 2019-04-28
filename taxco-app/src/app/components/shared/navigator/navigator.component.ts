@@ -26,14 +26,7 @@ export class NavigatorComponent implements OnInit {
   }
 
   ngOnInit() {
-  }
-
-  changeValue(value: boolean){
-    if (!value){
-      value=true;
-    }else{
-      value=false;
-    }
+    //this.authService.logout();
   }
 
   showMenu(){
@@ -45,7 +38,6 @@ export class NavigatorComponent implements OnInit {
   }
 
   showRegisterModal(){
-
     if (this.sessionsLoged){
       this.showModal= true;
       this.showLogOut = true;
@@ -90,60 +82,6 @@ export class NavigatorComponent implements OnInit {
         logoImg.classList.remove('scrolled-logo');
       }
     //}
-  }
-
-  showSuccessModal(){
-    if (!this.showModalSuccess){
-      this.showModalSuccess=true;
-    }else{
-      this.showModal= false;
-      this.showModalSuccess=false;
-    }
-  }
-
-  showLoginModal(){
-    if (!this.showModalLogin){
-      this.showModal= true;
-      this.showModalRegister=false;
-      this.showModalLogin = true;
-    }else{
-      if (!this.showModalSuccess){
-        this.showModal= false;
-      } 
-      this.showModalLogin=false;
-      this.showLoginError=false;
-    }
-  }
-
-  onSubmitAddUser(){
-    this.authService.userRegistry(this.email, this.password)
-    .then( (res) => {      
-      this.showSuccessModal();
-      this.showRegisterModal();
-    }).catch( (err) => {
-      this.showLoginError=true;
-    });
-  }
-
-  onSubmitLogUser(){
-    this.authService.loginEmail(this.email, this.password)
-    .then( (res) => {
-      this.showSuccessModal();
-      this.showLoginModal();
-      console.log("Loged in: " + this.email);
-      this.sessionsLoged= true;
-    }).catch((err) => {
-      this.showLoginError=true;
-    })
-  }
-
-  logOut(){
-    this.authService.logout()
-    .then((res) => {
-      this.sessionsLoged = false;
-      this.showLogOut = false;
-      this.showModal = false;
-    })
   }
 
   openModal(id: string) {
