@@ -14,6 +14,7 @@ export class AuthComponent implements OnInit {
   private authService: AuthService;
 
   constructor(authService: AuthService) {
+    this.authService= authService;
   }
 
   changeToRegister(){
