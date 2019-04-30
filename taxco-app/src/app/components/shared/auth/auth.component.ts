@@ -13,21 +13,13 @@ export class AuthComponent implements OnInit {
   private logout: boolean;
   private authService: AuthService;
 
-  constructor(authService: AuthService) { 
-    this.authService = authService;
-    this.login= true;
-    this.logout= false;
-    this.register= false;
+  constructor(authService: AuthService) {
   }
 
   changeToRegister(){
-    this.login= false;
-    this.register= true;
   }
 
   changeToLogin(){
-    this.login= true;
-    this.register= false;
   }
 
   ngOnInit() {

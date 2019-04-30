@@ -8,13 +8,16 @@ import { first } from 'rxjs/operators';
 })
 export class AuthService {
 
+  public loggedSession: boolean = false;
+
   constructor(private afAuth: AngularFireAuth) {
   }
 
   userRegistry(email: string, pass: string){
     return new Promise((resolve, reject) => {
       this.afAuth.auth.createUserWithEmailAndPassword(email, pass)
-      .then( userData => resolve(userData),
+      .then( userData => {
+        resolve(userData);},
       err => reject(err));
     });
   }
@@ -22,7 +25,8 @@ export class AuthService {
   loginEmail(email: string, pass: string){
     return new Promise((resolve, reject) =>{
       this.afAuth.auth.signInWithEmailAndPassword(email, pass)
-      .then( userData => resolve(userData),
+      .then( userData => {resolve(userData);
+      this.loggedSession= true;},
       err => reject(err));
     });
   }
