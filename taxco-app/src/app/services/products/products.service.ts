@@ -12,10 +12,12 @@ export class ProductsService {
   
   private productsCollection : AngularFirestoreCollection<ProductComponent>;
   private products : Observable<ProductComponent []>;
+  public shoppingCart: Map <ProductComponent, Number>;
 
   constructor(private firestoreDataBase: AngularFirestore) { 
     this.productsCollection = firestoreDataBase.collection<ProductComponent>('Productos');
     this.products = this.productsCollection.valueChanges();
+    this.shoppingCart= new Map();
   }
 
   getProducts(){

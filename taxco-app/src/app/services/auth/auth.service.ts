@@ -9,6 +9,7 @@ import { first } from 'rxjs/operators';
 export class AuthService {
 
   public loggedSession: boolean = false;
+  public register: boolean = false;
 
   constructor(private afAuth: AngularFireAuth) {
   }
@@ -37,5 +38,13 @@ export class AuthService {
 
   logout(){
     return this.afAuth.auth.signOut();
+  }
+
+  changeRegister(){
+    if (this.register){
+      this.register = false;
+    } else {
+      this.register = true;
+    }
   }
 }

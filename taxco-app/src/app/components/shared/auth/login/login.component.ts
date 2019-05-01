@@ -34,4 +34,8 @@ export class LoginComponent implements OnInit {
     })
   }
 
+  changeToRegister(){
+    this.authService.changeRegister();
+  }
+
 }

@@ -12,7 +12,6 @@ import { ModalService } from 'src/app/services/modal/modal.service';
 export class ShopComponent implements OnInit {
 
   public products: Array <ProductComponent> = [];
-  public shoppingCart: Map <ProductComponent, Number>= new Map();
   public modalComponent: ModalComponent;
 
   public auxNumber: Number;
@@ -28,21 +27,21 @@ export class ShopComponent implements OnInit {
 
   addToCart(item: ProductComponent) {
     if ((item.quantity) > 0){
-      if (this.shoppingCart.has(item)){
-        this.auxNumber = this.shoppingCart.get(item).valueOf() + 1;
-        this.shoppingCart.delete(item);
-        this.shoppingCart.set(item, this.auxNumber);
+      if (this.productService.shoppingCart.has(item)){
+        this.auxNumber = this.productService.shoppingCart.get(item).valueOf() + 1;
+        this.productService.shoppingCart.delete(item);
+        this.productService.shoppingCart.set(item, this.auxNumber);
       } else {
-        this.shoppingCart.set(item, 1);
+        this.productService.shoppingCart.set(item, 1);
       }
-      console.log(this.shoppingCart);
+      console.log(this.productService.shoppingCart);
       this.lessQuantity(item);
       //this.modalComponent = new ModalComponent('shoppingCart', this.shoppingCart);
     }    
   }
 
   removeFromCart(item: ProductComponent) {
-    this.shoppingCart.delete(item);
+    this.productService.shoppingCart.delete(item);
   }
 
   lessQuantity(item: ProductComponent){
