@@ -68,7 +68,8 @@
 <custom-modal class="custom-modal" id="shopping-cart-modal">
     <div class="shopping-cart">
         <ul class="shopping-cart-list">
-            <li *ngFor="let product of this.productService.shoppingCart.entries" class="shopping-cart-item">
+            <li *ngFor="let recipient of this.productService.shoppingCart | keyvalue">
+                <p>{{recipient.key}} --> {{recipient.value}}</p>
                 <p>HOLA</p>
             </li>
         </ul>
