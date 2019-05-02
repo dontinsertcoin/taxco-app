@@ -11,16 +11,7 @@ import { ProductsService } from 'src/app/services/products/products.service';
 export class NavigatorComponent implements OnInit {
 
 
-  showMobileMenu : boolean= false;
-  email : string;
-  password : string;
-  sessionsLoged: boolean;
-  showLogOut: boolean;
-  showModalRegister : boolean= false;
-  showModalSuccess : boolean= false;
-  showLoginError : boolean= false;
-  showModalLogin : boolean = false;
-  showModal : boolean = false;
+  private showMobileMenu : boolean= false;
 
   constructor(public authService: AuthService, 
       private modalService: ModalService, 
@@ -37,28 +28,6 @@ export class NavigatorComponent implements OnInit {
       this.showMobileMenu=true;
     }else{
       this.showMobileMenu=false;
-    }
-  }
-
-  showRegisterModal(){
-    if (this.sessionsLoged){
-      this.showModal= true;
-      this.showLogOut = true;
-    } else {
-      if (!this.showModalRegister){
-        if (this.showMobileMenu){
-          this.showMobileMenu = false;
-        }
-        this.showModal= true;
-        this.showModalRegister=true;
-        this.showModalLogin = false;
-      }else{
-        if (!this.showModalSuccess){
-          this.showModal= false;
-        }      
-        this.showModalRegister=false;
-        this.showLoginError=false;
-      }
     }
   }
 
@@ -93,6 +62,10 @@ export class NavigatorComponent implements OnInit {
 
   closeModal(id: string) {
     this.modalService.close(id);
+  }
+
+  confirmBuy(){
+    this.productService.confirmOrder();
   }
 
 }

@@ -68,10 +68,15 @@
 <custom-modal class="custom-modal" id="shopping-cart-modal">
     <div class="shopping-cart">
         <ul class="shopping-cart-list">
-            <li *ngFor="let recipient of this.productService.shoppingCart | keyvalue">
-                <p>{{recipient.key}} --> {{recipient.value}}</p>
-                <p>HOLA</p>
+            <li *ngFor="let product of this.productService.shoppingCart | keyvalue">
+                <p>{{product.key.name}}  --> {{product.value}}</p>
+                <p>{{product.key.price}}€</p>
+                <button class="btn-primary" (click)="deleteProduct(product)">Eliminar producto</button>
             </li>
         </ul>
+    </div>
+    <div>
+        <p>Total : {{this.productService.totalPrice}}€</p>
+        <button class="btn-primary" (click)="confirmBuy()">Realizar pedido</button>
     </div>
 </custom-modal>

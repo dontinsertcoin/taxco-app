@@ -30,6 +30,7 @@ import { ModalComponent } from './components/shared/modal/modal.component';
 import { ModalService } from './services/modal/modal.service';
 import { AuthComponent } from './components/shared/auth/auth.component';
 import { LogoutComponent } from './components/shared/auth/logout/logout.component';
+import { OrderComponent } from './components/order/order.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomePageComponent},
@@ -57,7 +58,8 @@ const appRoutes: Routes = [
     ShoppingCartComponent,
     ModalComponent,
     AuthComponent,
-    LogoutComponent
+    LogoutComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,

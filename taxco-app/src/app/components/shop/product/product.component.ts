@@ -12,8 +12,8 @@ export class ProductComponent implements OnInit {
 
   id: String;
   name: String;
-  price: Number;
-  quantity: Number;
+  price: number;
+  quantity: number;
   image: String;
 
   constructor(private http: HttpClient) { 

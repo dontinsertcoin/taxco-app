@@ -14,7 +14,7 @@ export class ShopComponent implements OnInit {
   public products: Array <ProductComponent> = [];
   public modalComponent: ModalComponent;
 
-  public auxNumber: Number;
+  public auxNumber: number;
 
   constructor(private productService: ProductsService, private modalService: ModalService) { }
 
@@ -35,6 +35,7 @@ export class ShopComponent implements OnInit {
         this.productService.shoppingCart.set(item, 1);
       }
       console.log(this.productService.shoppingCart);
+      this.productService.addToTotalPrice(item.price);
       this.lessQuantity(item);
       //this.modalComponent = new ModalComponent('shoppingCart', this.shoppingCart);
     }    
