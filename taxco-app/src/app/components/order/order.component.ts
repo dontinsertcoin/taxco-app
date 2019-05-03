@@ -8,16 +8,18 @@ import { ProductComponent } from '../shop/product/product.component';
 })
 export class OrderComponent implements OnInit {
 
-  private shoppingCart: Map <ProductComponent, number>;
+  private shoppingCart: string;
   private email: string;
   private address: string;
   private date: number;
+  private price: number;
 
-  constructor(shoppingCart: Map <ProductComponent, number>, email: string, address: string, date: number) { 
+  constructor(shoppingCart: string, email: string, address: string, date: number, price: number) { 
     this.shoppingCart= shoppingCart;
     this.email=email;
     this.address= address;
     this.date= date;
+    this.price= price;
   }
 
   ngOnInit() {

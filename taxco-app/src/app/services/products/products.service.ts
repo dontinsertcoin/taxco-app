@@ -42,13 +42,12 @@ export class ProductsService {
 
   confirmOrder(){
     const dateNow = Date.now();
-    let prueba1= this.shoppingCart;
-    console.log(prueba1);
-    let prueba= JSON.stringify(this.shoppingCart);
-    console.log(prueba);
-    let order1 = JSON.stringify(new OrderComponent (this.shoppingCart, "email", "calle", dateNow));
-    let order = JSON.parse(JSON.stringify(new OrderComponent (this.shoppingCart, "email", "calle", dateNow)));
-    //this.ordersCollection.add(order);
-    console.log(order1);
+    let prueba= JSON.stringify(Array.from(this.shoppingCart));
+    let order = JSON.parse(JSON.stringify(new OrderComponent (prueba, "email", "calle", dateNow, this.totalPrice)));
+    this.ordersCollection.add(order);
+  }
+
+  transformShoppingCart(){
+    
   }
 }
