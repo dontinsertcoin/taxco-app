@@ -5,6 +5,7 @@ import { OrderComponent } from '../../components/order/order.component';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { OrderProductComponent } from 'src/app/components/order/order-product/order-product.component';
 
 @Injectable({
   providedIn: 'root'
@@ -42,12 +43,18 @@ export class ProductsService {
 
   confirmOrder(){
     const dateNow = Date.now();
-    let prueba= JSON.stringify(Array.from(this.shoppingCart));
+    let formatedOrder = this.transformShoppingCart();
+    let prueba= JSON.stringify(formatedOrder);
     let order = JSON.parse(JSON.stringify(new OrderComponent (prueba, "email", "calle", dateNow, this.totalPrice)));
     this.ordersCollection.add(order);
   }
 
   transformShoppingCart(){
-    
+    let result= [];
+    this.shoppingCart.forEach((value: number, key: ProductComponent) => {
+      let productAux= new OrderProductComponent(key.id, key.name, key.price, value);
+      result.push(productAux);
+    });
+    return result;
   }
 }

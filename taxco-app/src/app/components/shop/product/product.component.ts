@@ -10,8 +10,8 @@ const FIREBASE_API = "AIzaSyCn8R5ojJ4IXqwpBseAR2tbiQoF4D3pev4"
 })
 export class ProductComponent implements OnInit {
 
-  id: String;
-  name: String;
+  id: string;
+  name: string;
   price: number;
   quantity: number;
   image: String;
