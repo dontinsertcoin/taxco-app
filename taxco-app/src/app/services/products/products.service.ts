@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Image } from '../../components/shared/image/image.component';
 import { ProductComponent } from '../../components/shop/product/product.component';
-import { OrderComponent } from '../../components/order/order.component';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { OrderProductComponent } from 'src/app/components/order/order-product/order-product.component';
+import { OrdersService } from '../orders/orders.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,17 +11,15 @@ import { OrderProductComponent } from 'src/app/components/order/order-product/or
 export class ProductsService {
   
   private productsCollection : AngularFirestoreCollection<ProductComponent>;
-  private ordersCollection : AngularFirestoreCollection<OrderComponent>;
   private products : Observable<ProductComponent []>;
   public shoppingCart: Map <ProductComponent, number>;
-  public totalPrice: number = 0;
-  private dateNow: Date;
+  public totalPrice: number;
 
   constructor(private firestoreDataBase: AngularFirestore) { 
     this.productsCollection = firestoreDataBase.collection<ProductComponent>('Productos');
-    this.ordersCollection = firestoreDataBase.collection<OrderComponent>('Pedidos');
     this.products = this.productsCollection.valueChanges();
     this.shoppingCart= new Map();
+    this.totalPrice = 0;
   }
 
   getProducts(){
@@ -38,23 +34,7 @@ export class ProductsService {
   }
 
   addToTotalPrice(number: number){
-    this.totalPrice += number.valueOf();
+    this.totalPrice = parseFloat(this.totalPrice.toString()) + parseFloat(number.toString());
   }
 
-  confirmOrder(){
-    const dateNow = Date.now();
-    let formatedOrder = this.transformShoppingCart();
-    let prueba= JSON.stringify(formatedOrder);
-    let order = JSON.parse(JSON.stringify(new OrderComponent (prueba, "email", "calle", dateNow, this.totalPrice)));
-    this.ordersCollection.add(order);
-  }
-
-  transformShoppingCart(){
-    let result= [];
-    this.shoppingCart.forEach((value: number, key: ProductComponent) => {
-      let productAux= new OrderProductComponent(key.id, key.name, key.price, value);
-      result.push(productAux);
-    });
-    return result;
-  }
 }

@@ -35,7 +35,7 @@ export class ShopComponent implements OnInit {
         this.productService.shoppingCart.set(item, 1);
       }
       console.log(this.productService.shoppingCart);
-      this.productService.addToTotalPrice(item.price);
+      this.productService.addToTotalPrice(item.price.valueOf());
       this.lessQuantity(item);
       //this.modalComponent = new ModalComponent('shoppingCart', this.shoppingCart);
     }    

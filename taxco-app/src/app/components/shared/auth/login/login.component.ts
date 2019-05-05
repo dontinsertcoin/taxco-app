@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { ModalService } from 'src/app/services/modal/modal.service';
 
 @Component({
   selector: 'app-login',
@@ -8,12 +9,10 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  private authService: AuthService;
   private email: string;
   private password: string;
 
-  constructor(authService: AuthService) { 
-    this.authService = authService;
+  constructor(private authService: AuthService, private modalService: ModalService) { 
   }
 
   ngOnInit() {
@@ -30,8 +29,14 @@ export class LoginComponent implements OnInit {
     this.authService.loginEmail(this.email, this.password)
     .then( (res) => {
       console.log("Loged in: " + this.email);
+      this.authService.loggedSession = true;
+      this.closeModal('custom-modal-1');
     }).catch((err) => {
     })
+  }
+
+  closeModal(modalId: string){
+    this.modalService.close(modalId);
   }
 
   changeToRegister(){

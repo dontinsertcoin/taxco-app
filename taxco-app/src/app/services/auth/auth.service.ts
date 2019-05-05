@@ -8,8 +8,9 @@ import { first } from 'rxjs/operators';
 })
 export class AuthService {
 
-  public loggedSession: boolean = false;
-  public register: boolean = false;
+  loggedSession: boolean = false;
+  register: boolean = false;
+  email: string = "";
 
   constructor(private afAuth: AngularFireAuth) {
   }
@@ -24,6 +25,7 @@ export class AuthService {
   }
 
   loginEmail(email: string, pass: string){
+    this.email = email;
     return new Promise((resolve, reject) =>{
       this.afAuth.auth.signInWithEmailAndPassword(email, pass)
       .then( userData => {resolve(userData);

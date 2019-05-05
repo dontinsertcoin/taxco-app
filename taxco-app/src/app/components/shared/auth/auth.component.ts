@@ -8,14 +8,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 })
 export class AuthComponent implements OnInit {
 
-  private login: boolean = true;  
-  private register: boolean = false;
-  private logout: boolean;
-  private authService: AuthService;
-
-  constructor(authService: AuthService) {
-    this.authService= authService;
-    this.register=this.authService.register;
+  constructor(private authService: AuthService) {
   }
 
   changeToRegister(){

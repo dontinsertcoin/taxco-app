@@ -8,11 +8,12 @@ import { ProductComponent } from '../shop/product/product.component';
 })
 export class OrderComponent implements OnInit {
 
-  private shoppingCart: string;
-  private email: string;
-  private address: string;
-  private date: number;
-  private price: number;
+  shoppingCart: string;
+  email: string;
+  address: string;
+  date: number;
+  price: number;
+  id: string;
 
   constructor(shoppingCart: string, email: string, address: string, date: number, price: number) { 
     this.shoppingCart= shoppingCart;

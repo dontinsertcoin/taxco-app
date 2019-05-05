@@ -2,6 +2,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { AuthService } from '../../../services/auth/auth.service';
 import { ModalService } from 'src/app/services/modal/modal.service';
 import { ProductsService } from 'src/app/services/products/products.service';
+import { OrdersService } from 'src/app/services/orders/orders.service';
 
 @Component({
   selector: 'app-navigator',
@@ -15,7 +16,8 @@ export class NavigatorComponent implements OnInit {
 
   constructor(public authService: AuthService, 
       private modalService: ModalService, 
-      public productService: ProductsService) { 
+      public productService: ProductsService,
+      private ordersService: OrdersService) { 
 
   }
 
@@ -65,7 +67,7 @@ export class NavigatorComponent implements OnInit {
   }
 
   confirmBuy(){
-    this.productService.confirmOrder();
+    this.ordersService.confirmOrder();
   }
 
 }

@@ -8,15 +8,13 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 })
 export class LogoutComponent implements OnInit {
 
-  public authService: AuthService;
-
-  constructor(authService: AuthService) { 
-    this.authService= authService;
+  constructor(private authService: AuthService) {
   }
 
   logOut(){
     this.authService.logout()
     .then((res) => {
+      this.authService.loggedSession = false;
     })
   }
 
