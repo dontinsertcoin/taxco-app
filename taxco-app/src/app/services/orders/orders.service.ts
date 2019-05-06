@@ -48,4 +48,16 @@ export class OrdersService {
     });
     return result;
   }
+
+  getOrdersByEmail(email:string){
+    let aux =[];
+    this.getOrders().forEach((allOrders: OrderComponent[]) => {
+      allOrders.forEach((myOrder: OrderComponent) => {
+        if (myOrder.email == email){
+          aux.push(myOrder);
+        }
+      })
+    });
+    return aux;
+  }
 }
