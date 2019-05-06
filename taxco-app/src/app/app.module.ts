@@ -39,6 +39,7 @@ const appRoutes: Routes = [
   {path: 'trophies', component: GalleryComponent}, 
   {path: 'shop', component: ShopComponent},
   {path: 'aboutUs', component: ContactComponent},
+  {path: 'personalArea', component: PersonalAreaComponent},
   {path: '**', component: NotFoundPageComponent}
 ]
 
