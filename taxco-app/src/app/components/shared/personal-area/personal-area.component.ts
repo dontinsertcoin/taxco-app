@@ -11,18 +11,17 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 export class PersonalAreaComponent implements OnInit {
 
   myOrders: OrderComponent[];
-  ordersFormated: [];
+  ordersFormated= [1,2,3];
 
-  constructor(private ordersService: OrdersService, private authService: AuthService) { 
+  constructor(private ordersService: OrdersService, private authService: AuthService) {}
+    
+
+  ngOnInit() {
     this.myOrders = this.getMyOrders();
     console.log('myOrders');
     console.log(this.myOrders);
-    this.ordersFormated = this.formateMyOrders();
-    console.log('ordersFormated');
     console.log(this.ordersFormated);
-  }
-
-  ngOnInit() {
+    this.ordersFormated = this.formateMyOrders();  
   }
 
   getMyOrders(){
@@ -31,15 +30,18 @@ export class PersonalAreaComponent implements OnInit {
 
   formateMyOrders(){
     let allOrders;
-    for (let i=0; i < this.myOrders.length ; i++) {
-      let orderAux = [this.myOrders[i].date, this.myOrders[i].price];
-      let orderedItems = JSON.parse(this.myOrders[i].shoppingCart);      
-      orderAux.push(orderedItems);
-      allOrders.push(orderAux);
+    console.log("Dentro del format");
+    console.log(this.myOrders);
+    this.myOrders.forEach(function (order) {
+      console.log(order);
+      let orderAux = [order.date, order.price];
+      let orderedItems = JSON.parse(order.shoppingCart);
       console.log(orderedItems);
+      orderAux.push(orderedItems);
       console.log(orderAux);
+      allOrders.push(orderAux);
       console.log(allOrders);
-    }
+    }); 
     return allOrders;
   }
 }

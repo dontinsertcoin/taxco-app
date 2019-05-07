@@ -55,9 +55,12 @@ export class OrdersService {
       allOrders.forEach((myOrder: OrderComponent) => {
         if (myOrder.email == email){
           aux.push(myOrder);
+          console.log(myOrder);
         }
       })
     });
-    return aux;
+    console.log("To return");
+    console.log(aux);
+    return aux;    
   }
 }
