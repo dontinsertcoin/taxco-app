@@ -15,7 +15,10 @@ export class PersonalAreaComponent implements OnInit {
 
   constructor(private ordersService: OrdersService, private authService: AuthService) { 
     this.myOrders = this.getMyOrders();
+    console.log('myOrders');
+    console.log(this.myOrders);
     this.ordersFormated = this.formateMyOrders();
+    console.log('ordersFormated');
     console.log(this.ordersFormated);
   }
 
@@ -23,21 +26,20 @@ export class PersonalAreaComponent implements OnInit {
   }
 
   getMyOrders(){
-    return this.ordersService.getOrdersByEmail(this.authService.email) != null ? 
-    this.ordersService.getOrdersByEmail(this.authService.email) : [];
+    return this.ordersService.getOrdersByEmail(this.authService.email);
   }
 
   formateMyOrders(){
     let allOrders;
-    this.myOrders.forEach((order: OrderComponent) => {
-      let orderAux = [order.date, order.price];
-      let orderedItems = JSON.parse(order.shoppingCart);
+    for (let i=0; i < this.myOrders.length ; i++) {
+      let orderAux = [this.myOrders[i].date, this.myOrders[i].price];
+      let orderedItems = JSON.parse(this.myOrders[i].shoppingCart);      
       orderAux.push(orderedItems);
       allOrders.push(orderAux);
-    });
+      console.log(orderedItems);
+      console.log(orderAux);
+      console.log(allOrders);
+    }
     return allOrders;
   }
-
-
-
 }
