@@ -51,16 +51,14 @@ export class OrdersService {
 
   getOrdersByEmail(email:string){
     let aux =[];
-    this.getOrders().forEach((allOrders: OrderComponent[]) => {
-      allOrders.forEach((myOrder: OrderComponent) => {
+    this.getOrders().subscribe((data) => {
+      data.forEach((myOrder: OrderComponent) => {
         if (myOrder.email == email){
           aux.push(myOrder);
           console.log(myOrder);
         }
-      })
+      });
     });
-    console.log("To return");
-    console.log(aux);
     return aux;    
   }
 }

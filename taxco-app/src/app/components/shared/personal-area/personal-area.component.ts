@@ -29,19 +29,15 @@ export class PersonalAreaComponent implements OnInit {
   }
 
   formateMyOrders(){
+    //TODO EventEmmiter para evitar que venga vacío
     let allOrders;
-    console.log("Dentro del format");
-    console.log(this.myOrders);
-    this.myOrders.forEach(function (order) {
-      console.log(order);
+    this.myOrders.forEach( (order) => {
       let orderAux = [order.date, order.price];
       let orderedItems = JSON.parse(order.shoppingCart);
-      console.log(orderedItems);
       orderAux.push(orderedItems);
-      console.log(orderAux);
       allOrders.push(orderAux);
-      console.log(allOrders);
-    }); 
+    })
+    console.log(allOrders);
     return allOrders;
   }
 }
