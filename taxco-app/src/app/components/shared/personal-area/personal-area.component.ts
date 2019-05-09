@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { OrdersService } from 'src/app/services/orders/orders.service';
 import { OrderComponent } from '../../order/order.component';
 import { AuthService } from 'src/app/services/auth/auth.service';
@@ -8,36 +8,33 @@ import { AuthService } from 'src/app/services/auth/auth.service';
   templateUrl: './personal-area.component.html',
   styleUrls: ['./personal-area.component.scss']
 })
-export class PersonalAreaComponent implements OnInit {
+export class PersonalAreaComponent implements OnInit, OnDestroy {
 
   myOrders: OrderComponent[];
-  ordersFormated= [1,2,3];
+  ordersFormated: any[];
 
-  constructor(private ordersService: OrdersService, private authService: AuthService) {}
-    
-
-  ngOnInit() {
-    this.myOrders = this.getMyOrders();
-    console.log('myOrders');
-    console.log(this.myOrders);
-    console.log(this.ordersFormated);
-    this.ordersFormated = this.formateMyOrders();  
+  constructor(private ordersService: OrdersService, private authService: AuthService) {
+    this.ordersService.ordersByEmail.subscribe((data: OrderComponent[]) => {
+      this.myOrders = data;
+      this.ordersFormated = this.formateMyOrders();  
+    });
+    this.ordersService.getOrdersByEmail(this.authService.email); 
   }
 
-  getMyOrders(){
-    return this.ordersService.getOrdersByEmail(this.authService.email);
-  }
+  ngOnInit() { }
 
   formateMyOrders(){
-    //TODO EventEmmiter para evitar que venga vacío
-    let allOrders;
+    let allOrders = [];
     this.myOrders.forEach( (order) => {
       let orderAux = [order.date, order.price];
       let orderedItems = JSON.parse(order.shoppingCart);
       orderAux.push(orderedItems);
       allOrders.push(orderAux);
     })
-    console.log(allOrders);
     return allOrders;
+  }
+
+  ngOnDestroy(){
+    this.ordersService.ordersByEmail.unsubscribe();
   }
 }

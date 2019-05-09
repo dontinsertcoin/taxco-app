@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter, Output } from '@angular/core';
 import { ProductComponent } from '../../components/shop/product/product.component';
 import { OrderComponent } from '../../components/order/order.component';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
@@ -15,6 +15,9 @@ export class OrdersService {
   
   private ordersCollection : AngularFirestoreCollection<OrderComponent>;
   private orders : Observable<OrderComponent []>;
+
+  @Output()
+  ordersByEmail = new EventEmitter<OrderComponent[]>();
 
   constructor(private firestoreDataBase: AngularFirestore, private productsService: ProductsService, private authService: AuthService) {
     this.ordersCollection = firestoreDataBase.collection<OrderComponent>('Pedidos');
@@ -50,15 +53,16 @@ export class OrdersService {
   }
 
   getOrdersByEmail(email:string){
-    let aux =[];
+    let userOrders =[];
     this.getOrders().subscribe((data) => {
       data.forEach((myOrder: OrderComponent) => {
         if (myOrder.email == email){
-          aux.push(myOrder);
+          userOrders.push(myOrder);
           console.log(myOrder);
         }
       });
+      this.ordersByEmail.emit(userOrders); 
     });
-    return aux;    
+  
   }
 }

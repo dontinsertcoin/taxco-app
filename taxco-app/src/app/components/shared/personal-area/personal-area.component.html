@@ -1,9 +1,9 @@
 <div class="row">
     <ul class="orders-list">
         <li *ngFor="let order of ordersFormated">
-            <p>{{order.address}}</p>
-            <p>{{order.price}}</p>
-            <p>{{order.email}}</p>
+            <p>{{order[0]}}</p>
+            <p>{{order[1]}}</p>
+            <p>{{order[2]}}</p>
         </li>
     </ul>
 </div>
