@@ -1,0 +1,16 @@
+.personal-area {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+
+    .orders-list {
+        display: inline-block;
+        list-style: none;
+
+        li {
+            display: inline-block;
+            list-style: none;
+        }
+    }
+}
+
