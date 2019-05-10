@@ -26,7 +26,7 @@ export class PersonalAreaComponent implements OnInit, OnDestroy {
   formateMyOrders(){
     let allOrders = [];
     this.myOrders.forEach( (order) => {
-      let orderAux = [order.date, order.price];
+      let orderAux = [order.date, order.price, order.status];
       let orderedItems = JSON.parse(order.shoppingCart);
       orderAux.push(orderedItems);
       allOrders.push(orderAux);

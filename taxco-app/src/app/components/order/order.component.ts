@@ -14,13 +14,15 @@ export class OrderComponent implements OnInit {
   date: number;
   price: number;
   id: string;
+  status: number;
 
-  constructor(shoppingCart: string, email: string, address: string, date: number, price: number) { 
+  constructor(shoppingCart: string, email: string, address: string, date: number, price: number, status: number) { 
     this.shoppingCart= shoppingCart;
     this.email=email;
     this.address= address;
     this.date= date;
     this.price= price;
+    this.status= status;
   }
 
   ngOnInit() {

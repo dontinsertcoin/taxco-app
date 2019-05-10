@@ -4,8 +4,9 @@
             <li *ngFor="let order of ordersFormated">
                 <p>{{order[0]}}</p>
                 <p>{{order[1]}}</p>
+                <p>{{order[2]}}</p>
                 <ul>
-                    <li *ngFor="let product of order[2]">
+                    <li *ngFor="let product of order[3]">
                             <p>{{product.name}}</p>
                             <p>{{product.price}}</p>
                             <p>{{product.quantity}}</p>

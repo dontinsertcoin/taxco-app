@@ -39,7 +39,7 @@ export class OrdersService {
     const dateNow = Date.now();
     let formatedOrder = this.transformShoppingCart();
     let prueba= JSON.stringify(formatedOrder);
-    let order = JSON.parse(JSON.stringify(new OrderComponent (prueba, this.authService.email, "calle", dateNow, this.productsService.totalPrice)));
+    let order = JSON.parse(JSON.stringify(new OrderComponent (prueba, this.authService.email, "calle", dateNow, this.productsService.totalPrice, 0)));
     this.ordersCollection.add(order);
   }
 
