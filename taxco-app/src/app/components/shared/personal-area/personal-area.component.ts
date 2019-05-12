@@ -13,15 +13,15 @@ export class PersonalAreaComponent implements OnInit, OnDestroy {
   myOrders: OrderComponent[];
   ordersFormated: any[];
 
-  constructor(private ordersService: OrdersService, private authService: AuthService) {
-    this.ordersService.ordersByEmail.subscribe((data: OrderComponent[]) => {
+  constructor(private ordersService: OrdersService, private authService: AuthService) { }
+
+  ngOnInit() { 
+    this.ordersService.ordersByEmailEvent.subscribe((data: OrderComponent[]) => {
       this.myOrders = data;
       this.ordersFormated = this.formateMyOrders();  
     });
-    this.ordersService.getOrdersByEmail(this.authService.email); 
+    this.ordersService.getOrdersByEmail(this.authService.email);
   }
-
-  ngOnInit() { }
 
   formateMyOrders(){
     let allOrders = [];
@@ -35,6 +35,6 @@ export class PersonalAreaComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(){
-    this.ordersService.ordersByEmail.unsubscribe();
+    this.ordersService.ordersByEmailEvent.unsubscribe();
   }
 }

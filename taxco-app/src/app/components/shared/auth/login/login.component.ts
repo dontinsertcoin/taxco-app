@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
   onSubmitLogUser(){
     this.authService.loginEmail(this.email, this.password)
     .then( (res) => {
-      console.log("Loged in: " + this.email);
       this.authService.loggedSession = true;
       this.closeModal('custom-modal-1');
     }).catch((err) => {

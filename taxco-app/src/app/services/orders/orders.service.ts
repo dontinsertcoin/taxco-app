@@ -1,7 +1,7 @@
 import { Injectable, EventEmitter, Output } from '@angular/core';
 import { ProductComponent } from '../../components/shop/product/product.component';
 import { OrderComponent } from '../../components/order/order.component';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { OrderProductComponent } from 'src/app/components/order/order-product/order-product.component';
@@ -15,9 +15,13 @@ export class OrdersService {
   
   private ordersCollection : AngularFirestoreCollection<OrderComponent>;
   private orders : Observable<OrderComponent []>;
+  private ordersDoc: AngularFirestoreDocument<OrderComponent>;
 
   @Output()
-  ordersByEmail = new EventEmitter<OrderComponent[]>();
+  ordersByEmailEvent = new EventEmitter<OrderComponent[]>();
+
+  @Output()
+  allOrdersEvent = new EventEmitter<OrderComponent[]>();
 
   constructor(private firestoreDataBase: AngularFirestore, private productsService: ProductsService, private authService: AuthService) {
     this.ordersCollection = firestoreDataBase.collection<OrderComponent>('Pedidos');
@@ -58,11 +62,22 @@ export class OrdersService {
       data.forEach((myOrder: OrderComponent) => {
         if (myOrder.email == email){
           userOrders.push(myOrder);
-          console.log(myOrder);
         }
       });
-      this.ordersByEmail.emit(userOrders); 
+      this.ordersByEmailEvent.emit(userOrders); 
     });
-  
+  }
+
+  getAllOrders(){
+    let allOrders =[];
+    this.getOrders().subscribe((data) => {
+      allOrders= data;
+      this.allOrdersEvent.emit(allOrders);
+    })
+  }
+
+  updateOrderNextState(order : OrderComponent){
+    this.ordersDoc=this.firestoreDataBase.doc(`Pedidos/${order.id}`);
+    this.ordersDoc.update(order);
   }
 }

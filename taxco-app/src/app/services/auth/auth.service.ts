@@ -11,6 +11,7 @@ export class AuthService {
   loggedSession: boolean = false;
   register: boolean = false;
   email: string = "";
+  adminUser: boolean = false;
 
   constructor(private afAuth: AngularFireAuth) {
   }
@@ -28,8 +29,13 @@ export class AuthService {
     this.email = email;
     return new Promise((resolve, reject) =>{
       this.afAuth.auth.signInWithEmailAndPassword(email, pass)
-      .then( userData => {resolve(userData);
-      this.loggedSession= true;},
+      .then( userData => {
+        resolve(userData);
+        this.loggedSession= true;
+        if (email == "diego.coin@lifullconnect.com"){
+          this.adminUser = true;
+        }
+      },
       err => reject(err));
     });
   }

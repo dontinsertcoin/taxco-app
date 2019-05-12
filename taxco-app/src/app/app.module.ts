@@ -32,6 +32,7 @@ import { AuthComponent } from './components/shared/auth/auth.component';
 import { LogoutComponent } from './components/shared/auth/logout/logout.component';
 import { OrderComponent } from './components/order/order.component';
 import { PersonalAreaComponent } from './components/shared/personal-area/personal-area.component';
+import { AdminAreaComponent } from './components/shared/admin-area/admin-area.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomePageComponent},
@@ -40,6 +41,7 @@ const appRoutes: Routes = [
   {path: 'shop', component: ShopComponent},
   {path: 'aboutUs', component: ContactComponent},
   {path: 'personalArea', component: PersonalAreaComponent},
+  {path: 'adminArea', component: AdminAreaComponent},
   {path: '**', component: NotFoundPageComponent}
 ]
 
@@ -62,7 +64,8 @@ const appRoutes: Routes = [
     AuthComponent,
     LogoutComponent,
     OrderComponent,
-    PersonalAreaComponent
+    PersonalAreaComponent,
+    AdminAreaComponent
   ],
   imports: [
     BrowserModule,
