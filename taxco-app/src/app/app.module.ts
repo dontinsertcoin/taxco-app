@@ -25,17 +25,25 @@ import { ImageService } from './services/images/image.service';
 import { AuthService } from './services/auth/auth.service';
 import { LoginComponent } from './components/shared/auth/login/login.component';
 import { RegisterComponent } from './components/shared/auth/register/register.component';
+import { ShoppingCartComponent } from './components/shop/shopping-cart/shopping-cart.component';
+import { ModalComponent } from './components/shared/modal/modal.component';
+import { ModalService } from './services/modal/modal.service';
+import { AuthComponent } from './components/shared/auth/auth.component';
+import { LogoutComponent } from './components/shared/auth/logout/logout.component';
+import { OrderComponent } from './components/order/order.component';
+import { PersonalAreaComponent } from './components/shared/personal-area/personal-area.component';
+import { AdminAreaComponent } from './components/shared/admin-area/admin-area.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomePageComponent},
   {path: 'gallery', component: GalleryComponent}, 
   {path: 'trophies', component: GalleryComponent}, 
   {path: 'shop', component: ShopComponent},
+  {path: 'aboutUs', component: ContactComponent},
+  {path: 'personalArea', component: PersonalAreaComponent},
+  {path: 'adminArea', component: AdminAreaComponent},
   {path: '**', component: NotFoundPageComponent}
 ]
-
-
-
 
 @NgModule({
   declarations: [
@@ -50,7 +58,14 @@ const appRoutes: Routes = [
     Image,
     NotFoundPageComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ShoppingCartComponent,
+    ModalComponent,
+    AuthComponent,
+    LogoutComponent,
+    OrderComponent,
+    PersonalAreaComponent,
+    AdminAreaComponent
   ],
   imports: [
     BrowserModule,
@@ -69,8 +84,9 @@ const appRoutes: Routes = [
   ],
   providers: [ 
     ImageService,
-    AngularFirestore ,
-    AuthService
+    AngularFirestore,
+    AuthService,
+    ModalService
   ],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]

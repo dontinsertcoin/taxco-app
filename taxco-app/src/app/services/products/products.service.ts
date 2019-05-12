@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Image } from '../../components/shared/image/image.component';
 import { ProductComponent } from '../../components/shop/product/product.component';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { OrdersService } from '../orders/orders.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +12,14 @@ export class ProductsService {
   
   private productsCollection : AngularFirestoreCollection<ProductComponent>;
   private products : Observable<ProductComponent []>;
+  public shoppingCart: Map <ProductComponent, number>;
+  public totalPrice: number;
 
   constructor(private firestoreDataBase: AngularFirestore) { 
     this.productsCollection = firestoreDataBase.collection<ProductComponent>('Productos');
     this.products = this.productsCollection.valueChanges();
+    this.shoppingCart= new Map();
+    this.totalPrice = 0;
   }
 
   getProducts(){
@@ -29,15 +33,8 @@ export class ProductsService {
     }));
   }
 
-  addProduct(){
-
+  addToTotalPrice(number: number){
+    this.totalPrice = parseFloat(this.totalPrice.toString()) + parseFloat(number.toString());
   }
 
-  updateProduct(){
-
-  }
-
-  deleteProduct(){
-
-  }
 }

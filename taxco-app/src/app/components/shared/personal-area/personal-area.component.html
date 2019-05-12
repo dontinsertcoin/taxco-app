@@ -1,0 +1,18 @@
+<div class="row personal-area">
+    <div class="orders-list-container">
+        <ul class="orders-list">
+            <li *ngFor="let order of ordersFormated">
+                <p>{{order[0]}}</p>
+                <p>{{order[1]}}</p>
+                <p>{{order[2]}}</p>
+                <ul>
+                    <li *ngFor="let product of order[3]">
+                            <p>{{product.name}}</p>
+                            <p>{{product.price}}</p>
+                            <p>{{product.quantity}}</p>
+                    </li>                
+                </ul>            
+            </li>
+        </ul>
+    </div>
+</div>

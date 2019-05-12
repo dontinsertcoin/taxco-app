@@ -8,21 +8,34 @@ import { first } from 'rxjs/operators';
 })
 export class AuthService {
 
+  loggedSession: boolean = false;
+  register: boolean = false;
+  email: string = "";
+  adminUser: boolean = false;
+
   constructor(private afAuth: AngularFireAuth) {
   }
 
   userRegistry(email: string, pass: string){
     return new Promise((resolve, reject) => {
       this.afAuth.auth.createUserWithEmailAndPassword(email, pass)
-      .then( userData => resolve(userData),
+      .then( userData => {
+        resolve(userData);},
       err => reject(err));
     });
   }
 
   loginEmail(email: string, pass: string){
+    this.email = email;
     return new Promise((resolve, reject) =>{
       this.afAuth.auth.signInWithEmailAndPassword(email, pass)
-      .then( userData => resolve(userData),
+      .then( userData => {
+        resolve(userData);
+        this.loggedSession= true;
+        if (email == "diego.coin@lifullconnect.com"){
+          this.adminUser = true;
+        }
+      },
       err => reject(err));
     });
   }
@@ -33,5 +46,13 @@ export class AuthService {
 
   logout(){
     return this.afAuth.auth.signOut();
+  }
+
+  changeRegister(){
+    if (this.register){
+      this.register = false;
+    } else {
+      this.register = true;
+    }
   }
 }

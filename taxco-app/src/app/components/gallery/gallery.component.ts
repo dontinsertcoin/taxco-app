@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Image } from '../shared/image/image.component';
 import { ImageService } from '../../services/images/image.service';
+import { ModalService } from 'src/app/services/modal/modal.service';
 
 @Component({
   selector: 'app-gallery',
@@ -23,7 +24,7 @@ export class GalleryComponent implements OnInit {
   private imagesPerPage = 0;
   private imageService: ImageService;
 
-  constructor(private imageServiceAux: ImageService) {
+  constructor(private imageServiceAux: ImageService, private modalService: ModalService) {
     this.imageService = this.imageServiceAux;
     if (this.imagesPerPage === 0){
       this.rawsPerPage = this.imageService.RAWSPERPAGE;
