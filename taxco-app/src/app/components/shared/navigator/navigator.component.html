@@ -15,29 +15,30 @@
                     <!--</a>
                     <a routerLink= "/" routerLinkActive="active" style="position:absolute"><img id="logo-img-hover" src="assets/resources/images/logo-negro.png" class="navbar-icon"></a>-->
                 </li>
+                 
+                <li class="navbar-item">
+                    <a class="taxco-navbar-text" routerLink= "/" routerLinkActive="active">Inicio</a>
+                </li>       
                 <li class="navbar-item">
                     <a class="taxco-navbar-text" routerLink= "/aboutUs" routerLinkActive="active">Sobre nosotros</a>
                 </li>
                 <li class="navbar-item">
                     <a class="taxco-navbar-text" routerLink= "/gallery" routerLinkActive="active">Galería</a>
-                </li>  
-                <li class="navbar-item">
-                    <a class="taxco-navbar-text" routerLink= "/trophies" routerLinkActive="active">Medición de trofeos</a>
-                </li>       
+                </li> 
                 <li class="navbar-item">
                     <a class="taxco-navbar-text" routerLink= "/shop" routerLinkActive="active">Tienda</a>
                 </li>
-                <li class="hamburger">
-                    <img class="menu-icon" 
-                        src="https://firebasestorage.googleapis.com/v0/b/taxco-app.appspot.com/o/menu-icon.png?alt=media&token=1fafe8d1-0ac3-4268-a09c-fc2702909425" 
-                        (click)="showMenu()">
-                </li> 
                 <li class="user-zone">
                     <a (click)="openModal('custom-modal-1')">
                         <img class="user-logo" 
                             src="https://firebasestorage.googleapis.com/v0/b/taxco-app.appspot.com/o/user-profile.png?alt=media&token=c650d418-55bf-4bde-b1ea-167abe085470">
                     </a>          
-                </li>               
+                </li>
+                <li class="hamburger">
+                    <img class="menu-icon" 
+                        src="https://firebasestorage.googleapis.com/v0/b/taxco-app.appspot.com/o/menu-icon.png?alt=media&token=1fafe8d1-0ac3-4268-a09c-fc2702909425" 
+                        (click)="showMenu()">
+                </li>                                
             </ul>
         </div>
         
