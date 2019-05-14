@@ -6,10 +6,27 @@
         display: inline-block;
         .order {
             display: inline-block;
-            border-radius: solid 3px black;
         }
     }
 }
+
+.orders-list{
+    text-align: center;
+    width: 100%;
+    list-style: none;
+    text-align: center;
+}
+
+.order{
+    display: inline-block;
+    width: 320px;
+    margin-right: 0px;
+}
+
+.attributes-list {
+
+}
+
 
 ul{
     list-style: none;

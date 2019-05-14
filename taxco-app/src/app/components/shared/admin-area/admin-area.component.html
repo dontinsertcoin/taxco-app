@@ -3,15 +3,15 @@
         <ul class="orders-list">
             <li class="order" *ngFor="let order of ordersFormated">
                 <ul class="attributes-list">
-                    <li>{{order[0]}}</li>
-                    <li>{{order[1]}}</li>
-                    <li>{{order[2]}}</li>
-                    <ul>
-                        <li *ngFor="let product of order[4]">
-                            <ul>
-                                <li>{{product.name}}</li>
-                                <li>{{product.price}}</li>
-                                <li>{{product.quantity}}</li>
+                    <li class="order-attribute">{{order[0]}}</li>
+                    <li class="order-attribute">{{order[1]}}</li>
+                    <li class="order-attribute">{{order[2]}}</li>
+                    <ul class=items-list>
+                        <li class="cart-item" *ngFor="let product of order[4]">
+                            <ul class= "items-list">
+                                <li class="order-item">{{product.name}}</li>
+                                <li class="order-item">{{product.price}}</li>
+                                <li class="order-item">{{product.quantity}}</li>
                             </ul>
                         </li>                
                     </ul>
