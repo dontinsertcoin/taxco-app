@@ -26,11 +26,10 @@ export class AdminAreaComponent implements OnInit, OnDestroy {
   formateOrders(){
     let orders = [];
     this.allOrders.forEach( (order) => {
-      let orderAux = [order.date, order.price, order.status, order.id];
+      let orderAux = [order.date, order.price, order.status, order.id, order.address, order.email];
       let orderedItems = JSON.parse(order.shoppingCart);
       orderAux.push(orderedItems);
-      orders.push(orderAux);
-      
+      orders.push(orderAux);      
     })
     return orders;
   }

@@ -1,22 +1,23 @@
-<div class="row personal-area">
+<div class="personal-area">
     <div class="orders-list-container">
         <ul class="orders-list">
-            <div class="row order-container">
-                <li *ngFor="let order of ordersFormated">
-                    <p>{{order[0]}}</p>
-                    <p>{{order[1]}}</p>
-                    <p>{{order[2]}}</p>
-                    <ul>
-                        <div class="items-container">
-                            <li *ngFor="let product of order[3]">
-                                    <p>{{product.name}}</p>
-                                    <p>{{product.price}}</p>
-                                    <p>{{product.quantity}}</p>
-                            </li>  
-                        </div>              
-                    </ul>            
-                </li>
-            </div>
+            <li class="order" *ngFor="let order of ordersFormated">
+                <ul class="attributes-list">
+                    <li class="order-attribute">Fecha: {{order[0]}}</li>
+                    <li class="order-attribute">Total: {{order[1]}}€</li>
+                    <li class="order-attribute">Estado del pedido: {{order[2]}}</li>
+                </ul>
+                <ul class="items-list">
+                    <li class="cart-item" *ngFor="let product of order[4]">
+                        <ul class= "order-items-list">
+                            <li class="order-item-attribute">{{product.name}}</li>
+                            <li class="order-item-attribute">{{product.price}}</li>
+                            <li class="order-item-attribute">{{product.quantity}}</li>
+                        </ul>
+                    </li>           
+                </ul>
+                <input *ngIf="order[2]<2" type="text" value="Cancelar pedido" class="btn btn-block btn-primary btn-sm" (click)="deleteOrder(order[3])">           
+            </li>
         </ul>
     </div>
 </div>

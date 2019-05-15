@@ -1,16 +1,39 @@
 .personal-area {
+    margin-top: 25px;
     width: 100%;
     height: 100%;
     background-color: white;
-
     .orders-list {
-        display: inline-block;
-        list-style: none;
-
-        li {
-            display: inline-block;
-            list-style: none;
+        display: table;
+        text-align: center;
+        width: 100%;
+        .order {
+            display: table-caption;
+            width: 80%;
+            margin-right: 0px;
+            margin-bottom: 15px;
+            .attributes-list{
+                display: table-cell;
+                min-width: 350px;
+            }
+            .items-list{
+                display: table-cell;
+                min-width: 350px;
+            }
         }
     }
 }
 
+.order-item-attribute {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+ul{
+    list-style: none;
+}
+
+input {
+    max-width: 100px;
+    float: right;
+}

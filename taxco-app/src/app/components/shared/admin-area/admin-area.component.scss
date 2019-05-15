@@ -1,33 +1,50 @@
-.personal-area {
+.admin-area {
+    margin-top: 25px;
     width: 100%;
     height: 100%;
     background-color: white;
-    .orders-list {
-        display: inline-block;
-        .order {
-            display: inline-block;
+    .orders-list-container {
+        width: 70%;
+        .orders-list {
+            display: table;
+            text-align: center;
+            width: 100%;
+            .order {
+                display: table-row;
+                width: 80%;
+                margin-right: 0px;
+                margin-bottom: 15px;
+                ul {
+                    display: table-cell;
+                }
+                .attributes-list {
+                    min-width: 350px;
+                    .order-attribute {
+                        float: left;
+                    }
+                }
+                .items-list{
+                    min-width: 350px;
+                }
+            }
         }
     }
+    
 }
 
-.orders-list{
-    text-align: center;
-    width: 100%;
-    list-style: none;
-    text-align: center;
+.order-item-attribute,
+.order-attribute {
+    display: block;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    float: left;
 }
-
-.order{
-    display: inline-block;
-    width: 320px;
-    margin-right: 0px;
-}
-
-.attributes-list {
-
-}
-
 
 ul{
     list-style: none;
+}
+
+input {
+    max-width: 100px;
+    float: right;
 }
