@@ -1,8 +1,6 @@
 .main-content{
     width: 100%;
-    background-color: white;
     align-content: center;
-    margin-top: 10px;
 }
 
 .transparent-div {
@@ -10,10 +8,7 @@
 }
 
 .central-image{
-    margin-top: 50px;
     width: 100%;
-    margin-right: 0px;
-    margin-left: 0px;
 }
 
 .main-image{
@@ -37,15 +32,15 @@
 
 .presentation{
     padding: 0;
-    padding-top: 30px;
     margin: 0;
     width: 100%;
+    background-color: white;
 }
 
 .main-carousel{
     width: 100%;
+    height: 200px;
     padding: 0;
-    padding-top: 15px;
     padding-bottom: 15px;
 }
 
