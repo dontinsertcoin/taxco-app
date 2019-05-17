@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+  videoUrl: string = 'https://www.youtube.com/watch?v=DBLFwHosi2c';
+  safeUrl;
+
+  constructor(){
+    
+ }
 
   ngOnInit() {
   }
+
+
 
 }

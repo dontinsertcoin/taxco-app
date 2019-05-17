@@ -82,7 +82,7 @@ const appRoutes: Routes = [
       { 
         enableTracing: true // <-- debugging purposes only
       }), 
-      NgbModule    
+    NgbModule    
   ],
   providers: [ 
     ImageService,
