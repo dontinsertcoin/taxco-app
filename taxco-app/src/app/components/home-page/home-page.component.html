@@ -3,19 +3,33 @@
         <span class="col-lg-12 home-page-main-text">Taxidermia Coin</span>
     </div>
     <app-carousel></app-carousel>  
-    <div class="container-fluid row presentation"> 
-        <div class="col-md-12">
-            <p>
-                Taxidermia Coin es una empresa familiar fundada de la mano de José Coin Quintana en el año 1960, cuando montó su primer estudio en Madrid donde realizaba pequeños encargos.<br>
-                Poco a poco, el negocio fue incrementando su volumen y la plantilla se amplió incorporando a los hijos del fundador: José y Francisco Coin, quienes continuaron con el negocio compaginado las enseñanzas de su padre con las nuevas técnicas de naturalización de trofeos.<br>
-                En la actualidad, Taxidermia Coin cuenta con multitud de encargos tanto nacionales como internacionales gracias a la excelencia de los trabajos realizados.<br>
-                Todos nuestros clientes y amigos saben que la calidad es el sello más reconocible de nuestra marca.
-            </p>                  
+    <div class="container-fluid presentation"> 
+        <div class="row">
+            <div class="col-md-12">
+                <p class="presentation-text">
+                    Taxidermia Coin es una empresa familiar fundada de la mano de José Coin Quintana en el año 1960, cuando montó su primer estudio en Madrid donde realizaba pequeños encargos.<br>
+                    Poco a poco, el negocio fue incrementando su volumen y la plantilla se amplió incorporando a los hijos del fundador: José y Francisco Coin, quienes continuaron con el negocio compaginado las enseñanzas de su padre con las nuevas técnicas de naturalización de trofeos.<br>
+                    En la actualidad, Taxidermia Coin cuenta con multitud de encargos tanto nacionales como internacionales gracias a la excelencia de los trabajos realizados.<br>
+                    Todos nuestros clientes y amigos saben que la calidad es el sello más reconocible de nuestra marca.
+                </p> 
+            </div>                 
         </div> 
-        <iframe
-            src="https://www.youtube.com/embed/DBLFwHosi2c"
-            frameborder="0"
-            allowfullscreen
-        ></iframe>
+        <div class="row">
+            <div class="col-md-4 home-contact">
+
+            </div>
+            <div class="col-md-8 home-map">
+                
+            </div>
+        </div> 
+        <div class="social-media row">
+            <div class="video-container col-md-8">
+                <iframe class="youtube-video" src="https://www.youtube.com/embed/DBLFwHosi2c" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="twitter-container col-md-4">
+                <p>Síguenos en Twitter: </p>
+                <ng4-twitter-timeline class="timeline-twitter" [dataSrc]="{sourceType: 'profile',screenName: 'dontinsertcoin'}" [opts]="{tweetLimit: 1}"></ng4-twitter-timeline>   
+            </div>
+        </div>
     </div>
 </div>

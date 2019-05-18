@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Ng4TwitterTimelineService } from 'ng4-twitter-timeline/lib/index';
 
 @Component({
   selector: 'app-home-page',
@@ -10,7 +11,7 @@ export class HomePageComponent implements OnInit {
   videoUrl: string = 'https://www.youtube.com/watch?v=DBLFwHosi2c';
   safeUrl;
 
-  constructor(){
+  constructor(private ng4TwitterTimelineService: Ng4TwitterTimelineService){
     
  }
 

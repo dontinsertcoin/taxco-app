@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Ng4TwitterTimelineModule } from 'ng4-twitter-timeline/lib/index';
 
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
@@ -82,7 +83,8 @@ const appRoutes: Routes = [
       { 
         enableTracing: true // <-- debugging purposes only
       }), 
-    NgbModule    
+    NgbModule,
+    Ng4TwitterTimelineModule.forRoot()
   ],
   providers: [ 
     ImageService,
