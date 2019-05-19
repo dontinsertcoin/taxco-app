@@ -9,7 +9,6 @@
 }
 
 .home-page-main-text {
-    text-align: center;
     color: white;
     font-size: 45px;
     font-family: monospace;
@@ -17,10 +16,8 @@
 
 .presentation{
     padding: 0;
-    margin: 0;
     width: 100%;
     background-color: white;
-    text-align: center;
 }
 
 .transparent-div {
@@ -32,12 +29,22 @@
 }
 
 .presentation-text {
+}
+
+.map-and-info {
+    .home-map {
+        max-width: 90%;
+    }
+}
+
+.section {
+    border-top: #ccc solid 1px; 
     width: 80%;
     margin: auto;
+    padding: 20px 0px;
 }
 
 .social-media {
-    width: 80%;
     margin: auto;
     .youtube-video {
         margin: auto;
