@@ -2,49 +2,44 @@
     <div id="navigation-bar">
         <div id="navigation-list">
             <ul id="navbar" class="main-navbar">
-                <!--<li class="languaje-zone">
-                    <a (click)="showRegisterModal()">
-                        <img class="user-logo" src="assets/resources/images/user-profile.png">
-                    </a>          
-                </li>-->
-                <li id="logo" class="navbar-item logo" (click)="openModal('shopping-cart-modal')">
-                    <!--<a routerLink= "/" routerLinkActive="active">-->
-                        <img id="logo-img" 
-                        src="https://firebasestorage.googleapis.com/v0/b/taxco-app.appspot.com/o/logo-blanco.png?alt=media&token=02fd9ea7-3c51-4e72-aaf8-deef8ce1e01d" 
-                        class="navbar-icon">
-                    <!--</a>
-                    <a routerLink= "/" routerLinkActive="active" style="position:absolute"><img id="logo-img-hover" src="assets/resources/images/logo-negro.png" class="navbar-icon"></a>-->
-                </li>
-                 
-                <li class="navbar-item">
-                    <a class="taxco-navbar-text" routerLink= "/" routerLinkActive="active">Inicio</a>
-                </li>       
-                <li class="navbar-item">
-                    <a class="taxco-navbar-text" routerLink= "/aboutUs" routerLinkActive="active">Sobre nosotros</a>
-                </li>
-                <li class="navbar-item">
-                    <a class="taxco-navbar-text" routerLink= "/gallery" routerLinkActive="active">Galería</a>
-                </li> 
-                <li class="navbar-item">
-                    <a class="taxco-navbar-text" routerLink= "/shop" routerLinkActive="active">Tienda</a>
-                </li>
-                <li class="user-zone">
-                    <a (click)="openModal('custom-modal-1')">
-                        <img class="user-logo" 
-                            src="https://firebasestorage.googleapis.com/v0/b/taxco-app.appspot.com/o/user-profile.png?alt=media&token=c650d418-55bf-4bde-b1ea-167abe085470">
-                    </a>          
-                </li>
-                <li class="user-zone">
-                    <a (click)="openModal('custom-modal-1')">
-                        <img class="user-logo" 
-                            src="https://firebasestorage.googleapis.com/v0/b/taxco-app.appspot.com/o/user-profile.png?alt=media&token=c650d418-55bf-4bde-b1ea-167abe085470">
-                    </a>          
-                </li>
-                <li class="hamburger">
-                    <img class="menu-icon" 
-                        src="https://firebasestorage.googleapis.com/v0/b/taxco-app.appspot.com/o/menu-icon.png?alt=media&token=1fafe8d1-0ac3-4268-a09c-fc2702909425" 
-                        (click)="showMenu()">
-                </li>                                
+                    <li id="logo" class="navbar-item logo" routerLink= "/" routerLinkActive="active">
+                        <!--<a routerLink= "/" routerLinkActive="active">-->
+                            <img id="logo-img" 
+                            src="https://firebasestorage.googleapis.com/v0/b/taxco-app.appspot.com/o/logo-blanco.png?alt=media&token=02fd9ea7-3c51-4e72-aaf8-deef8ce1e01d" 
+                            class="navbar-icon">
+                        <!--</a>
+                        <a routerLink= "/" routerLinkActive="active" style="position:absolute"><img id="logo-img-hover" src="assets/resources/images/logo-negro.png" class="navbar-icon"></a>-->
+                    </li>
+                    
+                    <li class="navbar-item">
+                        <a class="taxco-navbar-text" routerLink= "/" routerLinkActive="active">Inicio</a>
+                    </li>       
+                    <li class="navbar-item">
+                        <a class="taxco-navbar-text" routerLink= "/aboutUs" routerLinkActive="active">Sobre nosotros</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a class="taxco-navbar-text" routerLink= "/gallery" routerLinkActive="active">Galería</a>
+                    </li> 
+                    <li class="navbar-item">
+                        <a class="taxco-navbar-text" routerLink= "/shop" routerLinkActive="active">Tienda</a>
+                    </li>
+                    <li class="user-zone navbar-item">
+                        <a (click)="openModal('custom-modal-1')">
+                            <img class="list-logo user-logo" 
+                                src="https://firebasestorage.googleapis.com/v0/b/taxco-app.appspot.com/o/user-icon.png?alt=media&token=c471b387-8890-400b-ba80-d9cf75382b4e">
+                        </a>          
+                    </li>
+                    <li class="cart-zone navbar-item">
+                        <a (click)="openModal('shopping-cart-modal')">
+                            <img class="list-logo cart-logo" 
+                                src="https://firebasestorage.googleapis.com/v0/b/taxco-app.appspot.com/o/shopping-cart-icon.png?alt=media&token=86535265-ffc4-4642-a550-c97ee7a872a4">
+                        </a>          
+                    </li>
+                    <li class="hamburger">
+                        <img class="menu-icon" 
+                            src="https://firebasestorage.googleapis.com/v0/b/taxco-app.appspot.com/o/menu-icon.png?alt=media&token=1fafe8d1-0ac3-4268-a09c-fc2702909425" 
+                            (click)="showMenu()">
+                    </li>                              
             </ul>
         </div>
         
