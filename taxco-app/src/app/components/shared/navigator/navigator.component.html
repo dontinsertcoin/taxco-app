@@ -82,3 +82,8 @@
         <button class="btn-primary" (click)="confirmBuy()">Realizar pedido</button>
     </div>
 </custom-modal>
+<custom-modal id="success-modal">
+    <p>
+        <ngb-alert [type]="success" (close)="close(alert)">Realizado con éxito</ngb-alert>
+    </p>
+</custom-modal>
