@@ -1,15 +1,15 @@
 .gallery{
     background-color: white;
+    width: 100%;
     align-content: center;
-    padding-top: -30px;
-    border-radius: 15px 15px 0px 0px;
-    margin-top: 20px;
+    margin: auto;
+    margin-top: 40px;
 }
 
 .top-menu{
+    width: 50%;
     padding-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
 }
 
 .top-menu > ul{
@@ -78,6 +78,10 @@
 .image-row{
     margin-top: 15px;
     margin-bottom: 15px;
+}
+
+.galllery-content {
+    width: 80%;
 }
 
 .image-item{

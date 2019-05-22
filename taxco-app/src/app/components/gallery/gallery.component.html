@@ -1,5 +1,5 @@
-<div class="container-fluid gallery container">
-  <div class="row container container-fluid top-menu text-center">
+<div class="container-fluid gallery">
+  <div class="container-fluid top-menu text-center">
     <ul class="gallery-filter-list text-center">
       <li class="list-item list-first">
         <a class="list-link" (click)="filtrar('Todas')">Todas</a>
@@ -18,7 +18,7 @@
       </li>
     </ul>
   </div>
-  <div class="row container container-fluid text-center">
+  <div class="galllery-content container-fluid">
     <ul class="list-of-images">
       <li *ngFor="let t of temp(math.ceil(imagesPerPage)).fill(); let i = index;" class="image-container">
           <img class="tn" src="{{images[i+((actualPage-1)*imagesPerPage)].imagePath}}" 
