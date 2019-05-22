@@ -79,11 +79,13 @@
     </div>
     <div>
         <p>Total : {{this.productService.totalPrice}}€</p>
-        <button class="btn-primary" (click)="confirmBuy()">Realizar pedido</button>
+        <button *ngIf="authService.loggedSession && productService.shoppingCart.size>0" class="btn-primary" (click)="confirmBuy()">Realizar pedido</button>
+        <p *ngIf="!authService.loggedSession">Para poder realizar un pedido debes estar registrado</p>
+        <p *ngIf="authService.loggedSession && productService.shoppingCart.size<1">Aún no tienes productos en tu carrito</p>
     </div>
 </custom-modal>
-<custom-modal id="success-modal">
+<custom-modal class="custom-modal" id="success-modal">
     <p>
-        <ngb-alert [type]="success" (close)="close(alert)">Realizado con éxito</ngb-alert>
+        <ngb-alert [type]="success" (close)="closeModal('custom-modal-1')">Realizado con éxito</ngb-alert>
     </p>
 </custom-modal>

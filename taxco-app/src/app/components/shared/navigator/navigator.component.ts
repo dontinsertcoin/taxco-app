@@ -22,7 +22,6 @@ export class NavigatorComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.authService.logout();
   }
 
   showMenu(){
@@ -68,6 +67,8 @@ export class NavigatorComponent implements OnInit {
 
   confirmBuy(){
     this.ordersService.confirmOrder();
+    this.modalService.close('shopping-cart-modal');
+    this.modalService.open('success-modal');
   }
 
 }
