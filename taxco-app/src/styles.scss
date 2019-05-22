@@ -5,3 +5,8 @@ body{
     background-attachment: fixed;
     background-size: cover/*min($numbers: 2000px) 100%*/;
 }
+
+$small-device: 576px;
+$medium-device: 768px;
+$large-device: 992px;
+$extra-large-device: 1200px;

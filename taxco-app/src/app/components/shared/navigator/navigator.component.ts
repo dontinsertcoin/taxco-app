@@ -3,6 +3,7 @@ import { AuthService } from '../../../services/auth/auth.service';
 import { ModalService } from 'src/app/services/modal/modal.service';
 import { ProductsService } from 'src/app/services/products/products.service';
 import { OrdersService } from 'src/app/services/orders/orders.service';
+import { isNgTemplate } from '@angular/compiler';
 
 @Component({
   selector: 'app-navigator',
@@ -25,8 +26,18 @@ export class NavigatorComponent implements OnInit {
   }
 
   showMenu(){
+    let navbar = document.getElementById('navbar');
+    let logo = document.getElementById('logo');
+    let logoImg = document.getElementById('logo-img');
+    let navigationBar = document.getElementById('navigation-bar');
+    let navigationList = document.getElementById('navigation-list');
     if (!this.showMobileMenu){
       this.showMobileMenu=true;
+      navigationBar.className=""; 
+      navigationList.className="";
+      navbar.classList.remove('scrolled');
+      logo.classList.remove('scrolled-logo');
+      logoImg.classList.remove('scrolled-logo');
     }else{
       this.showMobileMenu=false;
     }
@@ -40,7 +51,7 @@ export class NavigatorComponent implements OnInit {
     let logoImg = document.getElementById('logo-img');
     let navigationBar = document.getElementById('navigation-bar');
     let navigationList = document.getElementById('navigation-list');
-    //if (!mobileDevice*){
+    if (!this.showMobileMenu){
       if (scrollOffset > 30){     
         navigationBar.className="navigation-bar"; 
         navigationList.className="navigation-list"; 
@@ -54,7 +65,7 @@ export class NavigatorComponent implements OnInit {
         logo.classList.remove('scrolled-logo');
         logoImg.classList.remove('scrolled-logo');
       }
-    //}
+    }
   }
 
   openModal(id: string) {

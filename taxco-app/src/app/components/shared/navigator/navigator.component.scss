@@ -23,6 +23,7 @@
     width: 80%;
     margin:auto;
     list-style: none;
+    z-index: 99;
 }
 
 .list-logo {
@@ -50,9 +51,6 @@
             }
         }
     }
-    .user-zone, .cart-zone {
-        margin-top: 0px;
-    }
 }
 
 .navbar-icon{
@@ -74,6 +72,10 @@
 
 .logo{
     width: 120px;
+}
+
+.logo-img {
+    z-index: 99;
 }
 
 .scrolled-logo {
@@ -107,18 +109,17 @@
 
     #header{   
         height: 65px;
-        background: #333;
     }
 
     #navbar{
-        max-width: 1200px;
-        height: 65px;
+        width: 100%;
+        height: 65px;        
+        position: fixed;
+        background: #333;
+        box-shadow: 0px 2px 4px #AAA;
+        border-radius: 0px 0px 20px 20px;
     }
     .navigation-bar {
-        width: 100%;
-    }
-
-    .scrolled {
         width: 100%;
     }
     
@@ -134,6 +135,12 @@
     
     .logo{
         display: inline;
+        z-index: 99;
+    }
+
+    #logo-img{
+        position: absolute !important;
+        left: 8px;
     }
     
     .hamburger{
@@ -153,16 +160,12 @@
         z-index: 99;
     }
 
-    .navbar-aux{
-        list-style: none;      
-    }
-
-    .navbar-aux-item{
+    .mobile-navbar-item{
         width: 100%;
         display: inline;    
         background: #333;
         float: left;
-        border-bottom: #CCC solid 1px;
+        border-top: #CCC solid 1px;
     }
 
     .taxco-navbar-text:hover, .taxco-navbar-text:focus{
