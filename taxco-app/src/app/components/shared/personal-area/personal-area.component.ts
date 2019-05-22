@@ -37,4 +37,22 @@ export class PersonalAreaComponent implements OnInit, OnDestroy {
   ngOnDestroy(){
     this.ordersService.ordersByEmailEvent.unsubscribe();
   }
+
+  deleteOrder(id: string){
+    let notFound= true;
+    let i = 0;
+    while (notFound && i < this.myOrders.length){
+      if (this.myOrders[i].id == id){
+        this.myOrders[i].status= this.myOrders[i].status.valueOf() + 1;
+        this.ordersService.deleteOrder(this.myOrders[i]);
+        notFound= false;
+      }
+      i++;
+    }
+    this.ngOnInit();
+  }
+
+  orderNextState(id: string){
+    
+  }
 }

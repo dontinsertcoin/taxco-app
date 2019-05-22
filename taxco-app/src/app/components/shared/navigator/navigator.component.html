@@ -10,17 +10,21 @@
                         <!--</a>
                         <a routerLink= "/" routerLinkActive="active" style="position:absolute"><img id="logo-img-hover" src="assets/resources/images/logo-negro.png" class="navbar-icon"></a>-->
                     </li>
-                    
-                    <li class="navbar-item">
+                    <li class="hamburger">
+                        <img class="menu-icon" 
+                            src="https://firebasestorage.googleapis.com/v0/b/taxco-app.appspot.com/o/menu-icon.png?alt=media&token=1fafe8d1-0ac3-4268-a09c-fc2702909425" 
+                            (click)="showMenu()">
+                    </li>    
+                    <li [className]="!showMobileMenu ? 'navbar-item' : 'mobile-navbar-item'">
                         <a class="taxco-navbar-text" routerLink= "/" routerLinkActive="active">Inicio</a>
                     </li>       
-                    <li class="navbar-item">
+                    <li [className]="!showMobileMenu ? 'navbar-item' : 'mobile-navbar-item'">
                         <a class="taxco-navbar-text" routerLink= "/aboutUs" routerLinkActive="active">Sobre nosotros</a>
                     </li>
-                    <li class="navbar-item">
+                    <li [className]="!showMobileMenu ? 'navbar-item' : 'mobile-navbar-item'">
                         <a class="taxco-navbar-text" routerLink= "/gallery" routerLinkActive="active">Galería</a>
                     </li> 
-                    <li class="navbar-item">
+                    <li [className]="!showMobileMenu ? 'navbar-item' : 'mobile-navbar-item'">
                         <a class="taxco-navbar-text" routerLink= "/shop" routerLinkActive="active">Tienda</a>
                     </li>
                     <li class="user-zone navbar-item">
@@ -34,17 +38,12 @@
                             <img class="list-logo cart-logo" 
                                 src="https://firebasestorage.googleapis.com/v0/b/taxco-app.appspot.com/o/shopping-cart-icon.png?alt=media&token=86535265-ffc4-4642-a550-c97ee7a872a4">
                         </a>          
-                    </li>
-                    <li class="hamburger">
-                        <img class="menu-icon" 
-                            src="https://firebasestorage.googleapis.com/v0/b/taxco-app.appspot.com/o/menu-icon.png?alt=media&token=1fafe8d1-0ac3-4268-a09c-fc2702909425" 
-                            (click)="showMenu()">
-                    </li>                              
+                    </li>                          
             </ul>
         </div>
         
     </div>
-    <div class="header-aux" [ngClass]="showMobileMenu ? 'click-menu' : 'undo-click-menu'" (clickOutside)="showMenu()">
+    <!--<div class="header-aux" [ngClass]="showMobileMenu ? 'click-menu' : 'undo-click-menu'" (clickOutside)="showMenu()">
         <ul id="navbar-aux">
             <li class="navbar-aux-item first-item">
                 <a routerLink= "/" routerLinkActive="active" class="taxco-navbar-text">Inicio</a>
@@ -62,7 +61,7 @@
                 <a (click)="showRegisterModal()" id="userTag" class="taxco-navbar-text">Usuario</a> 
             </li>
         </ul>
-    </div>
+    </div>-->
 </nav>
 <custom-modal class="custom-modal" id="custom-modal-1">
     <app-auth></app-auth>
@@ -79,6 +78,13 @@
     </div>
     <div>
         <p>Total : {{this.productService.totalPrice}}€</p>
-        <button class="btn-primary" (click)="confirmBuy()">Realizar pedido</button>
+        <button *ngIf="authService.loggedSession && productService.shoppingCart.size>0" class="btn-primary" (click)="confirmBuy()">Realizar pedido</button>
+        <p *ngIf="!authService.loggedSession">Para poder realizar un pedido debes estar registrado</p>
+        <p *ngIf="authService.loggedSession && productService.shoppingCart.size<1">Aún no tienes productos en tu carrito</p>
     </div>
+</custom-modal>
+<custom-modal class="custom-modal" id="success-modal">
+    <p>
+        <ngb-alert [type]="success" (close)="closeModal('custom-modal-1')">Realizado con éxito</ngb-alert>
+    </p>
 </custom-modal>

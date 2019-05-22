@@ -20,7 +20,8 @@ export class LoginComponent implements OnInit {
 
   onSubmitAddUser(){
     this.authService.userRegistry(this.email, this.password)
-    .then( (res) => {      
+    .then( (res) => {   
+      this.modalService.close('custom-modal-1');   
     }).catch( (err) => {
     });
   }
@@ -29,13 +30,9 @@ export class LoginComponent implements OnInit {
     this.authService.loginEmail(this.email, this.password)
     .then( (res) => {
       this.authService.loggedSession = true;
-      this.closeModal('custom-modal-1');
+      this.modalService.close('custom-modal-1');
     }).catch((err) => {
     })
-  }
-
-  closeModal(modalId: string){
-    this.modalService.close(modalId);
   }
 
   changeToRegister(){

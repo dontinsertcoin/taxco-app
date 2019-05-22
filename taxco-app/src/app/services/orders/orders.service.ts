@@ -80,4 +80,9 @@ export class OrdersService {
     this.ordersDoc=this.firestoreDataBase.doc(`Pedidos/${order.id}`);
     this.ordersDoc.update(order);
   }
+
+  deleteOrder(order: OrderComponent){
+    this.ordersDoc=this.firestoreDataBase.doc(`Pedidos/${order.id}`);
+    this.ordersDoc.delete();
+  }
 }
