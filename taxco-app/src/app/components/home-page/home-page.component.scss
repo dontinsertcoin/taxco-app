@@ -16,8 +16,8 @@
 
 .home-page-main-text {
     color: white;
-    font-size: 45px;
-    font-family: monospace;
+    font-size: 55px;
+    font-family: gabriola;
 }
 
 .presentation{
@@ -69,6 +69,7 @@
 
 
 .twitter-container {
+    margin: auto;
     p {
         border-bottom: dashed #ccc 1px;
     }    
@@ -92,8 +93,6 @@
     border: solid 10px white;
     border-radius: 12px;
 }
-
-
 
 .main-carousel{
     width: 100%;

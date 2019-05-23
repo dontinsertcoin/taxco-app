@@ -18,7 +18,7 @@
       </li>
     </ul>
   </div>
-  <div class="galllery-content container-fluid">
+  <!--<div class="galllery-content container-fluid">
     <ul class="list-of-images">
       <li *ngFor="let t of temp(math.ceil(imagesPerPage)).fill(); let i = index;" class="image-container">
           <img class="tn" src="{{images[i+((actualPage-1)*imagesPerPage)].imagePath}}" 
@@ -34,11 +34,6 @@
             Anterior
           </a>
         </li>
-        <!--<li class="page-item" *ngFor="let t of temp(math.ceil(lastPage)).fill(); let i = index;">
-          <a class="page-link text-center" mdbWavesEffect href="#" (click)="goToPage(i+1)">
-            {{i + 1}}
-          </a>
-        </li>-->
         <li class="page-item" *ngIf="(lastPage>actualPage)">
           <a class="page-link wider text-center" mdbWavesEffect (click)="nextPage()">
             Siguiente
@@ -65,4 +60,19 @@
       </div>
     </div>
   </div>
+</div>-->
+  <div class="gallery-container">
+    <ul class="image-list">
+      <li class="small-image-container" *ngFor="let image of images">
+        <div class="gallerry-image">  
+          <img src="{{image.imagePath}}" (click)="displayImage(image)">
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>
+<custom-modal class="custom-modal" id="image-display">
+  <div class="image-display-container">
+    <img src="{{imageSelected.imagePath}}">
+  </div>
+</custom-modal>

@@ -19,6 +19,7 @@ export class GalleryComponent implements OnInit {
   private imageToDisplay= -1;
   temp = Array;
   math = Math;
+  private imageSelected: Image;
   private rawsPerPage = 0;
   private imagesPerRaw = 0;
   private imagesPerPage = 0;
@@ -81,10 +82,10 @@ export class GalleryComponent implements OnInit {
     }
   }
 
-  displayImage(num: number){
-    console.log("desplegando imagen " + num);
-    this.imageDisplay= true;
-    this.imageToDisplay=num;
+  displayImage(image: Image){
+    this.imageSelected= image;
+    this.modalService.open("image-display");
+    
   }
 
   closeModal(){
