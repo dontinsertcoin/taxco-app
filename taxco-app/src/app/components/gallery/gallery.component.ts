@@ -12,31 +12,12 @@ import { ModalService } from 'src/app/services/modal/modal.service';
 export class GalleryComponent implements OnInit {
 
   private images: Image[];
-  private maxPerPage: number;
-  private actualPage: number;
-  private lastPage: number;
-  private imageDisplay = false;
-  private imageToDisplay= -1;
-  temp = Array;
-  math = Math;
   private imageSelected: Image;
-  private rawsPerPage = 0;
-  private imagesPerRaw = 0;
-  private imagesPerPage = 0;
-  private imageService: ImageService;
+  private imageSelectedIndex: number;
 
-  constructor(private imageServiceAux: ImageService, private modalService: ModalService) {
-    this.imageService = this.imageServiceAux;
-    if (this.imagesPerPage === 0){
-      this.rawsPerPage = this.imageService.RAWSPERPAGE;
-      this.imagesPerPage = this.imageService.IMAGESPERPAGE;
-      this.imagesPerRaw = this.imageService.IMAGESPERRAW;
-    }
-    this.actualPage = 1;   
+  constructor(private imageService: ImageService, private modalService: ModalService) {
     this.images= this.imageService.getImages();
-    this.lastPage= this.images.length % this.imagesPerPage === 0 ? 
-      this.images.length/this.imagesPerPage : Math.floor(this.images.length/this.imagesPerPage) + 1;
-  }
+ }
 
   ngOnInit() {
   }
@@ -45,68 +26,38 @@ export class GalleryComponent implements OnInit {
     this.constructor(this.imageService);
     if (filtro != 'Todas'){
       this.images= this.images.filter( image => image.type === filtro);
-    }    
-    this.maxPerPage= (this.images.length/this.imagesPerRaw) > this.rawsPerPage ? 
-      this.rawsPerPage : this.images.length/this.imagesPerRaw;
-    this.lastPage= this.images.length % this.imagesPerPage === 0 ? 
-      this.images.length/this.imagesPerPage : Math.floor(this.images.length/this.imagesPerPage) + 1;
-  }
-
-  showImage(num: number){
-    if (this.images[num]){
-      return true;
-    }else{
-      return false;
+      console.log(this.images);
     }    
   }
 
-  nextPage(){
-    this.actualPage= this.actualPage + 1;
-  }
-
-  previousPage(){
-    this.actualPage= this.actualPage - 1;
-  }
-
-  goToPage(num: number){
-    if (num > this.actualPage){
-      for (this.actualPage; this.actualPage === num; this.actualPage++){
-        this.nextPage();
-      }
-    }else{
-      if (num < this.actualPage){
-        for (this.actualPage; this.actualPage === num; this.actualPage++){
-          this.previousPage();
-        }
-      }
-    }
-  }
-
-  displayImage(image: Image){
+  displayImage(image: Image, index: number){
     this.imageSelected= image;
+    this.imageSelectedIndex= index;
     this.modalService.open("image-display");
-    
-  }
-
-  closeModal(){
-    this.imageDisplay= false;
-    this.imageToDisplay=-1;
   }
 
   nextImage(){
-    if (this.showImage(this.imageToDisplay + 1)){
-      this.imageToDisplay= this.imageToDisplay + 1;
+    if (this.imageSelectedIndex === (this.images.length -1)){
+      this.imageSelectedIndex= 0;
+      this.imageSelected= this.images[this.imageSelectedIndex];
     }else{
-      this.imageToDisplay= 0;
+      this.imageSelectedIndex++;
+      this.imageSelected= this.images[this.imageSelectedIndex];
     }    
   }
 
   previousImage(){
-    if (this.showImage(this.imageToDisplay - 1)){
-      this.imageToDisplay= this.imageToDisplay - 1;
+    if (this.imageSelectedIndex === 0){
+      this.imageSelectedIndex= this.images.length-1;
+      this.imageSelected= this.images[this.imageSelectedIndex];
     }else{
-      this.imageToDisplay= this.images.length - 1;
-    }    
+      this.imageSelectedIndex--;
+      this.imageSelected= this.images[this.imageSelectedIndex];
+    }   
+  }
+
+  closeModal(id: string){
+    this.modalService.close(id);
   }
   
 }

@@ -63,9 +63,9 @@
 </div>-->
   <div class="gallery-container">
     <ul class="image-list">
-      <li class="small-image-container" *ngFor="let image of images">
+      <li class="small-image-container" *ngFor="let image of images; let i = index">
         <div class="gallerry-image">  
-          <img src="{{image.imagePath}}" (click)="displayImage(image)">
+          <img class="miniature" src="{{image.imagePath}}" (click)="displayImage(image, i)">
         </div>
       </li>
     </ul>
@@ -73,6 +73,7 @@
 </div>
 <custom-modal class="custom-modal" id="image-display">
   <div class="image-display-container">
-    <img src="{{imageSelected.imagePath}}">
+    <img class="full-image" src="{{imageSelected.imagePath}}" (click)="previousImage()">
   </div>
+  <input type="text" class="btn btn-primary" (close)="closeModal('custom-modal-1')">
 </custom-modal>
