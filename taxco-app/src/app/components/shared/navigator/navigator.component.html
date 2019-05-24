@@ -88,3 +88,8 @@
         <ngb-alert [type]="success" (close)="closeModal('custom-modal-1')">Realizado con éxito</ngb-alert>
     </p>
 </custom-modal>
+<custom-modal class="custom-modal" id="image-display">
+    <div class="image-display-container">
+        <img class="full-image" src="{{imageService.imageSelected.imagePath}}" (click)="previousImage()">
+    </div>
+</custom-modal>

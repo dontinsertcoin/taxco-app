@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { Image } from '../../components/shared/image/image.component';
 
 @Injectable()
@@ -73,9 +73,12 @@ export class ImageService{
     new Image('/assets/resources/images/presentation.jpg', 'Prueba62', 'Hueso'),
     new Image('/assets/resources/images/logo-blanco.png', 'Prueba63', 'Entero')
   ];  
-  private maxPerPage: number;
-  private actualPage: number;
-  private lastPage: number;
+  imageSelected: Image = this.IMAGES[0];
+  imageSelectedIndex: number = 0;
+  imagesFiltered: Image[] = this.IMAGES;
+
+  @Output()
+  displayImageEvent = new EventEmitter<String>();
 
   getImages(){
     return this.IMAGES;
@@ -83,6 +86,18 @@ export class ImageService{
 
   getImage(num: number){
     return this.IMAGES[num];
+  }
+
+  displayImage(){
+    this.displayImageEvent.emit("showImage");
+  }
+
+  filterImages(stringFilter: string){
+    if (stringFilter != 'Todas'){
+      this.imagesFiltered= this.IMAGES.filter( image => image.type === stringFilter);
+    } else {
+      this.imagesFiltered= this.getImages();
+    }    
   }
 
 }

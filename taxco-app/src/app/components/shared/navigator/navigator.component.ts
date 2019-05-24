@@ -4,6 +4,7 @@ import { ModalService } from 'src/app/services/modal/modal.service';
 import { ProductsService } from 'src/app/services/products/products.service';
 import { OrdersService } from 'src/app/services/orders/orders.service';
 import { isNgTemplate } from '@angular/compiler';
+import { ImageService } from 'src/app/services/images/image.service';
 
 @Component({
   selector: 'app-navigator',
@@ -18,11 +19,15 @@ export class NavigatorComponent implements OnInit {
   constructor(public authService: AuthService, 
       private modalService: ModalService, 
       public productService: ProductsService,
-      private ordersService: OrdersService) { 
+      private ordersService: OrdersService,
+      private imageService: ImageService) { 
 
   }
 
   ngOnInit() {
+    this.imageService.displayImageEvent.subscribe((data: String) => {
+      this.modalService.open("image-display");
+    })
   }
 
   showMenu(){
@@ -80,6 +85,28 @@ export class NavigatorComponent implements OnInit {
     this.ordersService.confirmOrder();
     this.modalService.close('shopping-cart-modal');
     this.modalService.open('success-modal');
+  }
+
+  nextImage(){
+    let images = this.imageService.imagesFiltered;
+    if (this.imageService.imageSelectedIndex === (images.length -1)){
+      this.imageService.imageSelectedIndex= 0;
+      this.imageService.imageSelected= images[this.imageService.imageSelectedIndex];
+    }else{
+      this.imageService.imageSelectedIndex++;
+      this.imageService.imageSelected= images[this.imageService.imageSelectedIndex];
+    }    
+  }
+
+  previousImage(){
+    let images = this.imageService.imagesFiltered;
+    if (this.imageService.imageSelectedIndex === 0){
+      this.imageService.imageSelectedIndex= images.length-1;
+      this.imageService.imageSelected= images[this.imageService.imageSelectedIndex];
+    }else{
+      this.imageService.imageSelectedIndex--;
+      this.imageService.imageSelected= images[this.imageService.imageSelectedIndex];
+    }   
   }
 
 }
