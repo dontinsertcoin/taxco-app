@@ -4,107 +4,56 @@
     align-content: center;
     margin: auto;
     margin-top: 40px;
+    padding-bottom: 25px;
     border-top: 15px solid #333;
-}
 
-.top-menu{
-    width: 50%;
-    padding-top: 20px;
-    margin: auto;
-    ul{
-        list-style: none;
-        padding: 0;
-        border-radius: 15px;
-        background-color: #333;
-        .list-item{
-            display: inline;
-            padding: 15px;
-            text-align: center;
-            a{
-                line-height: 50px;
-                padding: inherit;
-                height: inherit;
-                text-decoration: none;
-                color: white;
-                font-family: cursive
-            }
-            a:hover{
-                color: #333;
-            }
-        }
-        
-        .list-first{
-            border-radius: 15px 0px 0px 15px;
-        }
-        
-        .list-last{
-            border-radius: 0px 15px 15px 0px;
-        }
-        
-        .list-intermedium ,
-        .list-first{
-            border-right: solid #CCC 1px;
-        }
-        
-        .list-first:hover, 
-        .list-first:focus{
-            background-color: white;
-            border-bottom: #333 solid 2px;
-            border-top: #333 solid 2px;
-            border-left: #333 solid 1px;
-            border-right: none;
-            color: #333;
-        }
-        
-        .list-last:hover, 
-        .list-last:focus{
-            background-color: white;
-            border-bottom: #333 solid 2px;
-            border-top: #333 solid 2px;
-            border-right: #333 solid 1px;
-        }
-        
-        .list-intermedium:hover, 
-        .list-intermedium:focus{
-            background-color: white;
-            border-bottom: #333 solid 2px;
-            border-top: #333 solid 2px;
-        }
-    }
-}
-
-.page-navigator{
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.pagination{
-    width: 300px;
-}
-
-.page-item{
-    width: 100%;
-}
-
-.gallery-container {
-    width: 80%;
-    margin: auto;
-    .image-list {
-        list-style: none;
+    .gallery-container {
         margin: auto;
-        .small-image-container {
-            display: inline-block;
-            width: 300px;
-            height: 210px;
-            margin: 10px;
-            .miniature {
-                border: solid black 3px;
-                margin: 10px;
-                width: 300px;
-                height: 210px;
+        margin-top: 15px;
+        width: 80%;
+
+        .dropdown-filter {
+            margin-top: 10px;
+
+            .dropdown-toggle {
+                background-color: #333;
+            }            
+        }
+
+        .selected-filter {
+            margin-top: 10px;
+            font-size: 30px;
+        }  
+
+        .gallery-images {            
+            margin: auto;
+
+            .image-list {
+                list-style: none;
+                margin: auto;
+
+                .small-image-container {
+                    display: inline-block;
+                    width: 300px;
+                    height: 210px;
+                    margin: 10px;
+
+                    .miniature {
+                        border: solid black 3px;
+                        margin: 10px;
+                        width: 300px;
+                        height: 210px;
+                    }
+                }
             }
         }
     }
+
+    
 }
+
+
+
+
 
 

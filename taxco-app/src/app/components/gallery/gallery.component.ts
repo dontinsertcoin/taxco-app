@@ -13,6 +13,7 @@ export class GalleryComponent implements OnInit {
   private images: Image[];
   private imageSelected: Image;
   private imageSelectedIndex: number;
+  private filterSelected= "Todas";
 
   constructor(private imageService: ImageService) {
     this.images= this.imageService.imagesFiltered;
@@ -30,6 +31,7 @@ export class GalleryComponent implements OnInit {
   filtrar (id: string) {
     this.imageService.filterImages(id);
     this.images = this.imageService.imagesFiltered;
+    this.filterSelected = id;
   }
   
 }
