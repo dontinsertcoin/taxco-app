@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Image } from '../shared/image/image.component';
 import { ImageService } from '../../services/images/image.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-gallery',
@@ -16,10 +17,13 @@ export class GalleryComponent implements OnInit {
   private filterSelected= "Todas";
 
   constructor(private imageService: ImageService) {
-    this.images= this.imageService.imagesFiltered;
  }
 
   ngOnInit() {
+    this.imageService.filteredEvent.subscribe((data : Image[]) => {
+      this.images = data;
+    });
+    this.imageService.getAllImages();
   }
 
   displayImage(image: Image, index: number){
@@ -28,10 +32,13 @@ export class GalleryComponent implements OnInit {
     this.imageService.displayImage();
   }
 
-  filtrar (id: string) {
-    this.imageService.filterImages(id);
-    this.images = this.imageService.imagesFiltered;
+  filter (id: string) {
     this.filterSelected = id;
+    this.imageService.getFilteredImages(id);
+  }
+
+  ngOnDestroy(){
+    this.imageService.filteredEvent.unsubscribe();
   }
   
 }

@@ -1,20 +1,20 @@
 <div class="container-fluid gallery"> 
   <div class="gallery-container">
     <div class="row">
-      <div class="btn-group dropdown-filter col-3" mdbDropdown>
+      <div class="btn-group dropdown-filter col-6" mdbDropdown>
         <button mdbDropdownToggle type="button" mdbBtn class="dropdown-toggle waves-light"
           mdbWavesEffect>
           Filtrar
         </button>  
         <div class="dropdown-menu">
-            <a class="dropdown-item" (click)="filtrar('Todas')">Todas</a>
-            <a class="dropdown-item" (click)="filtrar('Hueso')">Hueso</a>
-            <a class="dropdown-item" (click)="filtrar('Entero')">Enteros</a>
-            <a class="dropdown-item" (click)="filtrar('Pecho')">Pecho</a>
-            <a class="dropdown-item" (click)="filtrar('Pabellones')">Pabellones</a>
+            <a class="dropdown-item" (click)="filter('Todas')">Todas</a>
+            <a class="dropdown-item" (click)="filter('Hueso')">Hueso</a>
+            <a class="dropdown-item" (click)="filter('Entero')">Enteros</a>
+            <a class="dropdown-item" (click)="filter('Pecho')">Pecho</a>
+            <a class="dropdown-item" (click)="filter('Pabellones')">Pabellones</a>
         </div>
       </div>
-      <div class="col-3">
+      <div class="col-6">
         <p class="selected-filter">Filtro actual: {{filterSelected}}</p>
       </div>
     </div>

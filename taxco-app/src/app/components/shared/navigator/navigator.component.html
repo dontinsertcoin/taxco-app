@@ -3,12 +3,9 @@
         <div id="navigation-list">
             <ul id="navbar" class="main-navbar">
                     <li id="logo" class="navbar-item logo" routerLink= "/" routerLinkActive="active">
-                        <!--<a routerLink= "/" routerLinkActive="active">-->
-                            <img id="logo-img" 
+                        <img id="logo-img" 
                             src="https://firebasestorage.googleapis.com/v0/b/taxco-app.appspot.com/o/logo-blanco.png?alt=media&token=02fd9ea7-3c51-4e72-aaf8-deef8ce1e01d" 
                             class="navbar-icon">
-                        <!--</a>
-                        <a routerLink= "/" routerLinkActive="active" style="position:absolute"><img id="logo-img-hover" src="assets/resources/images/logo-negro.png" class="navbar-icon"></a>-->
                     </li>
                     <li class="hamburger">
                         <img class="menu-icon" 
@@ -43,25 +40,6 @@
         </div>
         
     </div>
-    <!--<div class="header-aux" [ngClass]="showMobileMenu ? 'click-menu' : 'undo-click-menu'" (clickOutside)="showMenu()">
-        <ul id="navbar-aux">
-            <li class="navbar-aux-item first-item">
-                <a routerLink= "/" routerLinkActive="active" class="taxco-navbar-text">Inicio</a>
-            </li>
-            <li class="navbar-aux-item">
-                <a routerLink= "/gallery" routerLinkActive="active" class="taxco-navbar-text">Galería</a>
-            </li>
-            <li class="navbar-aux-item">
-                <a class="taxco-navbar-text" routerLink= "/shop" routerLinkActive="active">Tienda</a>
-            </li>
-            <li class="navbar-aux-item">
-                <a routerLink= "/aboutUs" routerLinkActive="active" class="taxco-navbar-text">Sobre nosotros</a>
-            </li>
-            <li class="navbar-aux-item last-item">
-                <a (click)="showRegisterModal()" id="userTag" class="taxco-navbar-text">Usuario</a> 
-            </li>
-        </ul>
-    </div>-->
 </nav>
 <custom-modal class="custom-modal" id="custom-modal-1">
     <app-auth></app-auth>

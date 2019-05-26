@@ -1,8 +1,11 @@
 .main-container-shop {
-    text-align: center;
+    background-color: white;
+    width: 100%;
+    align-content: center;
     margin: auto;
-    margin-top: 70px;
-    height: 100%;
+    margin-top: 40px;
+    padding-bottom: 25px;
+    border-top: 15px solid #333;
 }
 
 .item-list{
@@ -22,6 +25,7 @@
     width: 260px;
     height: 390px;
     background-color: white;
+    box-shadow: 0px 2px 4px #333;
     margin: 0;
     border-radius: 15px;
 }

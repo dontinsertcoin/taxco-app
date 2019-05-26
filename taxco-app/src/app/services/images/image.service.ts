@@ -1,5 +1,8 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
 import { Image } from '../../components/shared/image/image.component';
+import { Observable } from 'rxjs';
+import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class ImageService{
@@ -73,31 +76,56 @@ export class ImageService{
     new Image('/assets/resources/images/presentation.jpg', 'Prueba62', 'Hueso'),
     new Image('/assets/resources/images/logo-blanco.png', 'Prueba63', 'Entero')
   ];  
-  imageSelected: Image = this.IMAGES[0];
   imageSelectedIndex: number = 0;
-  imagesFiltered: Image[] = this.IMAGES;
+  imageSelected: Image = this.IMAGES[this.imageSelectedIndex];  
+  imagesFiltered: Image[];
+  
+  @Output()
+  filteredEvent = new EventEmitter<Image[]>(); 
+
+  //TODO
+  imagesAux: Observable<Image []>;
+  imagesCollection: AngularFirestoreCollection<Image>;
 
   @Output()
   displayImageEvent = new EventEmitter<String>();
 
-  getImages(){
-    return this.IMAGES;
+  constructor(private firestoreDataBase: AngularFirestore) {
+    this.imagesCollection = firestoreDataBase.collection<Image>('Imagenes');
+    this.imagesAux = this.imagesCollection.valueChanges();
   }
 
-  getImage(num: number){
-    return this.IMAGES[num];
+  getImages(){
+    return this.imagesAux = this.imagesCollection.snapshotChanges()
+    .pipe(map(changes => {
+      return changes.map( action => {
+        const data = action.payload.doc.data() as Image;
+        return data;
+      });
+    }));
+  }
+
+  getAllImages(){
+    this.getImages().subscribe((allImages) => {
+      this.imagesFiltered = allImages;
+      this.filteredEvent.emit(this.imagesFiltered);
+    })
+  }
+
+  getFilteredImages(filterId: string){
+    if (filterId != 'Todas'){
+      this.getImages().subscribe((filteredImages) => {
+        this.imagesFiltered = filteredImages.filter(image => image.type === filterId);
+        this.filteredEvent.emit(this.imagesFiltered);
+      });
+    } else {
+      this.getAllImages();
+    }
+    this.getImages();
   }
 
   displayImage(){
     this.displayImageEvent.emit("showImage");
-  }
-
-  filterImages(stringFilter: string){
-    if (stringFilter != 'Todas'){
-      this.imagesFiltered= this.IMAGES.filter( image => image.type === stringFilter);
-    } else {
-      this.imagesFiltered= this.getImages();
-    }    
   }
 
 }

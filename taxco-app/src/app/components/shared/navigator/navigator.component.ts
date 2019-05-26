@@ -5,6 +5,7 @@ import { ProductsService } from 'src/app/services/products/products.service';
 import { OrdersService } from 'src/app/services/orders/orders.service';
 import { isNgTemplate } from '@angular/compiler';
 import { ImageService } from 'src/app/services/images/image.service';
+import { GalleryComponent } from '../../gallery/gallery.component';
 
 @Component({
   selector: 'app-navigator',
@@ -95,10 +96,11 @@ export class NavigatorComponent implements OnInit {
     }else{
       this.imageService.imageSelectedIndex++;
       this.imageService.imageSelected= images[this.imageService.imageSelectedIndex];
-    }    
+    }
   }
 
   previousImage(){
+    console.log("Previous image");
     let images = this.imageService.imagesFiltered;
     if (this.imageService.imageSelectedIndex === 0){
       this.imageService.imageSelectedIndex= images.length-1;
