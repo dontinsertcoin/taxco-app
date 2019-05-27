@@ -36,9 +36,5 @@ export class GalleryComponent implements OnInit {
     this.filterSelected = id;
     this.imageService.getFilteredImages(id);
   }
-
-  ngOnDestroy(){
-    this.imageService.filteredEvent.unsubscribe();
-  }
   
 }

@@ -1,5 +1,6 @@
 <div class="modal-content text-center">
-  <input *ngIf="!authService.adminUser" type="text" value="Area Personal" class="btn btn-block btn-primary btn-lg" routerLink= "/personalArea" routerLinkActive="active">
-  <input *ngIf="authService.adminUser" type="text" value="Area Administrador" class="btn btn-block btn-primary btn-lg" routerLink= "/adminArea" routerLinkActive="active">
-  <input type="text" value="Cerrar sesión" class="btn btn-block btn-danger btn-lg" (click)="logOut()">        
+  <input *ngIf="!authService.adminUser" type="text" value="Area Personal" class="btn btn-block btn-primary btn-md" routerLink= "/personalArea" routerLinkActive="active">
+  <input *ngIf="authService.adminUser" type="text" value="Area Administrador" class="btn btn-block btn-primary btn-md" routerLink= "/adminArea" routerLinkActive="active">
+  <input type="text" value="Cerrar sesión" class="btn btn-block btn-danger btn-md" (click)="logOut()">  
+  <input type="text" value="Cancelar" class="btn btn-block btn-danger btn-md" (click)="closeModal()">      
 </div>

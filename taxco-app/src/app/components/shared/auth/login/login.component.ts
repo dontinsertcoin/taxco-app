@@ -39,4 +39,7 @@ export class LoginComponent implements OnInit {
     this.authService.changeRegister();
   }
 
+  closeModal() {
+    this.modalService.close('custom-modal-1');
+  }
 }

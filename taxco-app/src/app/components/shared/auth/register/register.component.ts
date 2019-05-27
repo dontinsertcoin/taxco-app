@@ -26,8 +26,8 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  closeModal(modalId: string){
-    this.modalService.close(modalId);
+  closeModal() {
+    this.modalService.close('custom-modal-1');
   }
 
   changeToLogin(){
