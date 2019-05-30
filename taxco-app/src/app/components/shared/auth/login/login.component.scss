@@ -1,11 +1,20 @@
 .login-container {
-    max-width: 400px;
+    margin:auto;
+    width: 850px;
+    height: 300px;
+    border-radius: 15px;
+    background-color: white;
+    padding: 20px;
 }
 
-#email, #password {
+.form-group {
+    margin: auto;
+    margin-bottom: 10px;
+}
+#email, #password {    
     max-width: 350px;
 }
 
-.btn {
-    max-width: 200px;
+.btn-block {
+    width: 80%;
 }

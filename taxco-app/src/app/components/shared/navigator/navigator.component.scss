@@ -210,7 +210,21 @@
     display: none;
 }
 
-.full-image {
-    max-width: 90%;
+#image-display {
     margin: auto;
+
+    .image-display-container {
+        margin: auto;
+        padding: 15px;
+        background-color: white;
+        border-radius: 15px;
+    
+        .full-image {
+            margin: auto;
+        }
+    }
 }
+
+
+
+
