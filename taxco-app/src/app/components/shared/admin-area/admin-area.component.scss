@@ -1,31 +1,44 @@
 .admin-area {
-    margin-top: 25px;
+    margin: auto;
+    margin-top: 40px;
     width: 100%;
     height: 100%;
     background-color: white;
+    border-top: 15px solid #333;
+
     .orders-list-container {
-        width: 70%;
+        margin:auto;
+        margin-top: 45px;
+        width: 80%;
         .orders-list {
             display: table;
             text-align: center;
             width: 100%;
             .order {
                 display: table-row;
-                width: 80%;
+                width: 100%;
                 margin-right: 0px;
                 margin-bottom: 15px;
-                ul {
-                    display: table-cell;
-                }
-                .attributes-list {
-                    min-width: 350px;
-                    .order-attribute {
-                        float: left;
+
+                .each-order {
+                    border: solid #333 2px;
+                    border-radius: 10px;
+                    margin-bottom: 15px;
+
+                    ul {
+                        display: table-cell;
                     }
-                }
-                .items-list{
-                    min-width: 350px;
-                }
+                    .attributes-list {
+                        min-width: 350px;
+
+                        .order-attribute {
+                            float: left;
+                        }
+                    }
+                    .items-list{
+                        min-width: 350px;
+                    }
+                }                
             }
         }
     }
@@ -45,6 +58,5 @@ ul{
 }
 
 input {
-    max-width: 100px;
-    float: right;
+    
 }

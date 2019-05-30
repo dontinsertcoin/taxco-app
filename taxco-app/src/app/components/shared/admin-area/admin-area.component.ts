@@ -12,6 +12,7 @@ export class AdminAreaComponent implements OnInit, OnDestroy {
 
   allOrders: OrderComponent[];
   ordersFormated: any[];
+  private STATES: String[] = ["Pedido realizado", "En preparación", "Pedido enviado", "En reparto", "Finalizado"];
 
   constructor(private ordersService: OrdersService) { }
 
