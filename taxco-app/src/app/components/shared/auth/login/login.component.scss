@@ -1,7 +1,6 @@
 .login-container {
     margin:auto;
-    width: 850px;
-    height: 300px;
+    width: 550px;
     border-radius: 15px;
     background-color: white;
     padding: 20px;
@@ -15,6 +14,29 @@
     max-width: 350px;
 }
 
-.btn-block {
-    width: 80%;
+.button-modal, #access {
+    margin: auto;
+    width: 250px;
+    margin-bottom: 10px;
 }
+
+@media screen and (max-width:768px){
+    .login-container {
+        margin:auto;
+        width: 80%;
+        border-radius: 15px;
+        background-color: white;
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width:576px){
+    .login-container {
+        margin:auto;
+        width: 100%;
+        border-radius: 15px;
+        background-color: white;
+        padding: 20px;
+    }
+}
+
