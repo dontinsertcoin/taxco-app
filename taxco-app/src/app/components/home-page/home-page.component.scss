@@ -67,8 +67,12 @@
         margin: auto;
         margin-bottom: 50px;
         width: 100%;
-        height: 650px;
     }
+
+    @media screen and (max-width:768px) {
+
+    }
+
 }
 
 .twitter-container {
@@ -95,7 +99,7 @@
 }
 
 
-@media screen and (max-width:570px){
+@media screen and (max-width:576px){
     .main-image{
         width: 250px;
     }
@@ -105,11 +109,5 @@
 
     .home-map {
         width: 100%;
-    }
-}
-
-@media screen and (max-width:410px){
-    .presentation-image{
-        padding: 0px 0px 10px 0px;
     }
 }

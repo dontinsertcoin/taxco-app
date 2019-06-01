@@ -11,12 +11,12 @@ export class OrderComponent implements OnInit {
   shoppingCart: string;
   email: string;
   address: string;
-  date: number;
+  date: string;
   price: number;
   id: string;
   status: number;
 
-  constructor(shoppingCart: string, email: string, address: string, date: number, price: number, status: number) { 
+  constructor(shoppingCart: string, email: string, address: string, date: string, price: number, status: number) { 
     this.shoppingCart= shoppingCart;
     this.email=email;
     this.address= address;

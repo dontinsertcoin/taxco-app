@@ -210,19 +210,46 @@
     display: none;
 }
 
-#image-display {
-    margin: auto;
 
-    .image-display-container {
+.image-display-container {
+    text-align: center;
+
+    .full-image {
         margin: auto;
-        padding: 15px;
-        background-color: white;
+        border: solid white 10px;
         border-radius: 15px;
-    
-        .full-image {
-            margin: auto;
-        }
     }
+}
+
+.success-modal {
+    width: 80%;
+    background-color: #d4f7dc ;
+    border-radius: 15px;
+    border: solid 2px #89c497;
+    margin: auto;
+    margin-top: 20px;
+    text-align: center;
+    padding: 15px;
+}
+
+.error-modal {
+    width: 80%;
+    background-color: #ffacac;
+    border-radius: 15px;
+    border: solid 2px #e68675;
+    margin: auto;
+    margin-top: 20px;
+    text-align: center;
+    padding: 15px;
+}
+
+.shopping-cart {
+    margin: auto;
+    margin-top: 20px;
+    width: 80%;
+    background-color: white;
+    border-radius: 15px;
+    padding: 15px;
 }
 
 

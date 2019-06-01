@@ -27,7 +27,8 @@
             font-size: 30px;
         }  
 
-        .gallery-images {            
+        .gallery-images {    
+            text-align: center;        
             margin: auto;
             margin-left: -60px;
 
@@ -48,6 +49,14 @@
                         width: 300px;
                         height: 210px;
                     }
+
+                    @media screen and (max-width:576px){
+                        .miniature {
+                            width: 230px;
+                            height: 160px;
+                        }
+                    }
+
                 }
             }
         }

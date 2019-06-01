@@ -38,31 +38,43 @@
         
     </div>
 </nav>
+
 <custom-modal class="custom-modal" id="custom-modal-1">
     <app-auth></app-auth>
 </custom-modal>
+
 <custom-modal class="custom-modal" id="shopping-cart-modal">
     <div class="shopping-cart">
-        <ul class="shopping-cart-list">
-            <li *ngFor="let product of this.productService.shoppingCart | keyvalue">
-                <p>{{product.key.name}}  --> {{product.value}}</p>
-                <p>{{product.key.price}}€</p>
-                <button class="btn-primary" (click)="deleteProduct(product)">Eliminar producto</button>
-            </li>
-        </ul>
-    </div>
-    <div>
-        <p>Total : {{this.productService.totalPrice}}€</p>
-        <button *ngIf="authService.loggedSession && productService.shoppingCart.size>0" class="btn-primary" (click)="confirmBuy()">Realizar pedido</button>
-        <p *ngIf="!authService.loggedSession">Para poder realizar un pedido debes estar registrado</p>
-        <p *ngIf="authService.loggedSession && productService.shoppingCart.size<1">Aún no tienes productos en tu carrito</p>
+        <div class="shopping-cart-list">
+            <ul class="shopping-cart-list">
+                <li *ngFor="let product of this.productService.shoppingCart | keyvalue">
+                    <p>{{product.key.name}}  --> {{product.value}}</p>
+                    <p>{{product.key.price}}€</p>
+                    <button class="btn-primary" (click)="deleteProduct(product)">Eliminar producto</button>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <p>Total : {{this.productService.totalPrice}}€</p>
+            <button *ngIf="authService.loggedSession && productService.shoppingCart.size>0" class="btn-primary" (click)="confirmBuy()">Realizar pedido</button>
+            <p *ngIf="!authService.loggedSession">Para poder realizar un pedido debes estar registrado</p>
+            <p *ngIf="authService.loggedSession && productService.shoppingCart.size<1">Aún no tienes productos en tu carrito</p>
+        </div>
     </div>
 </custom-modal>
+
 <custom-modal class="custom-modal" id="success-modal">
-    <p>
-        <ngb-alert [type]="success" (close)="closeModal('custom-modal-1')">Realizado con éxito</ngb-alert>
-    </p>
+    <div class="success-modal">
+        <h3>{{this.modalService.textSuccess}}</h3>
+    </div>
 </custom-modal>
+
+<custom-modal class="custom-modal" id="error-modal">
+    <div class="error-modal">
+        <h3>{{this.modalService.textError}}</h3>
+    </div>
+</custom-modal>
+
 <custom-modal class="custom-modal" id="image-display">
     <div class="image-display-container">
         <img class="full-image" src="{{imageService.imageSelected.imagePath}}" (click)="previousImage()">

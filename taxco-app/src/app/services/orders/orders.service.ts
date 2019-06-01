@@ -1,4 +1,5 @@
 import { Injectable, EventEmitter, Output } from '@angular/core';
+import {formatDate} from '@angular/common';
 import { ProductComponent } from '../../components/shop/product/product.component';
 import { OrderComponent } from '../../components/order/order.component';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
@@ -8,6 +9,7 @@ import { OrderProductComponent } from 'src/app/components/order/order-product/or
 import { ProductsService } from '../products/products.service';
 import { AuthService } from '../auth/auth.service';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -16,6 +18,7 @@ export class OrdersService {
   private ordersCollection : AngularFirestoreCollection<OrderComponent>;
   private orders : Observable<OrderComponent []>;
   private ordersDoc: AngularFirestoreDocument<OrderComponent>;
+  private date: string;
 
   @Output()
   ordersByEmailEvent = new EventEmitter<OrderComponent[]>();
@@ -39,11 +42,11 @@ export class OrdersService {
     }));
   }
 
-  confirmOrder(){
-    const dateNow = Date.now();
+  confirmOrder(){    
+    this.date = formatDate(new Date(), 'dd/MM/yyyy', 'en').toString();
     let formatedOrder = this.transformShoppingCart();
     let prueba= JSON.stringify(formatedOrder);
-    let order = JSON.parse(JSON.stringify(new OrderComponent (prueba, this.authService.email, "calle", dateNow, this.productsService.totalPrice, 0)));
+    let order = JSON.parse(JSON.stringify(new OrderComponent (prueba, this.authService.email, "calle", this.date, this.productsService.totalPrice, 0)));
     this.ordersCollection.add(order);
   }
 

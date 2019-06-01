@@ -21,8 +21,11 @@ export class RegisterComponent implements OnInit {
   onSubmitAddUser(){
     this.authService.userRegistry(this.email, this.password)
     .then( (res) => {   
-      this.changeToLogin();   
+      this.modalService.textSuccess= "Usuario registrado con éxito, ya puedes inciar sesión";
+      this.modalService.open('success-modal');  
     }).catch( (err) => {
+      this.modalService.textError= "¡Ups! Algo no ha ido como se esperaba.";
+      this.modalService.open('error-modal');
     });
   }
 

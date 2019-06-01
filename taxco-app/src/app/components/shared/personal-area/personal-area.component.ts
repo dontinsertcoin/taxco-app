@@ -13,6 +13,8 @@ export class PersonalAreaComponent implements OnInit, OnDestroy {
   myOrders: OrderComponent[];
   ordersFormated: any[];
 
+  private STATES: String[] = ["Pedido realizado", "En preparación", "Pedido enviado", "En reparto", "Finalizado"];
+
   constructor(private ordersService: OrdersService, private authService: AuthService) { }
 
   ngOnInit() { 

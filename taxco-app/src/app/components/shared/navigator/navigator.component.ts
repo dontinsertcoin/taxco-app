@@ -16,6 +16,7 @@ export class NavigatorComponent implements OnInit {
 
 
   private showMobileMenu : boolean= false;
+  private modalMessage : string;
 
   constructor(public authService: AuthService, 
       private modalService: ModalService, 
@@ -73,7 +74,7 @@ export class NavigatorComponent implements OnInit {
       }
     }
   }
-
+  
   openModal(id: string) {
     this.modalService.open(id);
   }
@@ -85,7 +86,8 @@ export class NavigatorComponent implements OnInit {
   confirmBuy(){
     this.ordersService.confirmOrder();
     this.modalService.close('shopping-cart-modal');
-    this.modalService.open('success-modal');
+    this.modalService.textSuccess = "Pedido realizado con éxito";
+    this.openModal('success-modal');
   }
 
   nextImage(){

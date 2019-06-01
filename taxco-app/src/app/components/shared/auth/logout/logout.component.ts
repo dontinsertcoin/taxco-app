@@ -19,6 +19,7 @@ export class LogoutComponent implements OnInit {
     this.authService.logout()
     .then((res) => {
       this.authService.loggedSession = false;
+      this.closeModal();
     })
   }
 

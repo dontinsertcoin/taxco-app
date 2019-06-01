@@ -18,20 +18,16 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmitAddUser(){
-    this.authService.userRegistry(this.email, this.password)
-    .then( (res) => {   
-      this.modalService.close('custom-modal-1');   
-    }).catch( (err) => {
-    });
-  }
-
   onSubmitLogUser(){
     this.authService.loginEmail(this.email, this.password)
     .then( (res) => {
       this.authService.loggedSession = true;
       this.modalService.close('custom-modal-1');
+      this.modalService.textSuccess= "Acabas de iniciar sesión. ¡Bienvenido!";
+      this.modalService.open('success-modal');
     }).catch((err) => {
+      this.modalService.textError= "¡Ups! Algo no ha ido como se esperaba.";
+      this.modalService.open('error-modal');
     })
   }
 
