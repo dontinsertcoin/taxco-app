@@ -6,6 +6,7 @@ import { OrdersService } from 'src/app/services/orders/orders.service';
 import { isNgTemplate } from '@angular/compiler';
 import { ImageService } from 'src/app/services/images/image.service';
 import { GalleryComponent } from '../../gallery/gallery.component';
+import { ProductComponent } from '../../shop/product/product.component';
 
 @Component({
   selector: 'app-navigator',
@@ -17,6 +18,7 @@ export class NavigatorComponent implements OnInit {
 
   private showMobileMenu : boolean= false;
   private modalMessage : string;
+  private address : string;
 
   constructor(public authService: AuthService, 
       private modalService: ModalService, 
@@ -84,7 +86,7 @@ export class NavigatorComponent implements OnInit {
   }
 
   confirmBuy(){
-    this.ordersService.confirmOrder();
+    this.ordersService.confirmOrder(this.address);
     this.modalService.close('shopping-cart-modal');
     this.modalService.textSuccess = "Pedido realizado con éxito";
     this.openModal('success-modal');
@@ -111,6 +113,10 @@ export class NavigatorComponent implements OnInit {
       this.imageService.imageSelectedIndex--;
       this.imageService.imageSelected= images[this.imageService.imageSelectedIndex];
     }   
+  }
+
+  deleteProduct(product : ProductComponent){
+    this.productService.deleteProductFromCart(product);
   }
 
 }

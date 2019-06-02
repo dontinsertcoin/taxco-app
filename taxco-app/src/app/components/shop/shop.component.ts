@@ -39,7 +39,7 @@ export class ShopComponent implements OnInit {
       this.modalService.textSuccess = "Producto añadido al carrito";
       this.modalService.open('success-modal');
     } else {
-      this.modalService.textError = "Ups! Parece que no disponemos de más unidades del artúclo seleccionado";
+      this.modalService.textError = "¡Ups! Parece que no disponemos de más unidades del artíclo seleccionado";
       this.modalService.open('error-modal');
     }   
   }

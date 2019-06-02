@@ -37,4 +37,14 @@ export class ProductsService {
     this.totalPrice = parseFloat(this.totalPrice.toString()) + parseFloat(number.toString());
   }
 
+  deleteProductFromCart(product : ProductComponent){
+    console.log('Deleting product...');
+    if (this.shoppingCart.get(product) == 1){
+      this.shoppingCart.delete(product);
+    } else {
+      this.shoppingCart.set(product, this.shoppingCart.get(product) - 1);
+    }
+    this.totalPrice -= product.price;
+  }
+
 }

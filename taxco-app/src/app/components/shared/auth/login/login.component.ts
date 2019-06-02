@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
       this.modalService.textSuccess= "Acabas de iniciar sesión. ¡Bienvenido!";
       this.modalService.open('success-modal');
     }).catch((err) => {
-      this.modalService.textError= "¡Ups! Algo no ha ido como se esperaba.";
+      this.modalService.textError= "¡Ups! Parece que tenemos problemas técnicos.";
       this.modalService.open('error-modal');
     })
   }

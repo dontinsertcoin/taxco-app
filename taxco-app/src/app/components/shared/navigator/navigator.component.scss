@@ -113,6 +113,28 @@
     max-height: 850px;
 }
 
+.icon-image {
+    position: absolute;
+    width: 30px;
+}
+
+.close-icon {    
+    right: 10%;
+    top: 5%;
+}
+
+.prev-icon {
+    top: 50%;
+    left: 15%;
+}
+
+.next-icon {
+    top: 50%;
+    right: 15%;
+}
+
+
+
 @media screen and (max-width:992px){
 
     #header{   
@@ -203,6 +225,20 @@
 
     .list-logo {
         width: 40px;
+    }
+
+    .user-zone {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 80px;
+    }
+
+    .cart-zone {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 130px;
     }
 }
 

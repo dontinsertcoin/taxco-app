@@ -42,11 +42,11 @@ export class OrdersService {
     }));
   }
 
-  confirmOrder(){    
+  confirmOrder(address : string){    
     this.date = formatDate(new Date(), 'dd/MM/yyyy', 'en').toString();
     let formatedOrder = this.transformShoppingCart();
     let prueba= JSON.stringify(formatedOrder);
-    let order = JSON.parse(JSON.stringify(new OrderComponent (prueba, this.authService.email, "calle", this.date, this.productsService.totalPrice, 0)));
+    let order = JSON.parse(JSON.stringify(new OrderComponent (prueba, this.authService.email, address, this.date, this.productsService.totalPrice, 0)));
     this.ordersCollection.add(order);
   }
 

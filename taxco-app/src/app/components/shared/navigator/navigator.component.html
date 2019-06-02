@@ -50,33 +50,45 @@
                 <li *ngFor="let product of this.productService.shoppingCart | keyvalue">
                     <p>{{product.key.name}}  --> {{product.value}}</p>
                     <p>{{product.key.price}}€</p>
-                    <button class="btn-primary" (click)="deleteProduct(product)">Eliminar producto</button>
+                    <button class="btn-primary" (click)="deleteProduct(product.key)">Eliminar producto</button>
                 </li>
             </ul>
         </div>
-        <div>
-            <p>Total : {{this.productService.totalPrice}}€</p>
-            <button *ngIf="authService.loggedSession && productService.shoppingCart.size>0" class="btn-primary" (click)="confirmBuy()">Realizar pedido</button>
-            <p *ngIf="!authService.loggedSession">Para poder realizar un pedido debes estar registrado</p>
-            <p *ngIf="authService.loggedSession && productService.shoppingCart.size<1">Aún no tienes productos en tu carrito</p>
+        <div class="street-input">
+            <form (submit)="confirmBuy()">
+                <label *ngIf="authService.loggedSession && productService.shoppingCart.size>0" for="address-input">Introduzca la dirección de entrega: </label>
+                <input *ngIf="authService.loggedSession && productService.shoppingCart.size>0" name="address-input" type="text" [(ngModel)]="address">
+                <p>Total : {{this.productService.totalPrice}}€</p>
+                <button type="submit" *ngIf="authService.loggedSession && productService.shoppingCart.size>0" class="btn-primary">Realizar pedido</button>
+                <p *ngIf="!authService.loggedSession">Para poder realizar un pedido debes estar registrado</p>
+                <p *ngIf="authService.loggedSession && productService.shoppingCart.size<1">Aún no tienes productos en tu carrito</p>
+            </form>
         </div>
+        <img class="icon-image close-icon" (click)="closeModal('shopping-cart-modal')" src="https://firebasestorage.googleapis.com/v0/b/taxco-app.appspot.com/o/close-icon.png?alt=media&token=30faa259-c627-45a9-9c24-1abe327b0045">
     </div>
 </custom-modal>
 
 <custom-modal class="custom-modal" id="success-modal">
     <div class="success-modal">
         <h3>{{this.modalService.textSuccess}}</h3>
+        <img class="icon-image close-icon" (click)="closeModal('success-modal')" src="https://firebasestorage.googleapis.com/v0/b/taxco-app.appspot.com/o/close-icon.png?alt=media&token=30faa259-c627-45a9-9c24-1abe327b0045">
     </div>
 </custom-modal>
 
 <custom-modal class="custom-modal" id="error-modal">
     <div class="error-modal">
         <h3>{{this.modalService.textError}}</h3>
+        <img class="icon-image close-icon" (click)="closeModal('error-modal')" src="https://firebasestorage.googleapis.com/v0/b/taxco-app.appspot.com/o/close-icon.png?alt=media&token=30faa259-c627-45a9-9c24-1abe327b0045">
     </div>
 </custom-modal>
 
 <custom-modal class="custom-modal" id="image-display">
-    <div class="image-display-container">
-        <img class="full-image" src="{{imageService.imageSelected.imagePath}}" (click)="previousImage()">
+    <div class="image-display-container"> 
+            <div>
+                <img class="full-image" src="{{imageService.imageSelected.imagePath}}" (click)="nextImage()">
+                <img (click)="previousImage()" class="prev-icon icon-image" src="https://firebasestorage.googleapis.com/v0/b/taxco-app.appspot.com/o/prev-icon.png?alt=media&token=c23282bc-cd89-4541-b3eb-ccc20d1c36dc">
+                <img (click)="nextImage()" class="next-icon icon-image" src="https://firebasestorage.googleapis.com/v0/b/taxco-app.appspot.com/o/next-icon.png?alt=media&token=16243faa-92c0-4e48-9440-d5b20ab1b76b">          
+            </div>       
+        <img class="close-icon icon-image" (click)="closeModal('image-display')" src="https://firebasestorage.googleapis.com/v0/b/taxco-app.appspot.com/o/close-icon.png?alt=media&token=30faa259-c627-45a9-9c24-1abe327b0045">
     </div>
 </custom-modal>

@@ -19,7 +19,11 @@
                 background-color: #333;
                 max-height: 50px;
                 float: bottom;
-            }            
+            }   
+
+            .dropdown-menu {
+                top: 50px;
+            }       
         }
 
         .selected-filter {
