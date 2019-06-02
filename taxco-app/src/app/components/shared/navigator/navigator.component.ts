@@ -86,10 +86,17 @@ export class NavigatorComponent implements OnInit {
   }
 
   confirmBuy(){
-    this.ordersService.confirmOrder(this.address);
-    this.modalService.close('shopping-cart-modal');
-    this.modalService.textSuccess = "Pedido realizado con éxito";
-    this.openModal('success-modal');
+    if (this.address != null || this.address === ""){
+      this.ordersService.confirmOrder(this.address);
+      this.modalService.close('shopping-cart-modal');
+      this.modalService.textSuccess = "Pedido realizado con éxito";
+      this.openModal('success-modal');
+    } else {
+      this.modalService.close("shopping-cart-modal");
+      this.modalService.textError = "Por favor, introduzca una dirección válida.";
+      this.modalService.open("error-modal");
+    }
+    
   }
 
   nextImage(){

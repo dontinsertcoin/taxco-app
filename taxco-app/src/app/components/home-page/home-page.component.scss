@@ -64,10 +64,31 @@
         margin: auto;
         margin-bottom: 50px;
         width: 100%;
+        height: 650px;
     }
 
-    @media screen and (max-width:768px) {
+    @media screen and (max-width:1350px) {
+        .youtube-video {
+            height: 550px;
+        }
+    }
 
+    @media screen and (max-width:1150px) {
+        .youtube-video {
+            height: 450px;
+        }
+    }
+
+    @media screen and (max-width:950px) {
+        .youtube-video {
+            height: 350px;
+        }
+    }
+
+    @media screen and (max-width:550px) {
+        .youtube-video {
+            height: 350px;
+        }
     }
 
 }
