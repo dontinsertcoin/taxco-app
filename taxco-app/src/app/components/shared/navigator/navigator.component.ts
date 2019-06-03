@@ -54,7 +54,7 @@ export class NavigatorComponent implements OnInit {
 
   @HostListener("window:scroll", ['$event'])
   userHasScrolled($event:Event){
-    let scrollOffset = $event.srcElement.children[0].scrollTop;
+    let scrollOffset = (<HTMLInputElement>event.srcElement).children[0].scrollTop;
     let navbar = document.getElementById('navbar');
     let logo = document.getElementById('logo');
     let logoImg = document.getElementById('logo-img');
