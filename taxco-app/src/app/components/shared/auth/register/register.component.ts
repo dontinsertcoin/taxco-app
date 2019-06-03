@@ -23,9 +23,11 @@ export class RegisterComponent implements OnInit {
     .then( (res) => {   
       this.modalService.textSuccess= "Usuario registrado con éxito, ya puedes inciar sesión";
       this.modalService.open('success-modal');  
+      setTimeout(() => this.modalService.close('success-modal'), 4000);
     }).catch( (err) => {
       this.modalService.textError= "¡Ups! Parece que tenemos problemas técnicos.";
       this.modalService.open('error-modal');
+      setTimeout(() => this.modalService.close('error-modal'), 4000);
     });
   }
 

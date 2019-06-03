@@ -38,9 +38,11 @@ export class ShopComponent implements OnInit {
       this.lessQuantity(item);
       this.modalService.textSuccess = "Producto añadido al carrito";
       this.modalService.open('success-modal');
+      setTimeout(() => this.modalService.close('success-modal'), 4000);
     } else {
       this.modalService.textError = "¡Ups! Parece que no disponemos de más unidades del artíclo seleccionado";
       this.modalService.open('error-modal');
+      setTimeout(() => this.modalService.close('error-modal'), 4000);
     }   
   }
 
