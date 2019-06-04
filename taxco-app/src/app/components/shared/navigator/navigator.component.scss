@@ -51,6 +51,15 @@
             }
         }
     }
+    .user-zone, .cart-zone {
+        margin-top: 0px;
+    }
+
+    @media screen and (max-width:992px){
+        .user-zone, .cart-zone {
+            margin-top: 20px;
+        }
+    }
 }
 
 .navbar-icon{
@@ -130,7 +139,16 @@
     right: 15%;
 }
 
+.cart-item {
+    margin-top: 10px;
 
+    .cart-small-image {
+        width: 50px;
+        height: 60px;
+        border: solid 3px white;
+        box-shadow: 0px 2px 4px #333;
+    }
+}
 
 @media screen and (max-width:992px){
 

@@ -47,9 +47,9 @@
     <div class="shopping-cart">
         <div class="shopping-cart-list">
             <ul class="shopping-cart-list">
-                <li *ngFor="let product of this.productService.shoppingCart | keyvalue">
-                    <p>{{product.key.name}}  --> {{product.value}}</p>
-                    <p>{{product.key.price}}€</p>
+                <li class="cart-item" *ngFor="let product of this.productService.shoppingCart | keyvalue">
+                    <img src="{{product.key.image}}" class="cart-small-image">
+                    <p>{{product.key.name}}  ·  {{product.key.price}}€  ·  Unidades: {{product.value}}</p>
                     <button class="btn-primary" (click)="deleteProduct(product.key)">Eliminar producto</button>
                 </li>
             </ul>

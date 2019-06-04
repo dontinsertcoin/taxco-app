@@ -38,7 +38,6 @@ export class ProductsService {
   }
 
   deleteProductFromCart(product : ProductComponent){
-    console.log('Deleting product...');
     if (this.shoppingCart.get(product) == 1){
       this.shoppingCart.delete(product);
     } else {

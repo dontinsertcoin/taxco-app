@@ -17,7 +17,6 @@
 
 .item-container{
     display: inline-block;
-    margin-right: 0px;
 }
 
 .shop-item {
@@ -25,8 +24,19 @@
     height: 390px;
     background-color: white;
     box-shadow: 0px 2px 4px #333;
-    margin: 0 15px;
+    margin: 10px;
     border-radius: 15px;
+}
+
+@media screen and (max-width:576px){
+    .shop-item {
+        width: 240px;
+        height: 400px;
+        background-color: white;
+        box-shadow: 0px 2px 4px #333;
+        margin: 10px;
+        border-radius: 15px;
+    }
 }
 
 .item-image {
