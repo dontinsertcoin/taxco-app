@@ -270,6 +270,26 @@
         border: solid white 10px;
         border-radius: 15px;
     }
+
+    .image-text-container {
+        width: 30%;
+        margin: auto;
+        margin-top: -10px;
+        background-color: white;
+        border-radius:  0px 0px 10px 10px;
+        z-index: 99;
+
+        .image-text {
+            font-size: 25px;
+        }
+    }
+
+    @media screen and (max-width:992px){
+        .image-text-container {
+            width: 50%;
+        }
+    }
+
 }
 
 .success-modal {
