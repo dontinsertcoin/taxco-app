@@ -63,6 +63,39 @@ ul{
     list-style: none;
 }
 
-input {
-    
+.preparacion{
+    background-color: rgb(240, 238, 111);
+    border-radius: 15px;
+}
+
+.enviado{
+    background-color: rgb(138, 159, 255);
+    border-radius: 15px;
+}
+
+.reparto{
+    background-color: rgb(153, 235, 255);
+    border-radius: 15px;
+}
+
+.finalizado{
+    background-color: rgb(105, 216, 133);
+    border-radius: 15px;
+}
+
+@media screen and (max-width:576px){
+    .admin-area, 
+    .orders-list-container, 
+    .orders-list, .order, 
+    .each-order {
+        width: 100%;
+    }
+
+    .orders-list {
+        padding: 0;
+    }
+
+    .order-items-list{
+        padding-left: 5px;
+    }
 }

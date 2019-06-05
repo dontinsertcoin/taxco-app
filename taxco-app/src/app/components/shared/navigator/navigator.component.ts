@@ -93,6 +93,7 @@ export class NavigatorComponent implements OnInit {
       this.modalService.open('success-modal');
       setTimeout(() => this.modalService.close('success-modal'), 2500);
       this.productService.shoppingCart= new Map();
+      this.productService.totalPrice = 0;
     } else {
       this.modalService.close("shopping-cart-modal");
       this.modalService.textError = "Por favor, introduzca una dirección válida.";

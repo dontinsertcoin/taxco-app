@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { OrdersService } from 'src/app/services/orders/orders.service';
 import { OrderComponent } from '../../order/order.component';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { ModalService } from 'src/app/services/modal/modal.service';
 
 @Component({
   selector: 'app-personal-area',
@@ -13,9 +14,10 @@ export class PersonalAreaComponent implements OnInit, OnDestroy {
   myOrders: OrderComponent[];
   ordersFormated: any[];
 
-  private STATES: String[] = ["Pedido realizado", "En preparación", "Pedido enviado", "En reparto", "Finalizado"];
-
-  constructor(private ordersService: OrdersService, private authService: AuthService) { }
+  private STATES: String[] = ["En preparación", "Enviado", "En reparto", "Finalizado"];
+  private COLORS: String[] = ["preparacion", "enviado", "reparto", "finalizado"];
+  
+  constructor(private ordersService: OrdersService, private authService: AuthService, private modalService: ModalService) { }
 
   ngOnInit() { 
     this.ordersService.ordersByEmailEvent.subscribe((data: OrderComponent[]) => {
@@ -48,13 +50,12 @@ export class PersonalAreaComponent implements OnInit, OnDestroy {
         this.myOrders[i].status= this.myOrders[i].status.valueOf() + 1;
         this.ordersService.deleteOrder(this.myOrders[i]);
         notFound= false;
+        this.modalService.textSuccess= "El pedido ha sido eliminado";
+        this.modalService.open('success-modal');  
+        setTimeout(() => this.modalService.close('success-modal'), 2500);
       }
       i++;
     }
     this.ngOnInit();
-  }
-
-  orderNextState(id: string){
-    
   }
 }
