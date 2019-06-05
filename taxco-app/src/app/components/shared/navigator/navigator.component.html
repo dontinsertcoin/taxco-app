@@ -86,6 +86,9 @@
     <div class="image-display-container"> 
             <div>
                 <img class="full-image" src="{{imageService.imageSelected.imagePath}}" (click)="nextImage()">
+                <div class="image-text-container">
+                    <p class="image-text">{{imageService.imageSelected.title}}</p>
+                </div>
                 <img (click)="previousImage()" class="prev-icon icon-image" src="https://firebasestorage.googleapis.com/v0/b/taxco-app.appspot.com/o/prev-icon.png?alt=media&token=c23282bc-cd89-4541-b3eb-ccc20d1c36dc">
                 <img (click)="nextImage()" class="next-icon icon-image" src="https://firebasestorage.googleapis.com/v0/b/taxco-app.appspot.com/o/next-icon.png?alt=media&token=16243faa-92c0-4e48-9440-d5b20ab1b76b">          
             </div>       

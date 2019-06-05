@@ -290,6 +290,11 @@
         }
     }
 
+    @media screen and (max-width:768px){
+        .image-text-container {
+            width: 80%;
+        }
+    }
 }
 
 .success-modal {
