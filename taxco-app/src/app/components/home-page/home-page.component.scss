@@ -39,6 +39,11 @@
     width: 100%;
 }
 
+#mapid { 
+    height: 300px; 
+    z-index: 10;
+}
+
 .map-and-info {
     text-align: center;
     .home-map {
