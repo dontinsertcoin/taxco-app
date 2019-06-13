@@ -1,22 +1,22 @@
-<h2 class="text-center">Registro</h2>
-<form (submit)="onSubmitAddUser()">
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input type="email" name="email" [(ngModel)]="email" id="email" class="form-control">
-  </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" name="password" [(ngModel)]="password" id="password" class="form-control">
-  </div>
-  <div class="row">
-    <div class="col-md-4">
-        <input type="submit" value="Enviar" class="btn btn-primary btn-block btn-lg">
+<div class="register-container">
+  <h2 class="text-center">Registro</h2>
+  <form (submit)="onSubmitAddUser()">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" name="email" [(ngModel)]="email" id="email" class="form-control">
     </div>
-    <div class="col-md-4">
-        <input type="text" value="Acceder" class="btn btn-primary btn-block btn-lg" (click)="changeToLogin()">
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" name="password" [(ngModel)]="password" id="password" class="form-control">
     </div>
-    <div class="col-md-4">
-        <input type="text" value="Cancelar" class="btn btn-block btn-danger btn-lg" (click)="closeModal('custom-modal-1')">
+    <div class="row">
+      <input type="submit" id="access" value="Enviar" class="btn btn-primary btn-block btn-lg button-modal">
     </div>
-  </div>
-</form>
+    <div class="row">
+      <input type="text" value="Acceder" class="btn btn-primary btn-block btn-lg button-modal" (click)="changeToLogin()">
+    </div>
+    <div class="row">
+      <input type="text" value="Cancelar" class="btn btn-block btn-danger btn-lg button-modal" (click)="closeModal()">
+    </div>
+  </form>
+</div>

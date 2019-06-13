@@ -18,28 +18,26 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmitAddUser(){
-    this.authService.userRegistry(this.email, this.password)
-    .then( (res) => {      
-    }).catch( (err) => {
-    });
-  }
-
   onSubmitLogUser(){
     this.authService.loginEmail(this.email, this.password)
     .then( (res) => {
       this.authService.loggedSession = true;
-      this.closeModal('custom-modal-1');
+      this.modalService.close('custom-modal-1');
+      this.modalService.textSuccess= "Acabas de iniciar sesión. ¡Bienvenido!";
+      this.modalService.open('success-modal');
+      setTimeout(() => this.modalService.close('success-modal'), 2500);
     }).catch((err) => {
+      this.modalService.textError= "¡Ups! Parece que ese usuario no está registrado aun.";
+      this.modalService.open('error-modal');
+      setTimeout(() => this.modalService.close('error-modal'), 2500);
     })
-  }
-
-  closeModal(modalId: string){
-    this.modalService.close(modalId);
   }
 
   changeToRegister(){
     this.authService.changeRegister();
   }
 
+  closeModal() {
+    this.modalService.close('custom-modal-1');
+  }
 }

@@ -1,0 +1,41 @@
+.register-container {
+    margin:auto;
+    width: 550px;
+    border-radius: 15px;
+    background-color: white;
+    padding: 20px;
+}
+
+.form-group {
+    margin: auto;
+    margin-bottom: 10px;
+}
+#email, #password {    
+    max-width: 350px;
+}
+
+.button-modal, #access {
+    margin: auto;
+    width: 250px;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width:768px){
+    .register-container {
+        margin:auto;
+        width: 80%;
+        border-radius: 15px;
+        background-color: white;
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width:576px){
+    .register-container {
+        margin:auto;
+        width: 100%;
+        border-radius: 15px;
+        background-color: white;
+        padding: 20px;
+    }
+}

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { ModalService } from 'src/app/services/modal/modal.service';
 
 @Component({
   selector: 'app-logout',
@@ -8,17 +9,21 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 })
 export class LogoutComponent implements OnInit {
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private modalService: ModalService) {
+  }
+
+  ngOnInit() {
   }
 
   logOut(){
     this.authService.logout()
     .then((res) => {
       this.authService.loggedSession = false;
+      this.closeModal();
     })
   }
 
-  ngOnInit() {
+  closeModal() {
+    this.modalService.close('custom-modal-1');
   }
-
 }

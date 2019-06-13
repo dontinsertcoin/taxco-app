@@ -34,11 +34,16 @@ export class ShopComponent implements OnInit {
       } else {
         this.productService.shoppingCart.set(item, 1);
       }
-      console.log(this.productService.shoppingCart);
       this.productService.addToTotalPrice(item.price.valueOf());
       this.lessQuantity(item);
-      //this.modalComponent = new ModalComponent('shoppingCart', this.shoppingCart);
-    }    
+      this.modalService.textSuccess = "Producto añadido al carrito";
+      this.modalService.open('success-modal');
+      setTimeout(() => this.modalService.close('success-modal'), 2500);
+    } else {
+      this.modalService.textError = "¡Ups! Parece que no disponemos de más unidades del artíclo seleccionado";
+      this.modalService.open('error-modal');
+      setTimeout(() => this.modalService.close('error-modal'), 2500);
+    }   
   }
 
   removeFromCart(item: ProductComponent) {

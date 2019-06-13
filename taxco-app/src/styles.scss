@@ -1,7 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 body{
-    background-image: url(https://firebasestorage.googleapis.com/v0/b/taxco-app.appspot.com/o/background3.jpg?alt=media&token=85e568f0-c9a4-457b-98a4-fd585639ff49);
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/taxco-app.appspot.com/o/background3.jpg?alt=media&token=f10d14c5-007e-4bdf-81fa-98f4269bc56e);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover/*min($numbers: 2000px) 100%*/;
 }
+
+$small-device: 576px;
+$medium-device: 768px;
+$large-device: 992px;
+$extra-large-device: 1200px;

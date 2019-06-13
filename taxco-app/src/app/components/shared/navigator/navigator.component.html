@@ -2,81 +2,96 @@
     <div id="navigation-bar">
         <div id="navigation-list">
             <ul id="navbar" class="main-navbar">
-                <!--<li class="languaje-zone">
-                    <a (click)="showRegisterModal()">
-                        <img class="user-logo" src="assets/resources/images/user-profile.png">
-                    </a>          
-                </li>-->
-                <li id="logo" class="navbar-item logo" (click)="openModal('shopping-cart-modal')">
-                    <!--<a routerLink= "/" routerLinkActive="active">-->
+                    <li id="logo" class="navbar-item logo" routerLink= "/" routerLinkActive="active">
                         <img id="logo-img" 
-                        src="https://firebasestorage.googleapis.com/v0/b/taxco-app.appspot.com/o/logo-blanco.png?alt=media&token=02fd9ea7-3c51-4e72-aaf8-deef8ce1e01d" 
-                        class="navbar-icon">
-                    <!--</a>
-                    <a routerLink= "/" routerLinkActive="active" style="position:absolute"><img id="logo-img-hover" src="assets/resources/images/logo-negro.png" class="navbar-icon"></a>-->
-                </li>
-                <li class="navbar-item">
-                    <a class="taxco-navbar-text" routerLink= "/aboutUs" routerLinkActive="active">Sobre nosotros</a>
-                </li>
-                <li class="navbar-item">
-                    <a class="taxco-navbar-text" routerLink= "/gallery" routerLinkActive="active">Galería</a>
-                </li>  
-                <li class="navbar-item">
-                    <a class="taxco-navbar-text" routerLink= "/trophies" routerLinkActive="active">Medición de trofeos</a>
-                </li>       
-                <li class="navbar-item">
-                    <a class="taxco-navbar-text" routerLink= "/shop" routerLinkActive="active">Tienda</a>
-                </li>
-                <li class="hamburger">
-                    <img class="menu-icon" 
-                        src="https://firebasestorage.googleapis.com/v0/b/taxco-app.appspot.com/o/menu-icon.png?alt=media&token=1fafe8d1-0ac3-4268-a09c-fc2702909425" 
-                        (click)="showMenu()">
-                </li> 
-                <li class="user-zone">
-                    <a (click)="openModal('custom-modal-1')">
-                        <img class="user-logo" 
-                            src="https://firebasestorage.googleapis.com/v0/b/taxco-app.appspot.com/o/user-profile.png?alt=media&token=c650d418-55bf-4bde-b1ea-167abe085470">
-                    </a>          
-                </li>               
+                            src="https://firebasestorage.googleapis.com/v0/b/taxco-app.appspot.com/o/logo-blanco.png?alt=media&token=02fd9ea7-3c51-4e72-aaf8-deef8ce1e01d" 
+                            class="navbar-icon">
+                    </li>
+                    <li class="hamburger">
+                        <img class="menu-icon" 
+                            src="https://firebasestorage.googleapis.com/v0/b/taxco-app.appspot.com/o/menu-icon.png?alt=media&token=1fafe8d1-0ac3-4268-a09c-fc2702909425" 
+                            (click)="showMenu()">
+                    </li>    
+                    <li [className]="!showMobileMenu ? 'navbar-item' : 'mobile-navbar-item'">
+                        <a class="taxco-navbar-text" routerLink= "/" routerLinkActive="active">Inicio</a>
+                    </li>
+                    <li [className]="!showMobileMenu ? 'navbar-item' : 'mobile-navbar-item'">
+                        <a class="taxco-navbar-text" routerLink= "/gallery" routerLinkActive="active">Galería</a>
+                    </li> 
+                    <li [className]="!showMobileMenu ? 'navbar-item' : 'mobile-navbar-item'">
+                        <a class="taxco-navbar-text" routerLink= "/shop" routerLinkActive="active">Tienda</a>
+                    </li>
+                    <li class="user-zone navbar-item">
+                        <a (click)="openModal('custom-modal-1')">
+                            <img class="list-logo user-logo" 
+                                src="https://firebasestorage.googleapis.com/v0/b/taxco-app.appspot.com/o/user-icon.png?alt=media&token=c471b387-8890-400b-ba80-d9cf75382b4e">
+                        </a>          
+                    </li>
+                    <li class="cart-zone navbar-item">
+                        <a (click)="openModal('shopping-cart-modal')">
+                            <img class="list-logo cart-logo" 
+                                src="https://firebasestorage.googleapis.com/v0/b/taxco-app.appspot.com/o/shopping-cart-icon.png?alt=media&token=86535265-ffc4-4642-a550-c97ee7a872a4">
+                        </a>          
+                    </li>                          
             </ul>
         </div>
         
     </div>
-    <div class="header-aux" [ngClass]="showMobileMenu ? 'click-menu' : 'undo-click-menu'" (clickOutside)="showMenu()">
-        <ul id="navbar-aux">
-            <li class="navbar-aux-item first-item">
-                <a routerLink= "/" routerLinkActive="active" class="taxco-navbar-text">Inicio</a>
-            </li>
-            <li class="navbar-aux-item">
-                <a routerLink= "/gallery" routerLinkActive="active" class="taxco-navbar-text">Galería</a>
-            </li>
-            <li class="navbar-aux-item">
-                <a routerLink= "/" routerLinkActive="active" class="taxco-navbar-text">Medición de trofeos</a>
-            </li>
-            <li class="navbar-aux-item">
-                <a routerLink= "/aboutUs" routerLinkActive="active" class="taxco-navbar-text">Sobre nosotros</a>
-            </li>
-            <li class="navbar-aux-item last-item">
-                <a (click)="showRegisterModal()" id="userTag" class="taxco-navbar-text">Usuario</a> 
-            </li>
-        </ul>
-    </div>
 </nav>
+
 <custom-modal class="custom-modal" id="custom-modal-1">
     <app-auth></app-auth>
 </custom-modal>
+
 <custom-modal class="custom-modal" id="shopping-cart-modal">
     <div class="shopping-cart">
-        <ul class="shopping-cart-list">
-            <li *ngFor="let product of this.productService.shoppingCart | keyvalue">
-                <p>{{product.key.name}}  --> {{product.value}}</p>
-                <p>{{product.key.price}}€</p>
-                <button class="btn-primary" (click)="deleteProduct(product)">Eliminar producto</button>
-            </li>
-        </ul>
+        <div class="shopping-cart-list">
+            <ul class="shopping-cart-list">
+                <li class="cart-item" *ngFor="let product of this.productService.shoppingCart | keyvalue">
+                    <img src="{{product.key.image}}" class="cart-small-image">
+                    <p>{{product.key.name}}  ·  {{product.key.price}}€  ·  Unidades: {{product.value}}</p>
+                    <button class="btn-primary" (click)="deleteProduct(product.key)">Eliminar producto</button>
+                </li>
+            </ul>
+        </div>
+        <div class="street-input">
+            <form (submit)="confirmBuy()">
+                <label *ngIf="authService.loggedSession && productService.shoppingCart.size>0" for="address-input">Introduzca la dirección de entrega: </label>
+                <input *ngIf="authService.loggedSession && productService.shoppingCart.size>0" name="address-input" type="text" [(ngModel)]="address">
+                <p>Total : {{this.productService.totalPrice}}€</p>
+                <button type="submit" *ngIf="authService.loggedSession && productService.shoppingCart.size>0" class="btn-primary">Realizar pedido</button>
+                <p *ngIf="!authService.loggedSession">Para poder realizar un pedido debes estar registrado</p>
+                <p *ngIf="authService.loggedSession && productService.shoppingCart.size<1">Aún no tienes productos en tu carrito</p>
+            </form>
+        </div>
+        <img class="icon-image close-icon" (click)="closeModal('shopping-cart-modal')" src="https://firebasestorage.googleapis.com/v0/b/taxco-app.appspot.com/o/close-icon.png?alt=media&token=30faa259-c627-45a9-9c24-1abe327b0045">
     </div>
-    <div>
-        <p>Total : {{this.productService.totalPrice}}€</p>
-        <button class="btn-primary" (click)="confirmBuy()">Realizar pedido</button>
+</custom-modal>
+
+<custom-modal class="custom-modal" id="success-modal">
+    <div class="success-modal">
+        <h4>{{this.modalService.textSuccess}}</h4>
+        <img class="icon-image close-icon" (click)="closeModal('success-modal')" src="https://firebasestorage.googleapis.com/v0/b/taxco-app.appspot.com/o/close-icon.png?alt=media&token=30faa259-c627-45a9-9c24-1abe327b0045">
+    </div>
+</custom-modal>
+
+<custom-modal class="custom-modal" id="error-modal">
+    <div class="error-modal">
+        <h4>{{this.modalService.textError}}</h4>
+        <img class="icon-image close-icon" (click)="closeModal('error-modal')" src="https://firebasestorage.googleapis.com/v0/b/taxco-app.appspot.com/o/close-icon.png?alt=media&token=30faa259-c627-45a9-9c24-1abe327b0045">
+    </div>
+</custom-modal>
+
+<custom-modal class="custom-modal" id="image-display">
+    <div class="image-display-container"> 
+            <div>
+                <img class="full-image" src="{{imageService.imageSelected.imagePath}}" (click)="nextImage()">
+                <div class="image-text-container">
+                    <p class="image-text">{{imageService.imageSelected.title}}</p>
+                </div>
+                <img (click)="previousImage()" class="prev-icon icon-image" src="https://firebasestorage.googleapis.com/v0/b/taxco-app.appspot.com/o/prev-icon.png?alt=media&token=c23282bc-cd89-4541-b3eb-ccc20d1c36dc">
+                <img (click)="nextImage()" class="next-icon icon-image" src="https://firebasestorage.googleapis.com/v0/b/taxco-app.appspot.com/o/next-icon.png?alt=media&token=16243faa-92c0-4e48-9440-d5b20ab1b76b">          
+            </div>       
+        <img class="close-icon icon-image" (click)="closeModal('image-display')" src="https://firebasestorage.googleapis.com/v0/b/taxco-app.appspot.com/o/close-icon.png?alt=media&token=30faa259-c627-45a9-9c24-1abe327b0045">
     </div>
 </custom-modal>

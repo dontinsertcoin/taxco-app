@@ -1,0 +1,17 @@
+.modal-content {
+    margin: auto;
+    background-color: white;
+    width: 320px;
+    padding: 10px;
+
+    input {
+        margin-bottom: 10px;
+        width: 90%;
+    }
+}
+
+@media screen and (max-width:576px){
+    .modal-content {
+        width: 100%;
+    }
+}

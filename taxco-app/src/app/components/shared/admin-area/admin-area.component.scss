@@ -1,15 +1,100 @@
-.personal-area {
+.admin-area {
+    margin: auto;
+    margin-top: 40px;
     width: 100%;
     height: 100%;
     background-color: white;
+    border-top: 15px solid #333;
+
+    h2 {
+        margin: auto;
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    .orders-list-container {
+        margin:auto;
+        margin-top: 45px;
+        width: 80%;
+        .orders-list {
+            display: table;
+            text-align: center;
+            width: 100%;
+            .order {
+                display: table-row;
+                width: 100%;
+                margin-right: 0px;
+                margin-bottom: 15px;
+
+                .each-order {
+                    border: solid #333 2px;
+                    border-radius: 10px;
+                    margin-bottom: 15px;
+
+                    ul {
+                        display: table-cell;
+                    }
+                    .attributes-list {
+                        min-width: 350px;
+
+                        .order-attribute {
+                            float: left;
+                        }
+                    }
+                    .items-list{
+                        min-width: 350px;
+                    }
+                }                
+            }
+        }
+    }
+    
+}
+
+.order-item-attribute,
+.order-attribute {
+    display: block;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    float: left;
+}
+
+ul{
+    list-style: none;
+}
+
+.preparacion{
+    background-color: rgb(240, 238, 111);
+    border-radius: 15px;
+}
+
+.enviado{
+    background-color: rgb(138, 159, 255);
+    border-radius: 15px;
+}
+
+.reparto{
+    background-color: rgb(153, 235, 255);
+    border-radius: 15px;
+}
+
+.finalizado{
+    background-color: rgb(105, 216, 133);
+    border-radius: 15px;
+}
+
+@media screen and (max-width:576px){
+    .admin-area, 
+    .orders-list-container, 
+    .orders-list, .order {
+        width: 100%;
+    }
 
     .orders-list {
-        display: inline-block;
-        list-style: none;
+        padding: 0;
+    }
 
-        li {
-            display: inline-block;
-            list-style: none;
-        }
+    .order-items-list{
+        padding-left: 5px;
     }
 }

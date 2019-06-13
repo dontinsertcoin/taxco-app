@@ -1,10 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, Routes } from '@angular/router';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Ng4TwitterTimelineModule } from 'ng4-twitter-timeline/lib/index';
 
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
@@ -25,7 +27,6 @@ import { ImageService } from './services/images/image.service';
 import { AuthService } from './services/auth/auth.service';
 import { LoginComponent } from './components/shared/auth/login/login.component';
 import { RegisterComponent } from './components/shared/auth/register/register.component';
-import { ShoppingCartComponent } from './components/shop/shopping-cart/shopping-cart.component';
 import { ModalComponent } from './components/shared/modal/modal.component';
 import { ModalService } from './services/modal/modal.service';
 import { AuthComponent } from './components/shared/auth/auth.component';
@@ -33,6 +34,7 @@ import { LogoutComponent } from './components/shared/auth/logout/logout.componen
 import { OrderComponent } from './components/order/order.component';
 import { PersonalAreaComponent } from './components/shared/personal-area/personal-area.component';
 import { AdminAreaComponent } from './components/shared/admin-area/admin-area.component';
+import { CarouselComponent } from './components/home-page/carousel/carousel.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomePageComponent},
@@ -59,13 +61,13 @@ const appRoutes: Routes = [
     NotFoundPageComponent,
     LoginComponent,
     RegisterComponent,
-    ShoppingCartComponent,
     ModalComponent,
     AuthComponent,
     LogoutComponent,
     OrderComponent,
     PersonalAreaComponent,
-    AdminAreaComponent
+    AdminAreaComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +82,9 @@ const appRoutes: Routes = [
       appRoutes,
       { 
         enableTracing: true // <-- debugging purposes only
-      }),     
+      }), 
+    NgbModule,
+    Ng4TwitterTimelineModule.forRoot()
   ],
   providers: [ 
     ImageService,

@@ -2,47 +2,64 @@
     width: 100%;
     margin: 0px;
     padding: 0px;    
-    height: 80px;
+    height: 80px;    
 }
 
 .navigation-bar {
     display: table;
     height: 100px;
-    width: 100%;
+    width: 80%;
+    margin: auto;
 }
 
 .navigation-list {
     display: table-cell;
     vertical-align: middle;
-    text-align: center;
     height: 100%;
 }
 
 .main-navbar{
-    margin:auto;
     padding:0;
-    width: 960px;
+    width: 80%;
+    margin:auto;
+    list-style: none;
+    z-index: 99;
+}
+
+.list-logo {
+    margin-bottom: -20px;
+    float: right;
+    width: 65px;
 }
 
 .scrolled {
+    width: 80%;
+    height: 65px;
+    position: fixed;
+    top: 0;
+    background: #333;
+    box-shadow: 0px 2px 4px #AAA;
+    border-radius: 0px 0px 20px 20px;
+    z-index: 97;
     li{
-        height: 65px;
+        height: 45px;
         a {
-            line-height: 60px;
             &:hover{
                 background: white;
                 color: #333;
-                height: 60px;
+                height: 57px;
             }
         }
     }
-    width: 100%;
-    height: 65px;
-    position: fixed; /* Set the navbar to fixed position */
-    top: 0; /* Position the navbar at the top of the page */
-    background: #333;
-    box-shadow: 0px 2px 4px #AAA;
-    z-index: 97;
+    .user-zone, .cart-zone {
+        margin-top: 0px;
+    }
+
+    @media screen and (max-width:992px){
+        .user-zone, .cart-zone {
+            margin-top: 20px;
+        }
+    }
 }
 
 .navbar-icon{
@@ -53,12 +70,21 @@
 .navbar-item{
     display: inline-block;
     text-decoration: none;
-    list-style-type: none;
-    width: 210px;
+    width: 150px;
+}
+
+.user-zone, .cart-zone {
+    float: right;
+    width: 80px;
+    margin-top: 20px;
 }
 
 .logo{
     width: 120px;
+}
+
+.logo-img {
+    z-index: 99;
 }
 
 .scrolled-logo {
@@ -71,7 +97,7 @@
     line-height: 80px;
     text-align: center; 
     font-family: gabriola;
-    font-size: 30px;
+    font-size: 33px;
     text-decoration: none;
     &:hover {
         background: white;
@@ -88,28 +114,58 @@
     display: none;
 }
 
-.user-zone {
-    list-style: none;
-    width: 30px;
-    float: right;
-    margin-top: 30px;
-    margin-right: -50px;
+.full-image {
+    max-width: 80%;
+    max-height: 850px;
 }
 
-.user-logo {
-    width: 40px;
+.icon-image {
+    position: absolute;
+    width: 50px;
 }
 
-@media screen and (max-width:1200px){
+.close-icon {    
+    right: 10%;
+    top: 2%;
+}
+
+.prev-icon {
+    top: 50%;
+    left: 15%;
+}
+
+.next-icon {
+    top: 50%;
+    right: 15%;
+}
+
+.cart-item {
+    margin-top: 10px;
+
+    .cart-small-image {
+        width: 50px;
+        height: 60px;
+        border: solid 3px white;
+        box-shadow: 0px 2px 4px #333;
+    }
+}
+
+@media screen and (max-width:992px){
 
     #header{   
         height: 65px;
-        background: #333;
     }
 
     #navbar{
-        max-width: 1200px;
-        height: 65px;
+        width: 100%;
+        height: 65px;        
+        position: fixed;
+        background: #333;
+        box-shadow: 0px 2px 4px #AAA;
+        border-radius: 0px 0px 20px 20px;
+    }
+    .navigation-bar {
+        width: 100%;
     }
     
     .navbar-icon{
@@ -124,7 +180,14 @@
     
     .logo{
         display: inline;
+        z-index: 99;
     }
+
+    #logo-img{
+        position: absolute !important;
+        left: 8px;
+    }
+    
     .hamburger{
         float: right;
         display: inline;    
@@ -142,16 +205,12 @@
         z-index: 99;
     }
 
-    .navbar-aux{
-        list-style: none;      
-    }
-
-    .navbar-aux-item{
+    .mobile-navbar-item{
         width: 100%;
         display: inline;    
         background: #333;
         float: left;
-        border-bottom: #CCC solid 1px;
+        border-top: #CCC solid 1px;
     }
 
     .taxco-navbar-text:hover, .taxco-navbar-text:focus{
@@ -178,8 +237,97 @@
     .last-item{
         border-bottom: #333 solid 1px;
     }
+
+    .list-logo {
+        width: 40px;
+    }
+
+    .user-zone {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 80px;
+    }
+
+    .cart-zone {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 130px;
+    }
 }
 
 .custom-modal {
     display: none;
 }
+
+
+.image-display-container {
+    text-align: center;
+
+    .full-image {
+        margin: auto;
+        border: solid white 10px;
+        border-radius: 15px;
+    }
+
+    .image-text-container {
+        width: 30%;
+        margin: auto;
+        margin-top: -10px;
+        background-color: white;
+        border-radius:  0px 0px 10px 10px;
+        z-index: 99;
+
+        .image-text {
+            font-size: 25px;
+        }
+    }
+
+    @media screen and (max-width:992px){
+        .image-text-container {
+            width: 50%;
+        }
+    }
+
+    @media screen and (max-width:768px){
+        .image-text-container {
+            width: 80%;
+        }
+    }
+}
+
+.success-modal {
+    width: 80%;
+    background-color: #d4f7dc ;
+    border-radius: 15px;
+    border: solid 2px #89c497;
+    margin: auto;
+    margin-top: 20px;
+    text-align: center;
+    padding: 15px;
+}
+
+.error-modal {
+    width: 80%;
+    background-color: #ffacac;
+    border-radius: 15px;
+    border: solid 2px #e68675;
+    margin: auto;
+    margin-top: 20px;
+    text-align: center;
+    padding: 15px;
+}
+
+.shopping-cart {
+    margin: auto;
+    margin-top: 20px;
+    width: 80%;
+    background-color: white;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+
+
+

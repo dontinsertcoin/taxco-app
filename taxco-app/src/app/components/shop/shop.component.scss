@@ -1,9 +1,13 @@
 .main-container-shop {
-    text-align: center;
+    background-color: white;
+    width: 100%;
+    align-content: center;
     margin: auto;
-    margin-top: 70px;
-    height: 100%;
+    margin-top: 40px;
+    padding-bottom: 25px;
+    border-top: 15px solid #333;
 }
+
 .item-list{
     text-align: center;
     width: 100%;
@@ -13,16 +17,26 @@
 
 .item-container{
     display: inline-block;
-    width: 320px;
-    margin-right: 0px;
 }
 
 .shop-item {
     width: 260px;
     height: 390px;
     background-color: white;
-    margin: 0;
+    box-shadow: 0px 2px 4px #333;
+    margin: 10px;
     border-radius: 15px;
+}
+
+@media screen and (max-width:576px){
+    .shop-item {
+        width: 240px;
+        height: 400px;
+        background-color: white;
+        box-shadow: 0px 2px 4px #333;
+        margin: 10px;
+        border-radius: 15px;
+    }
 }
 
 .item-image {

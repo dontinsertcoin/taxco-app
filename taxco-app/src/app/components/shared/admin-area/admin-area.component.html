@@ -1,19 +1,47 @@
-<div class="row personal-area">
-  <div class="orders-list-container">
-      <ul class="orders-list">
-          <li *ngFor="let order of ordersFormated">
-              <p>{{order[0]}}</p>
-              <p>{{order[1]}}</p>
-              <p>{{order[2]}}</p>
-              <ul>
-                  <li *ngFor="let product of order[4]">
-                          <p>{{product.name}}</p>
-                          <p>{{product.price}}</p>
-                          <p>{{product.quantity}}</p>
-                  </li>                
-              </ul>
-              <input type="text" value="Avanzar estado" class="btn btn-block btn-primary btn-sm" (click)="orderNextState(order[3])">          
-          </li>
-      </ul>
-  </div>
+<div class="admin-area">
+    <div class="raw center">
+        <h2>Pedidos</h2>
+    </div>
+    <div class="orders-list-container">
+        <ul class="orders-list">
+            <li class="order" *ngFor="let order of ordersFormated">
+                <div class="each-order row">
+                    <ul class="attributes-list col-6">
+                        <li class="order-attribute">
+                            Fecha: {{order[0]}}
+                        </li>
+                        <li class="order-attribute">
+                            Total: {{order[1]}}€
+                        </li>
+                        <li class="order-attribute {{COLORS[order[2]]}}">
+                            &nbsp; Estado: {{STATES[order[2]]}} &nbsp;
+                        </li>
+                        <li class="order-attribute">
+                            Dirección: {{order[4]}}
+                        </li>
+                        <li class="order-attribute">
+                                <span class="glyphicon glyphicon-user"></span>
+                                Usuario: {{order[5]}}
+                        </li>
+                    </ul>
+                    <ul class="items-list col-6">
+                        <li class="cart-item" *ngFor="let product of order[6]">
+                            <ul class= "order-items-list">
+                                <li class="order-item-attribute">
+                                     - {{product.name}} |
+                                    </li>
+                                <li class="order-item-attribute">
+                                    Precio de compra: {{product.price}} |
+                                </li>
+                                <li class="order-item-attribute">
+                                    Cantidad: {{product.quantity}}
+                                </li>
+                            </ul>
+                        </li>                
+                    </ul>
+                </div>
+                    <input *ngIf="order[2]<3" type="text" value="Avanzar estado" class="btn btn-block btn-primary btn-sm col-md-3 col-lg-3" (click)="orderNextState(order[3])">
+            </li>
+        </ul>
+    </div>
 </div>

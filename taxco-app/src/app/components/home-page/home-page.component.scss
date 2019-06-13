@@ -1,10 +1,34 @@
 .main-content{
-    width: 12000px;
-    background-color: white;
+    width: 100%;
     align-content: center;
-    padding-top: -30px;
-    border-radius: 15px 15px 0px 0px;
-    margin-top: 20px;
+    margin: auto;
+
+    .central-text {
+        margin: auto;
+        margin-top: 15px;
+        margin-bottom: 15px;
+
+        .home-page-main-text {
+            color: white;
+            font-size: 55px;
+            font-family: gabriola;
+            margin: auto;
+        }
+    }
+
+    .white-backgroud {
+        background-color: white;
+    }
+
+    .carousel-container {
+        border-top: solid #333 15px;
+        width: 100%;
+    }
+}
+
+.presentation{
+    padding: 0;
+    width: 100%;
 }
 
 .transparent-div {
@@ -13,7 +37,72 @@
 
 .central-image{
     width: 100%;
-    align-content: center;
+}
+
+#mapid { 
+    height: 300px; 
+    z-index: 10;
+}
+
+.map-and-info {
+    text-align: center;
+    .home-map {
+        max-width: 90%;
+        margin: auto;
+    }
+    .home-contact {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.section {   
+    width: 80%;
+    border-top: #ccc solid 1px; 
+    margin: auto;
+    padding: 20px 0px;
+}
+
+.social-media {
+    margin: auto;
+    .youtube-video {
+        margin: auto;
+        margin-bottom: 50px;
+        width: 100%;
+        height: 650px;
+    }
+
+    @media screen and (max-width:1350px) {
+        .youtube-video {
+            height: 550px;
+        }
+    }
+
+    @media screen and (max-width:1150px) {
+        .youtube-video {
+            height: 450px;
+        }
+    }
+
+    @media screen and (max-width:950px) {
+        .youtube-video {
+            height: 350px;
+        }
+    }
+
+    @media screen and (max-width:550px) {
+        .youtube-video {
+            height: 350px;
+        }
+    }
+
+}
+
+.twitter-container {
+    margin: auto;
+    p {
+        border-bottom: dashed #ccc 1px;
+    }    
 }
 
 .main-image{
@@ -25,46 +114,23 @@
     padding-top: 30px;
 }
 
-.presentation-image{
-    width: 500px;
-    height: 350px;
-    margin-left: 350px;
-    margin-top: 130px;
-    float: left;
-    border: solid 10px white;
-    border-radius: 12px;
-}
-
-.presentation{
-    padding: 0;
-    padding-top: 30px;
-    margin: 0;
-    width: 100%;
-}
-
 .main-carousel{
     width: 100%;
+    height: 200px;
     padding: 0;
-    padding-top: 15px;
     padding-bottom: 15px;
 }
 
-.plain-text {
-    color:white;
-}
 
-
-@media screen and (max-width:570px){
+@media screen and (max-width:576px){
     .main-image{
         width: 250px;
     }
     .presentation-image{
         width: 270px;
     }
-}
 
-@media screen and (max-width:410px){
-    .presentation-image{
-        padding: 0px 0px 10px 0px;
+    .home-map {
+        width: 100%;
     }
 }

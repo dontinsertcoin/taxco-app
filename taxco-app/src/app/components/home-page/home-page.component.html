@@ -1,45 +1,43 @@
-<div class="transparent-div row">
-    <div class="col-md-6">
-        <img class="presentation-image" src="/assets/resources/images/presentation.jpg" />
+<div class="main-content">   
+    <div class="row central-text">
+        <span class="home-page-main-text">Taxidermia Coin</span>
     </div>
-    <div class="text-inicios col-md-6">
-        <h3 class="title-white">Inicios</h3>
-        <p class="plain-text">
-            Taxidermia Coin es una empresa familiar fundada de la mano de José Coin Quintana en el año 1960, cuando montó su primer estudio en Madrid donde realizaba pequeños encargos.<br>
-            Poco a poco, el negocio fue incrementando su volumen y la plantilla se amplió incorporando a los hijos del fundador: José y Francisco Coin, quienes continuaron con el negocio compaginado las enseñanzas de su padre con las nuevas técnicas de naturalización de trofeos.<br>
-            En la actualidad, Taxidermia Coin cuenta con multitud de encargos tanto nacionales como internacionales gracias a la excelencia de los trabajos realizados.<br>
-            Todos nuestros clientes y amigos saben que la calidad es el sello más reconocible de nuestra marca.
-        </p>
-    </div>
-</div>
-<div class="container-fluid container main-content">
-    
-    <div class="central-image">
-        <img src="/assets/resources/images/logo.jpg" class="main-image"/>
-    </div>
-    <div class="container-fluid row presentation">        
-        <div class="col-md-12">
-                <img class="presentation-image" src="/assets/resources/images/presentation.jpg" />
-                    <h3>Inicios</h3>
-                    <p>
-                        Taxidermia Coin es una empresa familiar fundada de la mano de José Coin Quintana en el año 1960, cuando montó su primer estudio en Madrid donde realizaba pequeños encargos.<br>
-                        Poco a poco, el negocio fue incrementando su volumen y la plantilla se amplió incorporando a los hijos del fundador: José y Francisco Coin, quienes continuaron con el negocio compaginado las enseñanzas de su padre con las nuevas técnicas de naturalización de trofeos.<br>
-                        En la actualidad, Taxidermia Coin cuenta con multitud de encargos tanto nacionales como internacionales gracias a la excelencia de los trabajos realizados.<br>
-                        Todos nuestros clientes y amigos saben que la calidad es el sello más reconocible de nuestra marca.
-                    </p>      
-        </div> 
-    </div>
-    <div class="container-fluid main-carousel">
-        <mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'">
-            <mdb-carousel-item>
-                <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg" alt="First slide">
-            </mdb-carousel-item>
-            <mdb-carousel-item>
-                <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg" alt="Second slide">
-            </mdb-carousel-item>
-            <mdb-carousel-item>
-                <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg" alt="Third slide">
-            </mdb-carousel-item>
-        </mdb-carousel>
+    <div class="white-backgroud">
+        <div class="carousel-container">
+            <app-carousel></app-carousel>  
+        </div>
+        <div class="container-fluid presentation"> 
+            <div class="section">
+                <p class="presentation-text">
+                    Taxidermia Coin es una empresa familiar fundada de la mano de José Coin Quintana en el año 1960, cuando montó su primer estudio en Madrid donde realizaba pequeños encargos.<br>
+                    Poco a poco, el negocio fue incrementando su volumen y la plantilla se amplió incorporando a los hijos del fundador: José y Francisco Coin, quienes continuaron con el negocio compaginado las enseñanzas de su padre con las nuevas técnicas de naturalización de trofeos.<br>
+                    En la actualidad, Taxidermia Coin cuenta con multitud de encargos tanto nacionales como internacionales gracias a la excelencia de los trabajos realizados.<br>
+                    Todos nuestros clientes y amigos saben que la calidad es el sello más reconocible de nuestra marca.
+                </p>                
+            </div> 
+            <div class="row map-and-info section">
+                <div class="col-md-4 home-contact">
+                    <p>Calle Cabo Nicolás Mur Nº 26 Taxidermia</p>
+                    <p>28019, Madrid, España</p>
+                    <p>taxidermiacoin@hotmail.com</p>                
+                    <p>(+34) 625 38 09 72 / (+34) 91 471 08 16</p>
+                </div>
+                <div class="col-md-8 home-map">
+                    <div id="mapid" class="map"></div>
+                    <a href="https://www.google.es/maps/place/Taxidermia+Coin+SL/@40.3950906,-3.7347413,17z/data=!4m5!3m4!1s0xd4227f276ced2bb:0xeb72f0534eaf47af!8m2!3d40.3949902!4d-3.7335585?hl=es" target="_blank">
+                        Ver en Google Maps
+                    </a>
+                </div>
+            </div> 
+            <div class="social-media row section">
+                <div class="video-container col-md-8">
+                    <iframe class="youtube-video img-fluid" src="https://www.youtube.com/embed/DBLFwHosi2c" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="twitter-container col-md-4">
+                    <p>Síguenos en Twitter: </p>
+                    <ng4-twitter-timeline class="timeline-twitter" [dataSrc]="{sourceType: 'profile',screenName: 'dontinsertcoin'}" [opts]="{tweetLimit: 1}"></ng4-twitter-timeline>   
+                </div>
+            </div>
+        </div>
     </div>
 </div>

@@ -16,10 +16,9 @@
 
     .jw-modal-body {
         padding: 20px;
-        background: #fff;
 
         /* margin exposes part of the modal background */
-        margin: 40px;
+        margin: auto;
     }
 }
 
@@ -43,27 +42,3 @@
     /* body overflow is hidden to hide main scrollbar when modal window is open */
     overflow: hidden;
 }
-/* The Modal (background) */
-/*.modal {
-    display: block; // Hidden by default 
-    position: fixed; // Stay in place 
-    scroll-behavior: unset;
-    z-index: 99; // Sit on top 
-    left: 0;
-    top: 0;
-    width: 100%; // Full width 
-    height: 100%; // Full height 
-    overflow: hidden; // Enable scroll if needed 
-    background-color: rgb(0,0,0); // Fallback color 
-    background-color: rgba(0,0,0,0.7); // Black w/ opacity 
-}*/
-  
-/* Modal Content/Box */
-/*.modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    margin-top: 15%;
-    padding: 10px;
-    border: 1px solid #888;
-    width: 60%;  //Could be more or less, depending on screen size 
-}*/
