@@ -101,7 +101,7 @@
                 "input": "src/styles.scss"
               }
             ],
-            "scripts": [],
+            "scripts": ["src/assets/leaflet/leaflet.js", "src/assets/leaflet/leaflet-src.js"],
             "assets": [
               {
                 "glob": "favicon.ico",

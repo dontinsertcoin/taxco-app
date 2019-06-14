@@ -1,6 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GalleryComponent } from './gallery.component';
+import { Image } from '../shared/image/image.component';
+import { ImageService } from 'src/app/services/images/image.service';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
 
 describe('GalleryComponent', () => {
   let component: GalleryComponent;
@@ -8,7 +13,16 @@ describe('GalleryComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GalleryComponent ]
+      declarations: [ GalleryComponent ],
+      imports: [ 
+        AngularFirestoreModule,
+        AngularFireModule.initializeApp(
+          environment.firebaseConfig
+        ),      
+      ],
+      providers: [
+        ImageService
+      ]
     })
     .compileComponents();
   }));

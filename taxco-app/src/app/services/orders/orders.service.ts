@@ -46,14 +46,16 @@ export class OrdersService {
     this.date = formatDate(new Date(), 'dd/MM/yyyy', 'en').toString();
     let formatedOrder = this.transformShoppingCart();
     let prueba= JSON.stringify(formatedOrder);
-    let order = JSON.parse(JSON.stringify(new OrderComponent (prueba, this.authService.email, address, this.date, this.productsService.totalPrice, 0)));
+    let order = JSON.parse(JSON.stringify(new OrderComponent()
+      .setOrderComponentData(prueba, this.authService.email, address, this.date, this.productsService.totalPrice, 0)));
     this.ordersCollection.add(order);
   }
 
   transformShoppingCart(){
     let result= [];
     this.productsService.shoppingCart.forEach((value: number, key: ProductComponent) => {
-      let productAux= new OrderProductComponent(key.id, key.name, key.price, value);
+      let productAux= new OrderProductComponent()
+        .setOrderProductComponentData(key.id, key.name, key.price, value);
       result.push(productAux);
     });
     return result;

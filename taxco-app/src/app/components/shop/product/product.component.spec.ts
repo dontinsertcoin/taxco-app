@@ -2,9 +2,13 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProductComponent } from './product.component';
 
-describe('ShopItemComponent', () => {
+describe('ProductComponent', () => {
   let component: ProductComponent;
   let fixture: ComponentFixture<ProductComponent>;
+
+  TestBed.configureTestingModule({
+    imports: []
+  });
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

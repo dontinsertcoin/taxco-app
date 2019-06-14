@@ -8,13 +8,13 @@ import { map } from 'rxjs/operators';
 export class ImageService{
     
   imageSelectedIndex: number = 0;
-  imageSelected: Image = new Image('/assets/resources/images/logo.jpg', 'Prueba2', 'Entero');  
+  imageSelected: Image = new Image();
   imagesFiltered: Image[];
   images: Observable<Image []>;
   imagesCollection: AngularFirestoreCollection<Image>;
 
   @Output()
-  displayImageEvent = new EventEmitter<String>();
+  displayImageEvent = new EventEmitter<string>();
 
   @Output()
   filteredEvent = new EventEmitter<Image[]>(); 
@@ -22,6 +22,7 @@ export class ImageService{
   constructor(private firestoreDataBase: AngularFirestore) {
     this.imagesCollection = firestoreDataBase.collection<Image>('Imagenes');
     this.images = this.imagesCollection.valueChanges();
+    this.imageSelected.setImageData('/assets/resources/images/logo.jpg', 'Prueba2', 'Entero');
   }
 
   getImages(){

@@ -6,10 +6,9 @@ import { PaginationTableComponent } from './components/tables/pagination/paginat
 import { SharedService } from './shared/shared.service';
 import { RoutesModule } from './modules/routes/routes.module';
 import { BrowserModule } from '@angular/platform-browser';
-import {MDBBootstrapModule} from 'angular-bootstrap-md';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 import { NgModule } from '@angular/core';
-import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
@@ -37,7 +36,7 @@ import { CollapseComponent } from './components/advanced/collapse/collapse.compo
 import { ChartsComponent } from './components/advanced/charts/charts.component';
 import { PopoverComponent } from './components/advanced/popover/popover.component';
 import { TooltipComponent } from './components/advanced/tooltip/tooltip.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselFullpageExampleComponent } from './components/advanced/carousel-fullpage-example/carousel-fullpage-example.component';
 import { LineComponent } from './components/advanced/charts/line/line.component';
 import { RadarComponent } from './components/advanced/charts/radar/radar.component';
@@ -79,7 +78,6 @@ import { ModalFormsComponent } from './components/modals/modal-forms/modal-forms
 import { ModalStylesComponent } from './components/modals/modal-styles/modal-styles.component';
 import { MapsComponent } from './components/extended/maps/maps.component';
 import { PaginationApiComponent } from './components/components/pagination-api/pagination-api.component';
-import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 
 @NgModule({
@@ -160,7 +158,6 @@ import { HttpModule } from '@angular/http';
     FormsModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    AgmCoreModule.forRoot({}),
     HttpModule
   ],
   providers: [SharedService],

@@ -7,7 +7,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Ng4TwitterTimelineModule } from 'ng4-twitter-timeline/lib/index';
-
+import { RouterTestingModule } from '@angular/router/testing'
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 
@@ -19,7 +19,6 @@ import { FooterComponent } from './components/shared/footer/footer.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { ShopComponent } from './components/shop/shop.component';
 import { ProductComponent } from './components/shop/product/product.component';
-import { ContactComponent } from './components/contact/contact.component';
 import { NotFoundPageComponent } from './components/not-found-page/not-found-page.component';
 import { Image } from './components/shared/image/image.component';
 
@@ -41,7 +40,6 @@ const appRoutes: Routes = [
   {path: 'gallery', component: GalleryComponent}, 
   {path: 'trophies', component: GalleryComponent}, 
   {path: 'shop', component: ShopComponent},
-  {path: 'aboutUs', component: ContactComponent},
   {path: 'personalArea', component: PersonalAreaComponent},
   {path: 'adminArea', component: AdminAreaComponent},
   {path: '**', component: NotFoundPageComponent}
@@ -56,7 +54,6 @@ const appRoutes: Routes = [
     GalleryComponent,
     ShopComponent,
     ProductComponent,
-    ContactComponent,
     Image,
     NotFoundPageComponent,
     LoginComponent,
@@ -84,7 +81,8 @@ const appRoutes: Routes = [
         enableTracing: true // <-- debugging purposes only
       }), 
     NgbModule,
-    Ng4TwitterTimelineModule.forRoot()
+    Ng4TwitterTimelineModule.forRoot(),
+    RouterTestingModule
   ],
   providers: [ 
     ImageService,

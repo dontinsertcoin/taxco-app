@@ -1,14 +1,18 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { Image } from './image.component';
 
-describe('ImageComponent', () => {
+describe('Image', () => {
   let component: Image;
   let fixture: ComponentFixture<Image>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ Image ]
+      declarations: [ Image ],
+      providers: [
+        {provide: 'imagePath', useValue: 'someValue'},
+        {provide: 'title', useValue: 'someValue'},
+        {provide: 'type', useValue: 'someValue'}
+      ]
     })
     .compileComponents();
   }));

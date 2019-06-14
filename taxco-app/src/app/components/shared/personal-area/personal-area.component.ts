@@ -14,8 +14,8 @@ export class PersonalAreaComponent implements OnInit, OnDestroy {
   myOrders: OrderComponent[];
   ordersFormated: any[];
 
-  private STATES: String[] = ["En preparación", "Enviado", "En reparto", "Finalizado"];
-  private COLORS: String[] = ["preparacion", "enviado", "reparto", "finalizado"];
+  private STATES: string[] = ["En preparación", "Enviado", "En reparto", "Finalizado"];
+  private COLORS: string[] = ["preparacion", "enviado", "reparto", "finalizado"];
   
   constructor(private ordersService: OrdersService, private authService: AuthService, private modalService: ModalService) { }
 

@@ -1,3 +1,13 @@
-<p>
-  not-found-page works!
-</p>
+<div class="container-fluid not-found"> 
+  <div class="gallery-container">
+    <div class="gallery-images">
+      <ul class="image-list">
+        <li class="small-image-container" *ngFor="let image of images; let i = index">
+          <div class="gallerry-image">  
+            <img class="miniature" src="{{image.imagePath}}" (click)="displayImage(image, i)">
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

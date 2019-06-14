@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { Image } from '../shared/image/image.component';
 import { ImageService } from '../../services/images/image.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-gallery',
@@ -12,8 +11,6 @@ import { Observable } from 'rxjs';
 export class GalleryComponent implements OnInit {
 
   private images: Image[];
-  private imageSelected: Image;
-  private imageSelectedIndex: number;
   private filterSelected= "Todas";
 
   constructor(private imageService: ImageService) {

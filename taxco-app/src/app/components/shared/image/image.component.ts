@@ -11,11 +11,14 @@ export class Image implements OnInit {
   public title: string;
   public type: string;
 
-  constructor(imageUrl: string, name: string, tipo: string) {
+  constructor(){
+  }
+  
+  setImageData (imageUrl: string, name: string, tipo: string) {
     this.imagePath= imageUrl;
     this.title= name;
     this.type= tipo;
-   }
+  }
 
   ngOnInit() {
   }

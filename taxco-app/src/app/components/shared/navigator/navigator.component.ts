@@ -3,9 +3,7 @@ import { AuthService } from '../../../services/auth/auth.service';
 import { ModalService } from 'src/app/services/modal/modal.service';
 import { ProductsService } from 'src/app/services/products/products.service';
 import { OrdersService } from 'src/app/services/orders/orders.service';
-import { isNgTemplate } from '@angular/compiler';
 import { ImageService } from 'src/app/services/images/image.service';
-import { GalleryComponent } from '../../gallery/gallery.component';
 import { ProductComponent } from '../../shop/product/product.component';
 
 @Component({
@@ -17,7 +15,6 @@ export class NavigatorComponent implements OnInit {
 
 
   private showMobileMenu : boolean= false;
-  private modalMessage : string;
   private address : string;
 
   constructor(public authService: AuthService, 
@@ -29,7 +26,7 @@ export class NavigatorComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.imageService.displayImageEvent.subscribe((data: String) => {
+    this.imageService.displayImageEvent.subscribe((data: string) => {
       this.modalService.open("image-display");
     })
   }
@@ -114,7 +111,6 @@ export class NavigatorComponent implements OnInit {
   }
 
   previousImage(){
-    console.log("Previous image");
     let images = this.imageService.imagesFiltered;
     if (this.imageService.imageSelectedIndex === 0){
       this.imageService.imageSelectedIndex= images.length-1;
