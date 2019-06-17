@@ -30,4 +30,9 @@ describe('HomePageComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have the coordinates', () => {
+    expect(component.latitude).toEqual(40.3949902);
+    expect(component.longitude).toEqual(-3.7335585);
+  })
 });
