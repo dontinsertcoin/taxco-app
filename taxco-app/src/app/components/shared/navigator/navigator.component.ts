@@ -13,7 +13,6 @@ import { ProductComponent } from '../../shop/product/product.component';
 })
 export class NavigatorComponent implements OnInit {
 
-
   private showMobileMenu : boolean= false;
   private address : string;
 
