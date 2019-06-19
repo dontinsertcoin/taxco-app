@@ -24,7 +24,6 @@ export class ImageService{
     this.images = this.imagesCollection.valueChanges();
     this.imageSelected.setImageData('/assets/resources/images/logo.jpg', 'Prueba2', 'Entero');
   }
-
   getImages(){
     return this.images = this.imagesCollection.snapshotChanges()
     .pipe(map(changes => {
