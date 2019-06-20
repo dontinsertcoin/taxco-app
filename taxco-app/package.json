@@ -41,6 +41,7 @@
     "ngx-lightbox": "^1.2.0",
     "node-sass": "^4.11.0",
     "ol": "^5.3.3",
+    "phantomjs": "^2.1.7",
     "rxjs": "~6.3.3",
     "rxjs-compat": "~6.3.3",
     "web-animations-js": "^2.3.1",
