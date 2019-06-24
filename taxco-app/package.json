@@ -10,8 +10,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "remove-demo-unix": "rm -rf projects && rm angular.json && mv angular-clean.json angular.json",
-    "remove-demo-windows": "rmdir /s /q projects && del angular.json && ren angular-clean.json angular.json",
-    "jenkins-test": "ng test --karma-config ./src/karma.conf.jenkins.js"
+    "remove-demo-windows": "rmdir /s /q projects && del angular.json && ren angular-clean.json angular.json"
   },
   "private": true,
   "dependencies": {
@@ -42,6 +41,7 @@
     "ngx-lightbox": "^1.2.0",
     "node-sass": "^4.11.0",
     "ol": "^5.3.3",
+    "phantomjs": "^2.1.7",
     "rxjs": "~6.3.3",
     "rxjs-compat": "~6.3.3",
     "web-animations-js": "^2.3.1",
