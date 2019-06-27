@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
       this.modalService.open('success-modal');
       setTimeout(() => this.modalService.close('success-modal'), 2500);
     }).catch((err) => {
-      this.modalService.textError= "¡Ups! Parece que ese usuario no está registrado aun.";
+      this.modalService.textError= "¡Ups! Parece que los datos no son correctos.";
       this.modalService.open('error-modal');
       setTimeout(() => this.modalService.close('error-modal'), 2500);
     })

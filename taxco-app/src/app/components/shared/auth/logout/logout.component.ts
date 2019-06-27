@@ -19,11 +19,10 @@ export class LogoutComponent implements OnInit {
     this.authService.logout()
     .then((res) => {
       this.authService.loggedSession = false;
-      this.closeModal();
+      this.modalService.close('custom-modal-1');
+      this.modalService.textSuccess= "Sesión cerrada correctamente. ¡Hasta pronto!";
+      this.modalService.open('success-modal');
+      setTimeout(() => this.modalService.close('success-modal'), 2500);
     })
-  }
-
-  closeModal() {
-    this.modalService.close('custom-modal-1');
   }
 }
