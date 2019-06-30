@@ -25,4 +25,8 @@ export class LogoutComponent implements OnInit {
       setTimeout(() => this.modalService.close('success-modal'), 2500);
     })
   }
+
+  closeModal() {
+    this.modalService.close('custom-modal-1');
+  }
 }

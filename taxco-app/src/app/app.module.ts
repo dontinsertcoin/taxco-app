@@ -38,7 +38,6 @@ import { CarouselComponent } from './components/home-page/carousel/carousel.comp
 const appRoutes: Routes = [
   {path: '', component: HomePageComponent},
   {path: 'gallery', component: GalleryComponent}, 
-  {path: 'trophies', component: GalleryComponent}, 
   {path: 'shop', component: ShopComponent},
   {path: 'personalArea', component: PersonalAreaComponent},
   {path: 'adminArea', component: AdminAreaComponent},
