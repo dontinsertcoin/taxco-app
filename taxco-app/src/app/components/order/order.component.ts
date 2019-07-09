@@ -16,7 +16,14 @@ export class OrderComponent implements OnInit {
   id: string;
   status: number;
 
-  constructor(){}
+  constructor(shoppingCart: string, email: string, address: string, date: string, price: number, status: number) { 
+    this.shoppingCart= shoppingCart;
+    this.email=email;
+    this.address= address;
+    this.date= date;
+    this.price= price;
+    this.status= status;
+  }
 
   setOrderComponentData (shoppingCart: string, email: string, address: string, date: string, price: number, status: number) { 
     this.shoppingCart= shoppingCart;

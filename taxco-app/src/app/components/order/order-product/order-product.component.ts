@@ -12,7 +12,11 @@ export class OrderProductComponent implements OnInit {
   private id: string;
   private quantity: number;
 
-  constructor(){
+  constructor(id: string, name: string, price: number, quantity: number) { 
+    this.id= id;
+    this.name= name;
+    this.price= price;
+    this.quantity= quantity;
   }
   
   setOrderProductComponentData (id: string, name: string, price: number, quantity: number) { 
